@@ -16,7 +16,7 @@
 %-----------------------------------------------------------------------------------------------------
 
 % Paquetes para adaptar Látex al Español:
-\usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia 
+\usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia
 \usepackage[utf8]{inputenc}                                    % Permite los acentos.
 \selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.
 
@@ -63,7 +63,7 @@
 % Cabecera del documento. Se ajusta la línea de la cabecera.
 \renewcommand\headrule{
 	\begin{minipage}{1\textwidth}
-		\hrule width \hsize 
+		\hrule width \hsize
 	\end{minipage}
 }
 
@@ -73,9 +73,9 @@
 \rhead{\subject \ - \doctitle}              % Parte derecha.
 
 % Pie de página del documento. Se ajusta la línea del pie de página.
-\renewcommand\footrule{                                 
+\renewcommand\footrule{
 	\begin{minipage}{1\textwidth}
-		\hrule width \hsize   
+		\hrule width \hsize
 	\end{minipage}\par
 }
 
@@ -87,7 +87,7 @@
 %	MATEMÁTICAS
 %----------------------------------------------------------------------------------------
 
-% Paquetes para matemáticas:                     
+% Paquetes para matemáticas:
 \usepackage{amsmath, amsthm, amssymb, amsfonts, amscd} % Teoremas, fuentes y símbolos.
 
 % Nuevo estilo para definiciones
@@ -181,7 +181,7 @@
 \newcommand{\docabstract}{Tema de módulos del peazo profe Javier Majaderias.}
 
 \begin{document}
-	
+
 \maketitle
 
 %-----------------------------------------------------------------------------------------------------
@@ -194,7 +194,7 @@
 \newpage
 \tableofcontents
 \newpage
-	
+
 %----------------------------------------------------------------------------------------
 %	Sección 1: Deficiones y teoremas
 %----------------------------------------------------------------------------------------
@@ -213,15 +213,15 @@
         	\item $1m=m$
         \end{enumerate}
     \end{definition}
-    
+
     \begin{observation}
     	$A$ es un $A$-módulo
     	\[A\times A\longrightarrow A \]
     	\[(a,b) \longmapsto a\cdot b\]
     \end{observation}
-    
+
     \begin{properties}
-    	\ 
+    	\
     	\begin{enumerate}
     		\item $0m=0$ ya que $0m=(0+0)m=0m+0m$
     		\item $a0=0$
@@ -236,13 +236,13 @@
 	\end{cases}$
 \end{observation}
 \begin{observation}
-	Como $A$ conmutativo, $ma:=am$ 
+	Como $A$ conmutativo, $ma:=am$
 	\[m(ab)=(ab)m=a(bm)=mb(a)=m(ba)\]
 \end{observation}
 \begin{proposition}
 	Sea $M$ grupo abeliano.
 	Entonces $M$ es un $\mathbb{Z}$-módulo.
-	\\Nota clase: la estructura de un $\mathbb{Z}$ módulo y de grupo abeliano es la misma	
+	\\Nota clase: la estructura de un $\mathbb{Z}$ módulo y de grupo abeliano es la misma
 \end{proposition}
 \begin{proof}
 	Sea $n \in \mathbb{Z}, x\in M$
@@ -250,7 +250,7 @@
 		x+...+x&\quad \text{si }n>0\\
 		0 &\quad \text{si } n=0\\
 		(-x)+...+(-x)=-(-n)x &\quad \text{si }n<0
-	\end{cases}	
+	\end{cases}
 	 \]
 	$nx=(1+...+1)x=1x+...1x=x+...+x$
 \end{proof}
@@ -272,13 +272,13 @@
 	Aparecen en representaciones de grupos:	Sabiendo los módulos de un anillo, se puede saber como es un anillo.\\
 	Otra razón (se ve en el máster): Si un anillo es regular, es útil en el estudio de puntos no singulares.\\
 	Cada punto de la curva esta determinado por un anillo. Si algunos anillos son regulares, otros también lo son. Es un vago ejemplo de que los módulos tienen utilidad.
-\end{comment} 
+\end{comment}
 
 \begin{definition}
 	Sea $M$ un $A$-módulo, $N$ subconjunto de $M$.\\
-	Se dice que $N$ es un $A$-submódulo de $M$ si $N$ es un $A$-módulo con la operación de $A$ en $M$. 
+	Se dice que $N$ es un $A$-submódulo de $M$ si $N$ es un $A$-módulo con la operación de $A$ en $M$.
 	\begin{observation}
-		\ 
+		\
 		\begin{enumerate}
 			\item $ \forall y \in N, a \in A \quad\Rightarrow ay\in N$
 			\item $\forall x,y\in N  \quad \Rightarrow x-y \in N$
@@ -286,7 +286,7 @@
 			\item Si $I$ es un ideal de $A$, $M$ un $A$-módulo, entonces
 			\[IM:=\{ \sum_{i=1}^{n} a_i\cdot x_i \quad : n \in N, a_i \in I, x_i \in M\}\]
 			es un submódulo de M. ($a \cdot \sum a_i x_i = \sum (a\cdot a_i) \cdot x_i$, nótese que $aa_i\in I$)
-			
+
 			\item Si $I$ es un subconjunto de $A$, entonces $ I $ es $ A $-submódulo de $ A \Leftrightarrow I $ es ideal de $ A $ ($ A $ como $ A $-módulo).
 		\end{enumerate}
 	\end{observation}
@@ -300,22 +300,133 @@
 				\item $ a(x_1+x_2)=a(x_1)+a(x_2)\in M_1+M_2 $
 			\end{enumerate}
 		\end{definition}
-	
+
 	\begin{definition}
 		Sea $ \{M_i\}_{i\in I} $ familia de submódulos de $ M $. Definimos en general
 		\begin{align*}
 			\sum_{i\in I}M_i &= \{\sum_{i\in I}x_i \in M : x_i\in M_i \text{para cada i, }a_i\in A, \text{casi todos los }x_i=0\}\\
 			&= \{\text{sumas finitas de elementos de }\bigcap M_i\}=x_1+...+x_r
-		\end{align*} 
-		
+		\end{align*}
+
 		Es el menor submódulo de $ M $ que contiene $ \bigcup_{i\in I} M_i $
 	\end{definition}
-	
+
 \end{definition}
 
-JORGE 6-11 
+JORGE 6-11
 
-SECHO 12-11
+\begin{definition}
+	Sea $A$ un anillo. Un $A$-módulo $M$ es cíclico si está generado por un elemento, es decir:
+	\[\exists x  \in M \ / \   M=<x>=Ax\]
+\end{definition}
+
+\begin{observation}
+	Sea $f:A\rightarrow B$ un homomorfismo de anillos. Entonces $B$ es un $A$-módulo definiendo la operación
+	externa como:\[
+		a\in A,b\in B \ \ \ \ a\cdot b :=f(a)b
+	\]
+	En particular si $I$ es un ideal de $A$, $A/I$ es un $A$-módulo ($p:A\rightarrow A/I$).
+\end{observation}
+
+\begin{proposition}
+	Si $M$ es un $A$-módulo son equivalentes:
+	\begin{enumerate}[\hspace{1cm}i)]
+		\item $M$ es cíclico.
+		\item Existe un homomorfismo sobreyectivo de $A$-módulos $\phi :A\rightarrow M$
+		\item Existe un ideal $I$ de $A$ y un isomorfismo de $A$-módulos $A/I \simeq M$
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof} \ \\
+	$i)\Rightarrow ii)$:
+	\[ M \text{ cíclico}\Rightarrow M=<x>\]
+	\[ \phi :a \in A\rightarrow \phi (a):=ax \in M \text{ es un homomorfismo de $A$-módulos sobreyectivo:}\]
+	\[ \phi(a+b)=(a+b)x=ax+bx=\phi(a)+\phi(b)\]
+	\[ \phi(\lambda a)=(\lambda a)x= \lambda(ax)=\lambda\phi(a) \ \ \ \forall\lambda\in A \]
+	\[ Im(\phi)=\{ax \ / \ a\in A \} = <x>=M\]
+	$ii)\Rightarrow iii)$:
+	\[ \text{Por hipótesis existe } \phi:A\rightarrow M \text{ homomorfismo sobreyectivo de $A$-módulos.}\]
+	\[ A/Ker(\phi) \simeq M \text{ y $Ker(\phi)$ es un ideal de } A \]
+	$iii)\Rightarrow i)$:
+	\[ A/I \text{ es un $A$-módulo cíclico.} \]
+	\[ A/I=<\bar{1}>\ \Rightarrow\text{$M$ es cíclico} \]
+\end{proof}
+
+\begin{definition}
+	Sean $A$ anillo y $M$ $A$-módulo. Se llama aniquilador de $M$ al ideal de $A$ definido por:
+	\[(0:M):=\{a\in A \ / \ ax=0 \  \forall x \in M\}\]
+\end{definition}
+
+\begin{definition}
+	Tomando $M=<x>$ definimos:
+	\[(0:x):=(0:<X>)=\{a\in A \ / \ ax=0\}\]
+\end{definition}
+
+\begin{proposition}
+	Sea $A$ un anillo y $M$ un $A$-módulo. Se verifica que en efecto $(0:M)$ es un ideal.
+\end{proposition}
+
+\begin{proof}
+	\[ \text{Trivialmente } 0 \in (0:M) \Rightarrow (0:M) \neq \text{\O}\]
+	\[ a,b \in (0:M) \Rightarrow ax=0=bx \ \forall x \in M \Rightarrow (a-b)x=ax-bx=0-0=0 \ \forall x \in M \Rightarrow a-b \in (0:M) \]
+	\[ \lambda \in A, a \in (0:M) \Rightarrow ax=0 \ \forall x \in M \Rightarrow (\lambda a)x=0 \ \forall x \in M \Rightarrow \lambda a \in (0:M) \]
+\end{proof}
+
+\begin{observation}
+	Sea $x \in M$, definimos:
+	\[ A\xrightarrow{\ \ \phi \ \ } M \text{ homomorfismo de $A$-módulos}\]
+	\[ \phi(a):=ax\]
+	\[ Ker(\phi)=(0:x)\]
+	\[A/(0:x)\xrightarrow{\ \ \cdot x\ \ }M \text{ homomorfismo inyectivo}\]
+\end{observation}
+
+\begin{observation}
+	Tomando $A=\mathbb{Z}$:
+	\[ \mathbb{Z}\text{-módulo}=\text{ grupo abeliano}\]
+	\[ \mathbb{Z}\text{-módulo cíclico}=\text{ grupo cíclico}\]
+\end{observation}
+
+\begin{definition}
+	Sea $\{M_i\}_{i\in I}$ una familia de $A$-módulos. Definimos el producto directo de los $M_i$ como el $A$-módulo:
+	\[ \prod_{i\in I}M_i := \{f:I\rightarrow\bigcup_{i\in I}M_i \ / \ \text{$f$ aplicación}, f(i)\in M_i \ \forall i \in I\} = \{(x_i)_{i\in I} \ / \ x_i \in M_i \ \forall i \in I\}\]
+	\[(x_i)_{i\in I} + (y_i)_{i\in I} := (x_i + y_i)_{i\in I}\]
+	\[a(x_i)_{i\in I} := (ax_i)_{i\in I}\]
+\end{definition}
+
+\begin{observation}
+	En el caso finito, los elementos del producto los representamos con n-tuplas:
+	\[(x_1,\dots,x_n)+(y_1,\dots,y_n)=(x_1+y_1,\dots,x_n+y_n)\]
+	\[a(x_1,\dots,x_n)=(ax_1,\dots,ax_n)\]
+\end{observation}
+
+\begin{observation}
+	La proyección habitual $\pi_j:\prod_{i\in I}M_i \longrightarrow M_j$ es un homomorfismo de $A$-módulos para todo $j$.
+\end{observation}
+
+\begin{definition}
+	Sea $\{M_i\}_{i\in I}$ una familia de $A$-módulos. Definimos la suma directa de los $M_i$ como el $A$-submódulo de $\prod_{i\in I}M_i$:
+	\[\bigoplus_{i\in I}M_i=\{(x_i)_{i\in I} \in \prod_{i\in I}M_i \ / \ x_i=0 \text{ para casi todo } i \in I\}\]
+\end{definition}
+
+\begin{observation}
+	La aplicación
+	\[M_j:M_j\longrightarrow\bigoplus_{i\in I}M_i\]
+	\[M_j(m):= (x_i)_{i\in I} \ / \ x_j=m,\  x_i=0 \ \forall i\neq j \]
+	es un homomorfismo de $A$-módulos inyectivo para cualquier $j$.
+\end{observation}
+
+\begin{observation}
+	Si $I$ es finito:
+	\[\prod_{i\in I}M_i = \bigoplus_{i\in I}M_i \]
+\end{observation}
+
+\begin{proposition}
+	Sea $M$ un $A$-módulo y $\{M_i\}_{i\in I}$ una familia de $A$-submódulos de $M$. La aplicación:
+	\[ \bigoplus_{i\in I}M_i \longrightarrow \sum_{i\in I}M_i \]
+	\[ (x_i)_{i\in I} \leadsto \sum_{i\in I}x_i \]
+	es un homomorfismo de $A$-módulos.
+\end{proposition}
+
 \begin{proposition}
 	Sea $ \{M_i\}_{i\in I} $ familia de submódulos de $ M $. Consideremos:
 	\[\phi : \oplus_{i\in I} M_i\longrightarrow \oplus_{i\in I }M_i \]
@@ -329,12 +440,12 @@ SECHO 12-11
 \end{proposition}
 
 \begin{proof} \ \\
-	$i) \Rightarrow ii)$:\\ 
+	$i) \Rightarrow ii)$:\\
 	 \[ 0=\sum_{i\in I} x_i=\phi ((x_i)_{i\in I}) \Rightarrow \text{(ya que $\phi$ inyectiva) } (x_i) \in I =0 \Rightarrow x_i =0 \ \forall i \in I \]
-	$ii) \Rightarrow iii)$:\\ 
+	$ii) \Rightarrow iii)$:\\
 	 \[ x \in M_j \cap (\sum_{i\neq j}M_i) \Rightarrow x=\sum_{i\in I, i\neq j, x_i\in M_i} x_i \Rightarrow\]
 	 \[ \sum_{i\in I, i\neq j} x_i -x = 0 \  (\text{ya que }x\in M_j) \Rightarrow  x=0  \]
-	
+
 	$iii) \Rightarrow i)$:
 
 	\parshape 1 2cm \dimexpr\linewidth-2cm\relax
@@ -360,12 +471,12 @@ SECHO 12-11
 \end{definition}
 \begin{proposition}
 	\[  T(M) \hookrightarrow M \flechaSobreyectiva M/T(M)  \]
-	
+
 	$M/T(M)$ es libre de torsión.
 \end{proposition}
 \begin{proof}
 	\ \\
-	
+
 	$\begin{rcases}
 		\begin{rcases}
 		\overline{x} = x + T(M) \in M/T(M) \\
@@ -374,7 +485,7 @@ SECHO 12-11
 	 \overline{ax}=\overline{0}  \Rightarrow ax\in T(M) \\
 	 0\neq b b(ax)=0, (ba)x=0, ba\neq 0
 	 \end{rcases}
-	 x \in T(M) \Rightarrow  \overline{x} \neq \overline{0} 
+	 x \in T(M) \Rightarrow  \overline{x} \neq \overline{0}
 	 $
 \end{proof}
 \begin{exercise}
@@ -387,7 +498,7 @@ SECHO 12-11
 \end{definition}
 \begin{observation}
 	$ \{x_i\}_{i\in I} $ linealmente independiente $ \Leftrightarrow $ toda subfamilia finita de $ \{x_i\}_{i\in I} $ es linealmente independiente.
-\end{observation} 
+\end{observation}
 \begin{observation}
 	$ \{x_i\}_{i\in I} $ linealmente independiente.
 		$ Ax_i = <x_i>$
@@ -395,7 +506,7 @@ SECHO 12-11
 		\[ (a_i x_i)_{i\in I} \longmapsto \sum_{i\in I}a_i x_i \]  es sobreyectiva e inyectiva ya que $\sum_{i\in I}a_i x_i=0\Rightarrow a_i=0 \ \forall i\in I\Rightarrow (a_i x_i)_{i\in I} = (0)_{i\in I}$.
 \end{observation}
 \begin{example}
-	\ 
+	\
 	\begin{itemize}
 		\item $ \{0\} $ no es un conjunto linealmente independiente $ a0=0, a\neq 0$.
 		\item $ \{0\} \cup S$ no es linealmente independiente.	$ a0+\sum_{s\in S}0\cdot s =0 $.
@@ -405,7 +516,7 @@ SECHO 12-11
 	$ \{x_i\}_{i\in I} $ linealmente independiente.
 	\[ \psi:A\longrightarrow Ax_i=<x_i> \]
 	\[ a\longmapsto \psi(a)=ax_i \]
-	homomorfismo de $A$-módulo sobreyectivo. Además, 
+	homomorfismo de $A$-módulo sobreyectivo. Además,
 	\[ \text{Ker}(\psi)=(=:x_i)=\{a\in A : ax_i=0\} \]
 	\[ A=A/(0:x_i)\simeq Ax_i \]
 \end{definition}
@@ -417,7 +528,7 @@ SECHO 12-11
 	\[ M=<\{x_i\}_{i\in I}>=\sum_{i\in I} Ax_i, \{x_i\}_{i\in I} \text{ linealmente independientes.} \]
 \end{definition}
 \begin{definition}
-	Un $ A $-módulo $ F $ es libre si tiene una base $\{x_i\}_{i\in I}$ que cumple: 
+	Un $ A $-módulo $ F $ es libre si tiene una base $\{x_i\}_{i\in I}$ que cumple:
 	\begin{itemize}
 		\item $x\in F\Rightarrow$ x se puede expresar como $x=\sum_{i\in I}a_i x_i$.
 		\item Esta expresión es única, es decir, $\sum a_i x_i=\sum b_i x_i \Rightarrow \sum (a_i-b_i)x_i=0\Rightarrow (a_i-b_i)=0 \ \forall i$
@@ -430,7 +541,7 @@ SECHO 12-11
 \begin{observation}
 	Sea $ I $ un ideal propio no nulo de $ A $.\\
 	$ M=A/I $ no es $ A $-módulo libre.
-	Si $ \overline{x} \in A/I, 0\neq a\in I, 0\neq I \subset (0\overline{\lambda}), a\overline{x}=\overline{0} $	
+	Si $ \overline{x} \in A/I, 0\neq a\in I, 0\neq I \subset (0\overline{\lambda}), a\overline{x}=\overline{0} $
 \end{observation}
 \begin{example}
 	\begin{itemize}
