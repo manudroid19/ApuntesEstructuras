@@ -9,6 +9,8 @@ http://rogerdudler.github.io/git-guide/
 `git commit -m "Commit message"`
 ### Borrar cambios locales a última versión commiteada:
 `git checkout -- Modulos.tex`
+#### Para todos los archivos, si la lias mucho:
+`git reset --hard origin/master`
 ### Obtener ultimo commit del server:
 `git pull origin master`
 ### Resolver un conflicto
