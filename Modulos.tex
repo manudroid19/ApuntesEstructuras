@@ -555,9 +555,19 @@ JORGE 15-11
 
 SERGIO 19-11
 
-\begin{observation}
-	Tomamos $A=\mathbb{Z}$ y $M$ $A$-módulo con generadores $x_1,x_2$ y la relación $x_1+x_2=0$.
-	\[ N \flechaInyectiva \mathbb{Z}^2 \flechaSobreyectiva M\]
-	Siendo $N=<e_1+e_2>$, $\mathbb{Z}^2=<e_1,e_2>$, $\pi(e_1)=x_1$ y $\pi(e_2)=x_2$.
-\end{observation}
+\begin{proposition}
+	Sea $A=\mathbb{Z}$ y $M$ $A$-módulo con generadores $x_1,x_2$ y la relación $x_1+x_2=0$. Veamos que $Z\simeq M$.
+\end{proposition}
+
+\begin{proof}
+	\ \\
+	Vamos a definir un $\phi$ de forma que $\mathbb{Z}\xrightarrow{\ \phi\ }M$ sea isomorfismo.
+	Definimos $\phi(a)=ax_1 \ \forall a \in \mathbb{Z}$.
+	$\begin{rcases}
+		x_1=\phi(1)\Rightarrow x_1\in Im(\phi) \\
+		x_2=-x_1=-\phi(1)=\phi(-1)\Rightarrow x_2 \in Im(\phi)
+	\end{rcases}$
+	$\Rightarrow \phi$ es sobreyectiva. \\
+	Veamos que $Ker(\phi)=\{0\}\Leftrightarrow \phi$ inyectiva.
+\end{proof}
 \end{document}
