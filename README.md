@@ -10,6 +10,6 @@ http://rogerdudler.github.io/git-guide/
 ### Borrar cambios locales a última versión commiteada:
 `git checkout -- Modulos.tex`
 ### Obtener ultimo commit del server:
-`git pull`
+`git pull origin master`
 ### Resolver un conflicto
 Suerte... Prueba en la guia :)
