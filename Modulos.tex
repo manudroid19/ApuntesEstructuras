@@ -161,7 +161,7 @@
 %-----------------------------------------------------------------------------------------------------
 
 % Título del documento.
-\newcommand{\doctitle}{Tema 3}
+\newcommand{\doctitle}{Tema 3}%git clone https://github.com/manudroid19/ApuntesEstructuras.git
 % Subtítulo.
 \newcommand{\docsubtitle}{Módulos}
 % Fecha.
@@ -303,6 +303,8 @@
 			\end{enumerate}
 		\end{definition}
 
+%EMPIEZA PARTE 1 JORGE
+
 	\begin{definition}
 		Sea $ \{M_i\}_{i\in I} $ familia de submódulos de $ M $. Definimos en general
 		\begin{align*}
@@ -315,8 +317,74 @@
 
 \end{definition}
 
-JORGE 6-11
+\begin{proposition}
+	La intersección de una familia de submódulos de M es un submódulo de M.
+\end{proposition}
+\begin{proposition}
+	Sea $M$ un $A$-módulo, $X$ contenido en $M$, se llama $A$-submódulo de $M$ generado por $X$ al menor $A$-submódulo de $M$ que contiene a $X$. 
+	Se denota $<X>$ o $<X>_{A}$. $\\$
+	Se dice que $X$ es un conjunto de generadores de $<X>$
+	\[<X> = \{\sum_{i = 1}^{n}a_i x_i / n\in\mathbb{N},a_i \in A, x_i\in X\}\]
+\end{proposition}
 
+\begin{example} Observamos que:
+	\begin{enumerate}
+		\item Por ejemplo, tenemos que si $X = {x}$, tenemos que:
+		\[<{x}> = <x> = Ax =\{ax/a\in A\}\]
+		\item 	$<X> = \sum_{x\in X}A_x$
+		\item 	$\sum_{i}  M_i = <\bigcup_i M_i>$
+	\end{enumerate}
+\end{example}
+
+\begin{definition}
+	Sean $M$, $N$ $A$-módulo. Una aplicación $f:M \rightarrow N$ es un homomorfismo de $A$-módulo si:
+	\begin{enumerate}
+	\item  $f(x+y) = f(x)+f(y)$
+	\item $f(ax) = af(x)$
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+	La composición de homomorfismos de $A$-módulos es un homomorfismo de $A$-módulos.
+\end{proposition}
+\begin{proof}
+	Prueba sencilla.
+\end{proof}
+
+\begin{example} Tenemos que:
+	\begin{enumerate}
+		\item $id_M : M \rightarrow M$ es un homomorfismo de módulos.
+		\item $f: M \rightarrow N$ $f(x) = 0$ $\forall x \in M$ es un homomorfismo de $A$-módulo.
+	\end{enumerate}
+\end{example}
+
+Es necesario destacar que de forma inmediata que se cumple que: $f(0) = 0$, $f(-x) = -f(x)$.
+
+\begin{proposition}
+	Si $f: M \rightarrow N$ es un homomorfismo de $A$-módulo.$\\$
+	$M'  \subset M$ un submódulo $\Rightarrow f(M')$ es un submódulo de $N$.
+	$N' \subset N$ un submódulo $\Rightarrow f^{-1}(N')$ es un submódulo de $M$.
+\end{proposition}
+
+Se cumple además que $ker(f) = f^{-1}(0)$ es un submódulo de $M$ 
+y también $Im(f) = f(M)$ submódulo de $N$. Tenemos de forma inmediata
+$f$ inyectiva si y sólo si $kerf = 0$.
+
+\begin{proposition}
+	Sea $M$ y $N$ un $A$-submódulo de $M$. Teniendo $M/N$:
+	\begin{enumerate}
+		\item$(x + N) + (y + N) =x +y + N$
+		\item $a(x + N) = ax + N $
+		\item Si $x + N = x\prime +N$ tenemos que  $ax +N=ax\prime +N$
+		\begin{proof}
+			\[x-x\prime \in N \Rightarrow a(x +x\prime)\in N \in ax+ax\prime \in N\]
+		\end{proof}
+	\end{enumerate}
+\end{proposition}
+
+Además, tenemos que $\pi : M \rightarrow M/N$ homomorfismo de anillos $A$-módulo.
+Tenemos además que $kerf = N$($M=N$, entonces $M/N=0$ ).$\\$
+%ACABA PARTE JORGE
 \begin{definition}
 	Sea $A$ un anillo. Un $A$-módulo $M$ es cíclico si está generado por un elemento, es decir:
 	\[\exists x  \in M \ / \   M=<x>=Ax\]
