@@ -161,9 +161,9 @@
 %-----------------------------------------------------------------------------------------------------
 
 % Título del documento.
-\newcommand{\doctitle}{Tema 3. Módulos}
+\newcommand{\doctitle}{Tema 3}%git clone https://github.com/manudroid19/ApuntesEstructuras.git
 % Subtítulo.
-\newcommand{\docsubtitle}{}
+\newcommand{\docsubtitle}{Módulos}
 % Fecha.
 \newcommand{\docdate}{5 \ de \ Noviembre \ de \ 2018}
 % Asignatura.
@@ -303,6 +303,8 @@
 			\end{enumerate}
 		\end{definition}
 
+%EMPIEZA PARTE 1 JORGE
+
 	\begin{definition}
 		Sea $ \{M_i\}_{i\in I} $ familia de submódulos de $ M $. Definimos en general
 		\begin{align*}
@@ -315,56 +317,92 @@
 
 \end{definition}
 
-La interseccion de una dfamilia de submodulos de m es un submoduklos de M.
 
-Sea M un A-modulo, X contenido en m, se llama A-submodulo de m generado por X al menor A-submodulo de M que  contiene a X. Se denota Xpico ao Xpico_subA. 
-Se dice que X es un cjto de generadores de Xpico
+\begin{proposition}
+	La intersección de una familia de submódulos de M es un submódulo de M.
+\end{proposition}
+\begin{proposition}
+	Sea $M$ un $A$-módulo, $X$ contenido en $M$, se llama $A$-submódulo de $M$ generado por $X$ al menor $A$-submódulo de $M$ que contiene a $X$. 
+	Se denota $<X>$ o $<X>_{A}$. $\\$
+	Se dice que $X$ es un conjunto de generadores de $<X>$
+	\[<X> = \{\sum_{i = 1}^{n}a_i x_i / n\in\mathbb{N},a_i \in A, x_i\in X\}\]
+\end{proposition}
 
-xpico = llame sum_DEsde 1 hasta n de asub xsubi/npertNaturales, asubipertA, xsubipertX llave
+\begin{example} Observamos que:
+	\begin{enumerate}
+		\item Por ejemplo, tenemos que si $X = {x}$, tenemos que:
+		\[<{x}> = <x> = Ax =\{ax/a\in A\}\]
+		\item 	$<X> = \sum_{x\in X}A_x$
+		\item 	$\sum_{i}  M_i = <\bigcup_i M_i>$
+	\end{enumerate}
+\end{example}
 
-X = llave x llave 
+\begin{definition}
+	Sean $M$, $N$ $A$-módulo. Una aplicación $f:M \rightarrow N$ es un homomorfismo de $A$-módulo si:
+	\begin{enumerate}
+	\item  $f(x+y) = f(x)+f(y)$
+	\item $f(ax) = af(x)$
+	\end{enumerate}
+\end{definition}
 
-llave x llave pico = xpico = Ax = llave ax/a pert A llave
+\begin{proposition}
+	La composición de homomorfismos de $A$-módulos es un homomorfismo de $A$-módulos.
+\end{proposition}
+\begin{proof}
+	Prueba sencilla.
+\end{proof}
 
-Xpico = sum xpertX Asubx
+\begin{example} Tenemos que:
+	\begin{enumerate}
+		\item $id_M : M \rightarrow M$ es un homomorfismo de módulos.
+		\item $f: M \rightarrow N$ $f(x) = 0$ $\forall x \in M$ es un homomorfismo de $A$-módulo.
+	\end{enumerate}
+\end{example}
 
-sum i Mi = pico Union i pico
+Es necesario destacar que de forma inmediata que se cumple que: $f(0) = 0$, $f(-x) = -f(x)$.
 
-Sean M, N A-mod Una aplicacion f:M --------- N es un hom de A-mod si 
+\begin{proposition}
+	Si $f: M \rightarrow N$ es un homomorfismo de $A$-módulo.$\\$
+	$M'  \subset M$ un submódulo $\Rightarrow f(M')$ es un submódulo de $N$.
+	$N' \subset N$ un submódulo $\Rightarrow f^{-1}(N')$ es un submódulo de $M$.
+\end{proposition}
 
-i) f(x+y) f(x)+f(y)
-ii)f(ax) = af(x)
+Se cumple además que $ker(f) = f^{-1}(0)$ es un submódulo de $M$ 
+y también $Im(f) = f(M)$ submódulo de $N$. Tenemos de forma inmediata
+$f$ inyectiva si y sólo si $kerf = 0$.
 
-id sub M : M ------------ M es un homo de modulos
-La composicion de hom de A-modulos es un hom de A-modul
+\begin{proposition}
+	Sea $M$ y $N$ un $A$-submódulo de $M$. Teniendo $M/N$:
+	\begin{enumerate}
+		\item$(x + N) + (y + N) =x +y + N$
+		\item $a(x + N) = ax + N $
+		\item Si $x + N = x\prime +N$ tenemos que  $ax +N=ax\prime +N$
+		\begin{proof}
+			\[x-x\prime \in N \Rightarrow a(x +x\prime)\in N \in ax+ax\prime \in N\]
+		\end{proof}
+	\end{enumerate}
+\end{proposition}
 
-f: M -------------- N f(x) = 0 paratodox pert M es un hom de A-modul
+Además, tenemos que $\pi : M \rightarrow M/N$ homomorfismo de anillos $A$-módulo.
+Tenemos además que $ker(f) = N$, ($M=N$, entonces $M/N=0$ ).$\\$
 
-f(0) = 0, f(-x) = -f(x)
+\begin{proposition}
+Sea $N$ un submódulo de $M$. Existe una biyección que conserva las inclusiones de tal forma:$\\$
+	\begin{center}
+		$\{A$-submódulos de $M$ que contienen a $N\} \rightleftarrows \{A$-submódulo de $M/N\}]$.
+	\end{center}
+	
+\end{proposition}
 
-Si f: M --------- N es un hom de A-modulk
+\begin{definition}
+	Si $f: M\rightarrow N$ es un homorfismo de $A$-módulos se llama conúcleo de $f$ al 
+	$A$-módulo:
+	\[coker(f) = M/Im(f).\]
+\end{definition}
 
-M´ cont M un submodulo /implica f(M´) es un submodulo de N
-N´ cont N un submodulo /implica f-1(N´) es un submodulo de M
+>>>>>>> 29075090dad3fcc4f80aa44a7c53a323358dbdfe
 
-ker(f) = f-1 (0) es un submodulo de M
-
-im(f) = f(M) """"""" de N
-
-f iny ssi kerf = 0
-
-Sea M un A-modulo, N A-submodulo de M.
-
-M/N x sombrero = x + N (x + N) + (y + N) =x +y + N
-
-a(x + N) = ax + N 
-x + N = x´+N tqd ax +N=ax´+N
-x-x´pert N /implica a(x +x´) pert N
-
-/implica ax+ax´pert N
-
-pi : M -------------M/n (sigo en libreta prada )
-
+%ACABA PARTE JORGE
 \begin{definition}
 	Sea $A$ un anillo. Un $A$-módulo $M$ es cíclico si está generado por un elemento, es decir:
 	\[\exists x  \in M \ / \   M=<x>=Ax\]
@@ -619,5 +657,5 @@ SERGIO 19-11
 	Veamos que $Ker(\phi)=\{0\}\Leftrightarrow \phi$ inyectiva.
 \end{proof}
 END SERGIO 19-11
-BEGIN MANU 20-11
+
 \end{document}

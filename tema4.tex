@@ -1,0 +1,300 @@
+
+
+%-----------------------------------------------------------------------------------------------------
+%	INCLUSIÓN DE PAQUETES BÁSICOS
+%-----------------------------------------------------------------------------------------------------
+
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+
+
+%-----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DEL LENGUAJE
+%-----------------------------------------------------------------------------------------------------
+
+% Paquetes para adaptar Látex al Español:
+\usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia
+\usepackage[utf8]{inputenc}                                    % Permite los acentos.
+\selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.
+
+%flechassssss
+\def\flechaSobreyectiva{\mathrel{\mkern16mu  \vcenter{\hbox{$\scriptscriptstyle+$}}%
+		\mkern-25mu{\longrightarrow}}}
+\def\flechaInyectiva{\mathrel{\mkern0mu  \vcenter{\hbox{$\scriptscriptstyle+$}}%
+		\mkern-9mu{\longrightarrow}}}
+\def\flechaBiyectiva{\mathrel{\mkern16mu  \vcenter{\hbox{$\scriptscriptstyle+$}}\mkern-25mu{\mathrel{\mkern0mu\vcenter{\hbox{$\scriptscriptstyle+$}}\mkern-9mu{\longrightarrow}}}}}
+\def\xFlechaInyectiva #1{\mathrel{\ooalign{\thinspace\thinspace$\mapstochar\mkern5mu$\hfil\cr$\xrightarrow{#1}$\cr}}}
+\def\xFlechaSobreyectiva #1{\mathrel{\ooalign{\hfil$\mapstochar\mkern5mu$\thinspace\thinspace\cr$\xrightarrow{#1}$\cr}}}
+%llave a la derecha
+\newenvironment{rcases}
+{\left.\begin{aligned}}
+	{\end{aligned}\right\rbrace}
+
+%-----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DE LA FUENTE
+%-----------------------------------------------------------------------------------------------------
+
+% Fuente utilizada.
+\usepackage{courier}                    % Fuente Courier.
+\usepackage{microtype}                  % Mejora la letra final de cara al lector.
+
+%-----------------------------------------------------------------------------------------------------
+%	ESTILO DE PÁGINA
+%-----------------------------------------------------------------------------------------------------
+
+% Paquetes para el diseño de página:
+\usepackage{fancyhdr}               % Utilizado para hacer títulos propios.
+\usepackage{lastpage}               % Referencia a la última página. Utilizado para el pie de página.
+\usepackage{extramarks}             % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}       % Crea una nueva línea entre párrafos.
+\usepackage{geometry}               % Asigna la "geometría" de las páginas.
+
+% Se elige el estilo fancy y márgenes de 3 centímetros.
+\pagestyle{fancy}
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm} % Márgenes y cabecera.
+% Se limpia la cabecera y el pie de página para poder rehacerlos luego.
+\fancyhf{}
+
+% Espacios en el documento:
+\linespread{1.1}                        % Espacio entre líneas.
+\setlength\parindent{0pt}               % Selecciona la indentación para cada inicio de párrafo.
+
+% Cabecera del documento. Se ajusta la línea de la cabecera.
+\renewcommand\headrule{
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize
+	\end{minipage}
+}
+
+% Texto de la cabecera:
+\lhead{\docauthor}                          % Parte izquierda.
+\chead{}                                    % Centro.
+\rhead{\subject \ - \doctitle}              % Parte derecha.
+
+% Pie de página del documento. Se ajusta la línea del pie de página.
+\renewcommand\footrule{
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize
+	\end{minipage}\par
+}
+
+\lfoot{}                                                 % Parte izquierda.
+\cfoot{}                                                 % Centro.
+\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
+
+%----------------------------------------------------------------------------------------
+%	MATEMÁTICAS
+%----------------------------------------------------------------------------------------
+
+% Paquetes para matemáticas:
+\usepackage{amsmath, amsthm, amssymb, amsfonts, amscd} % Teoremas, fuentes y símbolos.
+
+% Nuevo estilo para definiciones
+\newtheoremstyle{definition-style} % Nombre del estilo
+{5pt}                % Espacio por encima
+{5pt}                % Espacio por debajo
+{}                   % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\bf}                % Fuente para la cabecera
+{.}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Nuevo estilo para teoremas
+\newtheoremstyle{theorem-style} % Nombre del estilo
+{5pt}                % Espacio por encima
+{5pt}                % Espacio por debajo
+{\itshape}           % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\bf}                % Fuente para la cabecera
+{.}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Nuevo estilo para ejemplos y ejercicios
+\newtheoremstyle{example-style} % Nombre del estilo
+{5pt}                % Espacio por encima
+{5pt}                % Espacio por debajo
+{}                   % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\scshape}                % Fuente para la cabecera
+{:}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Teoremas:
+\theoremstyle{theorem-style}  % Otras posibilidades: plain (por defecto), definition, remark
+\newtheorem{theorem}{Teorema}[section]  % [section] indica que el contador se reinicia cada sección
+\newtheorem{corollary}[theorem]{Corolario} % [theorem] indica que comparte el contador con theorem
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+
+% Definiciones, notas, conjeturas
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]
+\newtheorem{conjecture}{Conjetura}[section]
+\newtheorem*{note}{Nota} % * indica que no tiene contador
+\newtheorem*{observation}{Observación} % * indica que no tiene contador
+\newtheorem*{properties}{Propiedades}
+\newtheorem*{comment}{Comentario clase}
+
+% Ejemplos, ejercicios
+\theoremstyle{example-style}
+\newtheorem{example}{Ejemplo}[section]
+\newtheorem{exercise}{Ejercicio}[section]
+
+%-----------------------------------------------------------------------------------------------------
+%	PORTADA
+%-----------------------------------------------------------------------------------------------------
+
+% Elija uno de los siguientes formatos.
+% No olvide incluir los archivos .sty asociados en el directorio del documento.
+%\usepackage{title1}
+\usepackage{title2}
+%\usepackage{title3}
+
+%-----------------------------------------------------------------------------------------------------
+%	TÍTULO, AUTOR Y OTROS DATOS DEL DOCUMENTO
+%-----------------------------------------------------------------------------------------------------
+
+% Título del documento.
+\newcommand{\doctitle}{Tema 4}
+% Subtítulo.
+\newcommand{\docsubtitle}{Teorema de estructura de módulos.}
+% Fecha.
+\newcommand{\docdate}{20 \ de \ Noviembre \ de \ 2018}
+% Asignatura.
+\newcommand{\subject}{Estructuras algebraicas}
+% Autor.
+\newcommand{\docauthor}{Sergio Mayo, Manuel de Prada, Jorge Vázquez}
+\newcommand{\docaddress}{Universidade de Santiago de Compostela}
+\newcommand{\docemail}{lalala@gmail.com}
+
+%-----------------------------------------------------------------------------------------------------
+%	RESUMEN
+%-------------------------------					----------------------------------------------------------------------
+
+% Resumen del documento. Va en la portada.
+% Puedes también dejarlo vacío, en cuyo caso no aparece en la portada.
+%\newcommand{\docabstract}{}
+\newcommand{\docabstract}{Tema de módulos del peazo profe Javier Majaderias.}
+
+\begin{document}
+
+\maketitle
+
+%-----------------------------------------------------------------------------------------------------
+%	ÍNDICE
+%-----------------------------------------------------------------------------------------------------
+
+% Profundidad del Índice:
+%\setcounter{tocdepth}{1}
+
+\newpage
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	Sección 1: Deficiones y teoremas
+%----------------------------------------------------------------------------------------
+
+\section{Módulos de tipo finito sobre un DIP}
+	\subsection{Equivalencia de matrices.}
+	En esta sección, $ R $ denota un anillo (conmutativo). 
+	\begin{lemma}
+		Sea $ E_{ij} $ la matriz cuadrada sobre $ R $ con 1 en el lugar $ (i,j) $ y 0 en todos los demás lugares. Se verifica:
+		\begin{enumerate}[\hspace{1cm}i)]
+			\item $E_{ij} \cdot E_{rs}= \begin{cases}
+			0 &\text{si } j\neq r\\
+			E_{is} &\text{si } j=r
+			\end{cases}$
+			\item Para cada matriz $A$, se tiene:\\
+				$ E_{ij} \cdot A= $ matriz que hace que todas las filas nulas salvo la $ i $-ésima, en la cual aparece la $ j $-ésima de $ A $.
+				
+				$A \cdot E_{ij} = $ matriz que hace que todas las columnas nulas salvo la $ j $-ésima, en la cual aparece la $ i $-ésima de $ A $.
+		\end{enumerate}
+	\end{lemma}
+	\begin{definition}
+		Se llaman matrices elementales a las matrices de cada uno de los siguientes tres tipos:
+		\begin{enumerate}[\hspace{1cm}I)]
+			\item Sea $ b\in R, i\neq j :$
+			\[ T_{ij}(b) := I+b\cdot E_{ij}\]
+			$ T_{ij}(b)= $ matriz cuadrada con 1 en la diagonal, $ b $ en el lugar $ r_{ij} $ y 0 en todos los demás lugares.
+			
+			$ T_{ij}(b) $ es inversible, siendo $ T_{ij}(b)^{-1}=T_{ij}(-b) $. Teniendo en cuenta que $E_{ij}\cdot E_{ij}=0$ si $j\neq i$, comprobamos la inversibilidad:
+			\[(I+bE_{ij})(I-bE_{ij})=I-bE_{ij}+bE_{ij}-b^2E_{ij}E_{ij}=I\]
+			\item Sea $ u $ unidad de $ R $:
+			\[ D_i(u):=I+(u-1) E_{ii} \]
+			$ D_i(u) = $ matriz diagonal con u en el lugar (i,i) y 1 en los demás lugares de la diagonal $( D_i(u):=I+uE_{ii}-E_{ii})$.
+			
+			$ D_i(u)$ es inversible, con $ D_i(u)^{-1}=D_i(u^{-1}) $. Veámoslo ($E_{ii}\cdot E_{ii}=E_{ii}$):
+			\[ [I+(u-1) E_{ii}][I+(u^{-1}-1) E_{ii}] = I+(u^{-1}-1)E_{ii}+(u-1)E_{ii}+(u^{-1}-1)(u-1)E_{ii}E_{ii}=\]
+			\[=I+u^{-1}E_{ii}-E_{ii}+uE_{ii}-E_{ii}+(1-u^{-1}-u+1)E_{ii}=I\]
+			\item $ P_{ij}:=I-E_{ii}-E_{jj}+E_{ij}+E_{ji}= \begin{bmatrix}
+			1 & \cdots & 0 & \cdots & 0 & \cdots & 0  \\
+			\vdots & \ddots &\vdots & &\vdots & &\vdots \\
+			0 & \cdots & 0 & \cdots & 1 & \cdots & 0  \\
+			\vdots & &\vdots & \ddots &\vdots & &\vdots \\
+			0 & \cdots & 1 & \cdots & 0 & \cdots & 0  \\
+			\vdots & &\vdots & &\vdots & \ddots &\vdots \\
+			0 & \cdots & 0 & \cdots & 0 & \cdots & 0  \\
+			\end{bmatrix} $
+			
+			$ P_{ij}  $ es inversible: $ P_{ij}^{-1}=P_{ij} $. Comprobémoslo:
+			
+			$ P_{ij}\cdot P_{ij}=I-E_{ii}-E_{jj}+E_{ij}+E_{ji}-E_{ii}+(E_{ii}E_{ii}=E_{ii})+(E_{ii}E_{jj}=0)-(E_{ii}E_{ij}=E_{ij})-(E_{ii}E_{ji}=0)-E_{jj} +(E_{jj}E_{ii}=0)+(E_{jj}E_{jj}=E_{jj})-(E_{jj}E_{ij}=0)-(E_{jj}E_{ji}=E_{ji})+E_{ij}-(E_{ij}E_{ii}=0)-(E_{ij}E_{jj}=E_{ij})+(E_{ij}E_{ij}=0)+(E_{ij}E_{ji}=E_{ii})+E_{jj}-(E_{ji}E_{ii}=E_{ji})-(E_{ji}E_{jj}=0)+(E_{ji}E_{ij}=E_{jj})+(E_{ji}E_{ji})=I$.
+			
+		\end{enumerate}
+	\end{definition}
+	\begin{definition}
+		Si $ A\in M_{m \times n}(R) $, se llaman operaciones elementales en $ A $, la multiplicación de $ A $ por la izquierda o por la derecha por matrices elementales. 
+		Las operaciones elementales son, por tanto:
+		\begin{enumerate}
+			\item $ T_{ij}(b) \cdot A = $ matriz obtenida de $ A $ sumándole a la fila $ i $ la $ j $ multiplicada por $ b $. 
+			
+			$T_{ij}(b) \cdot A=(I+bE_{ij})A=A+bE_{ij}A$
+			\item $ A \cdot T_{ij}(b) $ matriz obtenida de $ A $ sumándole a la columna $ j $ la $ i $ multiplicada por $ b $.
+			\item $ D_i(u) \cdot A =$ matriz obtenida de $ A $ multiplicando la fila $ i $ por $ u $.
+			
+			$ D_i(u)\cdot A= (I+(u-1)E_{ii})A=A+(u-1) E_{ii}A=A-E_{i_i} A +uE_{ii}A $
+			\item $ A \cdot D_i(u)  =$ matriz obtenida de $ A $ multiplicando la columna $ i $ por $ u $.
+			\item $ P_{ij} \cdot A = $ matriz obtenida a partir de A intercambiando las filas $ i $ y $ j $.
+			
+			$ P_{ij}A= (I-E_{ii}-E_{jj}+E_{ij}+E_{ji})A=A-E_{ii}A-E_{jj}A+E_{ij}A+E_{ji}A $  
+			\item $ A \cdot P_{ij}= $ matriz obtenida a partir de A intercambiando las columnas $ i $ y $ j $.
+		\end{enumerate}
+	\end{definition}
+	\begin{definition}
+		Dos matrices $ A, B \in M_{m\times n}(R)  $se dicen equivalentes si existen matrices $ Q \in M_{m\times m}(R), P \in M_{n\times n}(R) $ tales que: 
+		\[ B=QAP \]
+		Nótese que las matrices obtenidas de $ A $ por un número finito de operaciones elementales son equivalentes a $ A $.
+		\[ U_q \cdots U_1AV_1\cdots V_p=QAP\]
+	\end{definition}
+	\section{Diagonalización}
+	\begin{theorem}
+		Sea $ D $ un dominio de ideales principales. Si $ A \in M_{m\times n}(D) $, entonces $ A $ es equivalente a una matriz diagonal.
+		\[ \text{diag}(d_1, \cdots, d_r, 0, \cdots, 0), \quad \text{con } 0\leq r \leq \min \{m,n\} \text{ y }\begin{cases}
+			d_i\neq 0\\
+			d_i \mid d_j $ si $ i\leq j
+		\end{cases}\]
+		
+		
+	\end{theorem}
+	\begin{example}
+		Una matriz $3\times 2$ de diagonal $(d_1,d_2)$ sería $\begin{bmatrix}
+		d_1 & 0  \\
+		0   & d_2\\
+		0   & 0  \\
+		\end{bmatrix}$
+	\end{example}
+	\begin{observation}
+		Si el DIP es euclídeo la diagonalización se realiza mediante operaciones elementales, si no lo es, necesitaremos otras operaciones.
+	\end{observation}
+	\begin{proof}
+		
+	\end{proof}
+	
+\end{document}
