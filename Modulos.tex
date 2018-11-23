@@ -92,6 +92,8 @@
 % Paquetes para matemáticas:
 \usepackage{amsmath, amsthm, amssymb, amsfonts, amscd} % Teoremas, fuentes y símbolos.
 
+\usepackage[all]{xy} %para diagramas conmutativos
+
 % Nuevo estilo para definiciones
 \newtheoremstyle{definition-style} % Nombre del estilo
 {5pt}                % Espacio por encima
@@ -400,8 +402,63 @@ Sea $N$ un submódulo de $M$. Existe una biyección que conserva las inclusiones
 	\[coker(f) = M/Im(f).\]
 \end{definition}
 
->>>>>>> 29075090dad3fcc4f80aa44a7c53a323358dbdfe
+\begin{definition}
+	Un homomorfismo $f:M\rightarrow N$ de $A$-módulos es un isomorfismo si existe un homorfismo de $A$-módulos $g:N\rightarrow M / g\circ f = id_M$, $f\circ g = id_N$. En este caso es $g$ único y $g=f^{-1}$.$\\$
+	Así, si existe un isomorfismo de $M$ a $N$ se dice que $M$ y $N$ son isomorfos y se denota como $M\simeq N$.
+\end{definition}
 
+\begin{exercise}
+	$f$ isomorfismo $\Leftrightarrow$ $f$ homomorfismo biyectivo.
+\end{exercise}
+
+Ahora veremos un resultado que ya habíamos observado en grupos, por ejemplo, y que es el representado en el siguiente esquema:
+\[
+\xymatrix{
+	M \ar[d]^{\pi} \ar[r]^f & N \\
+	M/ker(f) \ar[r]^{f'} & Im(f) \ar@{^{(}->}[u]^i
+}
+\]
+
+Ya vimos como $\pi$ es un homomorfismo de módulos. Ahora, queda ver que $f'$ es un isomorfismo, es decir, que $M/fer(f)\simeq Im(f)$.
+\begin{exercise}
+	$f'$ es un isomorfismo.
+\end{exercise}
+\begin{proposition}
+	Sean $M_1\subset M_2\subset M$ $A$-submódulos. Entonces:
+	\[\frac{M/M_1}{M_1/M_2}\simeq M/M_2\]
+\end{proposition}
+
+%PARTE DE LIBRETA QUE REQUIERE SER COMPARADA CON OTRO SER HUMANO CÁRNICO CALIENTE
+
+\begin{proof}
+	Tomemos la aplicación $f:M/M_1 \rightarrow M/M_2$ que se define como:
+	\[f(x + M_1) = x + M_2\]
+	y veamos que es un homomorfismo.
+	\begin{enumerate}
+		\item $x + M_1 = y + M_1 \Rightarrow x-y\in M_1  \stackrel{M_1\subset M_2}{\Rightarrow}  x-y \in M_2 \Rightarrow x + M_2 = y + M_2$
+		\item $f((x+M_1)+(y + M_1)) = f(x+y+M_1) = x+y+M_2 = (x+M_2)+(y+M_2) = f(x+M_1) + f(y+M_1)$
+		\item $f(a(x+M_1)) = f(ax + M_1) = ax + M_2 = a(x + M_2) = af(x+M_1)$
+	\end{enumerate}
+	Una vez visto que, efectivamente, $f$ es un homomorfismo, vemos que es sobreyectivo, es decir, que la imagen es exactamente $M/M_2$, de forma inmediata. Para finalizar, veamos que $ker(f) = M_2/M_1$. Si $x\in ker(f)$, tenemos que:
+	\[f(x + M_1) = 0 + M_2, f(x + M_1) = x + M_2 \Leftrightarrow x \in M_2,\]
+	de donde se extrae de forma inmediata lo que queríamos probar.
+	Por lo tanto, aplicando lo observado en el anterior diagrama conmutativo, hemos probado que:
+	\[\frac{M/M_1}{ker(f)} = \frac{M/M_1}{M_2/M_1} \simeq M/M_2.\]
+\end{proof}
+
+\begin{proposition}
+	Sea $M$ un $A$-módulo y $M_1$, $M_2$ $A$-submódulos. Entonces:
+	\[\frac{M_1+M_2}{M_1}\simeq \frac{M_2}{M_1\cap M_2}\]
+\end{proposition}
+\begin{proof}
+	Para probar esto tomamos:
+	%\[
+	%\xymatrix{
+	%%	M_2 \ar[r]^f & & \frac{M_1+M_2}{M_1} \\
+	%	& \ar[r]^{f'}
+	%}
+	%\
+\end{proof}
 %ACABA PARTE JORGE
 \begin{definition}
 	Sea $A$ un anillo. Un $A$-módulo $M$ es cíclico si está generado por un elemento, es decir:
