@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.11.22)  23 NOV 2018 00:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.11.22)  23 NOV 2018 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -778,7 +778,12 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 385--388
+Underfull \hbox (badness 10000) in paragraph at lines 385--387
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 389--390
 
  []
 
@@ -813,17 +818,12 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 512--514
+Underfull \hbox (badness 10000) in paragraph at lines 528--530
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--516
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 530--532
 
  []
 
@@ -838,6 +838,11 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [7]
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
+
+ []
+
+
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []$[]$ 
  []
@@ -866,11 +871,11 @@ LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 16071 strings out of 492642
- 299222 string characters out of 6135565
- 402158 words of memory out of 5000000
- 19570 multiletter control sequences out of 15000+600000
- 10713 words of font info for 55 fonts, out of 8000000 for 9000
+ 16074 strings out of 492642
+ 299256 string characters out of 6135565
+ 401160 words of memory out of 5000000
+ 19571 multiletter control sequences out of 15000+600000
+ 10821 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,16n,58p,471b,1124s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
@@ -889,7 +894,7 @@ msfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Modulos.pdf (10 pages, 227393 bytes).
+Output written on Modulos.pdf (10 pages, 228606 bytes).
 PDF statistics:
  116 PDF objects out of 1000 (max. 8388607)
  84 compressed objects within 1 object stream
