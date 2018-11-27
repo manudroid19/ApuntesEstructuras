@@ -301,40 +301,39 @@
 	\begin{theorem}
 		Sea $ D $ un DIP y $ M $ un $ D $-módulo de tipo finito. Entonces $ M $ es suma directa de $ D$-módulos cíclicos.
 		\[ M=DZ_1 \oplus \cdots \oplus DZ_s \]
-		tal que $ (0:Z_1) contains al reves (0:Z_2) contains reves ... contains reves (0:Z_s), \quad (0:Z_n\neq D) $
+		tal que $ (0:Z_1) \supset (0:Z_2) \supset ... \supset (0:Z_s), \quad (0:Z_n\neq D) $
 		
 	\end{theorem}
 	\begin{proof}
-		Sea $ \{X_1,\cdots, X_n\} $ un conjunto finito de generadores de M. Sea $ F $ un $ D $-módulo libre de rango $ n $ con base $ \{e_1, \cdots e_n\} $, y sea $ \epsilon:F\flechaSobreyectiva M $ el homomorfismo sobreyectivo $ \epsilon(e_i)=x_i, 1\leq i\leq n $.
+		Sea $ \{X_1,\cdots, X_n\} $ un conjunto finito de generadores de M. Sea $ F $ un $ D $-módulo libre de rango $ n $ con base $ \{e_1, \cdots e_n\} $, y sea $ \varepsilon:F\flechaSobreyectiva M $ el homomorfismo sobreyectivo $ \varepsilon(e_i)=x_i, 1\leq i\leq n $.
 		
-		Sea $ N:=\text{Ker}\epsilon $:
-		\[ N\flechaInyectiva F \xFlechaSobreyectiva{\epsilon} M \]
+		Sea $ N:=\text{Ker}(\varepsilon) $:
+		\[ N\flechaInyectiva F \xFlechaSobreyectiva{\ \varepsilon \ } M \]
 		Por la propiedad previa, $ N $ es libre de rango $ \leq n $ y en particular, $ N $ es de tipo finito. Sea $ \{f_1, \cdots, f_n\} $ un conjunto finito de generadores de $ N $ (como caso particular, puede ser una base, pero en la demostración no se necesita que lo sea, ni tampoco se necesita suponer que $ m\leq n $). Entonces:
 		\[ f_i = \sum_{j=1}^{n}a_{ij}e_j, \quad 1\leq i\leq m, a_{ij}\in D \]
 		Sea $ A:=(a_{ij})\in M_{m \times n}(D) $. Se tiene :
 		\[ f=Ae \]
 		es decir:
 		
-		\[ \begin{bmatrix}
+		\[ \begin{pmatrix}
 			 f_1 \\
 			 f_2 \\
 			 \vdots \\
 			 f_m
-		\end{bmatrix} = \begin{bmatrix}
-		a_{11} & a_12 ... a_1n \\
-		a21...
-		...
-		am1 am2 ... amn
-		
-		\end{bmatrix} \cdot \begin{bmatrix}
+		\end{pmatrix} = \begin{pmatrix}
+		a_{11} & a_{12} & \cdots & a_{1n} \\
+		a_{21} & a_{22} & \cdots & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{m1} & a_{m2} & \cdots & a_{mn} \\
+		\end{pmatrix} \cdot \begin{pmatrix}
 		e_1 \\
 		e_2 \\
 		\vdots \\
 		e_m
-		\end{bmatrix} PONER PARENT NO CONRCH\]
-		lo cual no es un producto de matrices en el sentido usual, ya que $ f,e $ no son matrices sobre $ D $, pero la notación será igualmente útil. Se comprueba facilmente la asociatividad usual.
+		\end{pmatrix}\]
+		lo cual no es un producto de matrices en el sentido usual, ya que $ f,e $ no son matrices sobre $ D $, pero la notación será igualmente útil. Se comprueba fácilmente la asociatividad usual.
 		\[ B(cf)=(Bc)f \]
-		para matrices ordinarias B,C sobre D.
+		para matrices ordinarias $ B $, $ C $ sobre $ D $.
 		
 		Por el Teorema de diagonalización, la matriz $ A $ es equivalente a una matriz diagonal $ B= \text{diag}(d_1, \cdots d_r, 0, \cdots, 0) $.\\
 		$ B= QAP, Q\in M_{m\times m} (D), P\in M_{n\times n} (D) $ matrices inversibles, $ d_i\neq 0 $, $ 1 \leq i \leq r, d_i \mid d_{i+1}, 1 \leq i \leq r-1 $.
@@ -346,15 +345,15 @@
 		es decir:
 		\[ f'_i=d_ie'_i, \quad 1 \leq i \leq r \]
 		\[ f'_i =0,  \quad \text{si } r+1 \leq i \leq n\]
-		([Importante en aplicaiones, no en demostración]Nótese que como los $ e'_i $ son linealmente independientes y los $ d_i $ son no nulos, resulta que $ f'_1, \cdots, f'_r $ son linealmente independientes. Por tanto, $ N $ es libre de rango $ r $ y $ \{ f'_1, \cdots, f'_r\} $ es base de $ N $. Esto proporciona un método para encontrar una base de un submódulo de un $ D $-módulo libre a partir de un conjunto de generadores.)
-		Sea $ Y_i := \epsilon(e'_i), 1 \leq i \leq n$. (Nótese que $ Y=P^{-1}X $).\\
+		([Importante en aplicaciones, no en demostración]Nótese que como los $ e'_i $ son linealmente independientes y los $ d_i $ son no nulos, resulta que $ f'_1, \cdots, f'_r $ son linealmente independientes. Por tanto, $ N $ es libre de rango $ r $ y $ \{ f'_1, \cdots, f'_r\} $ es base de $ N $. Esto proporciona un método para encontrar una base de un submódulo de un $ D $-módulo libre a partir de un conjunto de generadores.)
+		Sea $ Y_i := \varepsilon(e'_i), 1 \leq i \leq n$. (Nótese que $ Y=P^{-1}X $).\\
 		$ e'=P^{-1}e, Y=P^{-1}X $\\
-		Como $ \epsilon $ es sobre, resulta que $ \{y_1, \cdots y_n \} $ es un conjunto de generadores de $ M $. 
+		Como $ \varepsilon $ es sobre, resulta que $ \{y_1, \cdots y_n \} $ es un conjunto de generadores de $ M $. 
 		\[ M=\sum_{j=1}^{n} DY_i\]
 		Veamos que esta es directa, i.e.,
 		\[ \sum_{j=1}^{n} b_i\cdot y_i=0, \quad b_i \in D \Rightarrow b_i\cdot y_i=0, \forall i \]
 		Se tiene: 
-		\[ 0=\sum_{i=1}^{n} b_i \cdot y_i = \sum_{i=1}^{n} b_i \cdot \epsilon(e'_i)=\epsilon (\sum_{i=1}^{n} b_i \cdot e'_i)\Rightarrow \]
+		\[ 0=\sum_{i=1}^{n} b_i \cdot y_i = \sum_{i=1}^{n} b_i \cdot \varepsilon(e'_i)=\varepsilon (\sum_{i=1}^{n} b_i \cdot e'_i)\Rightarrow \]
 		\[ \Rightarrow \sum_{i=1}^{n} b_i \cdot e'_i=\sum_{i=1}^{r} c_i \cdot f'_i= \sum_{i=1}^{r} c_i \cdot d_i \cdot e'_i \Rightarrow (e'\text{ base}) \begin{cases}
 		b_i=0, \quad r+1 \leq i \leq n \Rightarrow b_i y_i =0\\
 		b_i=c_i\cdot d_i, \quad 1 \leq i \leq r \Rightarrow ¿?
@@ -366,8 +365,9 @@
 		\[ (0:Y_i)=(d_i), \quad  1 \leq i \leq r\]
 		\[ (0:Y_i)=0, \quad  r+1 \leq i \leq n\]
 		"$ \supset $" Ya está demostrado.\\
-		"$ \subset $" $ \lambda \in (0:y_i) $
+		"$ \subset $"  $ \lambda \in (0:y_i) $
 		FALTAAAA
+		
 		Sea $ s $, $ 0 \leq s \leq n $, tal que $ (0:y_1)=(0:y_2)=\cdots =(0:y_n-s)=D $, $ (0:y_{n-s+1})\neq D $. Entonces: $ y_1=y_2=\cdots = y_{n-s}=0 $\\
 		$ Z_1:=Y_{n-s+1},Z_2:=Y_{n-s+2}, \cdots, Z_s:=Y_n  $.\\
 		Se tiene: 
