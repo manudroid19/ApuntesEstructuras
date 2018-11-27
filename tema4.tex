@@ -21,13 +21,11 @@
 \selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.
 
 %flechassssss
-\def\flechaSobreyectiva{\mathrel{\mkern16mu  \vcenter{\hbox{$\scriptscriptstyle+$}}%
-		\mkern-25mu{\longrightarrow}}}
-\def\flechaInyectiva{\mathrel{\mkern0mu  \vcenter{\hbox{$\scriptscriptstyle+$}}%
-		\mkern-9mu{\longrightarrow}}}
 \def\flechaBiyectiva{\mathrel{\mkern16mu  \vcenter{\hbox{$\scriptscriptstyle+$}}\mkern-25mu{\mathrel{\mkern0mu\vcenter{\hbox{$\scriptscriptstyle+$}}\mkern-9mu{\longrightarrow}}}}}
 \def\xFlechaInyectiva #1{\mathrel{\ooalign{\thinspace\thinspace$\mapstochar\mkern5mu$\hfil\cr$\xrightarrow{#1}$\cr}}}
+\def\flechaInyectiva {\mathrel{\ooalign{\thinspace\thinspace$\mapstochar\mkern5mu$\hfil\cr$\longrightarrow$\cr}}}
 \def\xFlechaSobreyectiva #1{\mathrel{\ooalign{\hfil$\mapstochar\mkern5mu$\thinspace\thinspace\cr$\xrightarrow{#1}$\cr}}}
+\def\flechaSobreyectiva {\mathrel{\ooalign{\hfil$\mapstochar\mkern5mu$\thinspace\thinspace\cr$\longrightarrow$\cr}}}
 %llave a la derecha
 \newenvironment{rcases}
 {\left.\begin{aligned}}
@@ -297,20 +295,22 @@
 		
 	\end{proof}
 
-	Prada 27-11
+	PRADA 27-11
 	\begin{theorem}
 		Sea $ D $ un DIP y $ M $ un $ D $-módulo de tipo finito. Entonces $ M $ es suma directa de $ D$-módulos cíclicos.
-		\[ M=DZ_1 \oplus \cdots \oplus DZ_s \]
-		tal que $ (0:Z_1) \supset (0:Z_2) \supset ... \supset (0:Z_s), \quad (0:Z_n\neq D) $
+		\[ M=Dz_1 \oplus \cdots \oplus Dz_s \]
+		tal que $ (0:z_1) \supset (0:z_2) \supset ... \supset (0:z_s), \quad (0:z_n)\neq D $
 		
 	\end{theorem}
 	\begin{proof}
-		Sea $ \{X_1,\cdots, X_n\} $ un conjunto finito de generadores de M. Sea $ F $ un $ D $-módulo libre de rango $ n $ con base $ \{e_1, \cdots e_n\} $, y sea $ \varepsilon:F\flechaSobreyectiva M $ el homomorfismo sobreyectivo $ \varepsilon(e_i)=x_i, 1\leq i\leq n $.
+		Sea $ \{X_1,\cdots, X_n\} $ un conjunto finito de generadores de $ M $. Sea $ F $ un $ D $-módulo libre de rango $ n $ con base $ \{e_1, \cdots e_n\} $, y sea $ \varepsilon:F\flechaSobreyectiva M $ el homomorfismo sobreyectivo $ \varepsilon(e_i)=x_i, \text{ con } 1\leq i\leq n $.
 		
 		Sea $ N:=\text{Ker}(\varepsilon) $:
 		\[ N\flechaInyectiva F \xFlechaSobreyectiva{\ \varepsilon \ } M \]
 		Por la propiedad previa, $ N $ es libre de rango $ \leq n $ y en particular, $ N $ es de tipo finito. Sea $ \{f_1, \cdots, f_n\} $ un conjunto finito de generadores de $ N $ (como caso particular, puede ser una base, pero en la demostración no se necesita que lo sea, ni tampoco se necesita suponer que $ m\leq n $). Entonces:
 		\[ f_i = \sum_{j=1}^{n}a_{ij}e_j, \quad 1\leq i\leq m, a_{ij}\in D \]
+		dado que $ \sum_{i=1}^{n} a_{ij}x_j=0 \ \forall i$  (ya que $ \varepsilon(f_i)=\varepsilon(\sum_{i=1}^{n} a_{ij} e_j)\Rightarrow \varepsilon(f_i)=  \sum_{i=1}^{n} a_{ij}x_j \in \text{Ker}(\varepsilon)\Rightarrow \sum_{i=1}^{n} a_{ij}x_j=0$).
+		
 		Sea $ A:=(a_{ij})\in M_{m \times n}(D) $. Se tiene :
 		\[ f=Ae \]
 		es decir:
@@ -331,50 +331,65 @@
 		\vdots \\
 		e_m
 		\end{pmatrix}\]
-		lo cual no es un producto de matrices en el sentido usual, ya que $ f,e $ no son matrices sobre $ D $, pero la notación será igualmente útil. Se comprueba fácilmente la asociatividad usual.
+		lo cual no es un producto de matrices en el sentido usual, ya que $ f,e $ no son matrices sobre $ D $, pero la notación será igualmente útil. Se comprueba fácilmente la asociatividad usual:
 		\[ B(cf)=(Bc)f \]
 		para matrices ordinarias $ B $, $ C $ sobre $ D $.
 		
-		Por el Teorema de diagonalización, la matriz $ A $ es equivalente a una matriz diagonal $ B= \text{diag}(d_1, \cdots d_r, 0, \cdots, 0) $.\\
-		$ B= QAP, Q\in M_{m\times m} (D), P\in M_{n\times n} (D) $ matrices inversibles, $ d_i\neq 0 $, $ 1 \leq i \leq r, d_i \mid d_{i+1}, 1 \leq i \leq r-1 $.
+		Por el Teorema de Diagonalización, la matriz $ A $ es equivalente a una matriz diagonal. $ B= \text{diag}(d_1, \cdots,\\ d_r, 0, \cdots, 0)$. 
+		$ B= QAP,\  Q\in M_{m\times m} (D), P\in M_{n\times n} (D) $ matrices inversibles, $ d_i\neq 0 $, $ 1 \leq i \leq r$, $d_i \mid d_{i+1}, \text{ y } 1 \leq i \leq r-1 $.
 		
 		Sea $ f':=Qf, e'=P^{-1}e $.
 		Por el lema previo, $ f' $ es un conjunto de generadores de $ N $ y $ e' $ es una base de $ F $.
 		Se tiene:
-		\[ f^1=Qf=QAe=QAPe'=Be' \]
+		\[ f'=Qf=QAe=QAPe'=Be' \]
 		es decir:
 		\[ f'_i=d_ie'_i, \quad 1 \leq i \leq r \]
 		\[ f'_i =0,  \quad \text{si } r+1 \leq i \leq n\]
-		([Importante en aplicaciones, no en demostración]Nótese que como los $ e'_i $ son linealmente independientes y los $ d_i $ son no nulos, resulta que $ f'_1, \cdots, f'_r $ son linealmente independientes. Por tanto, $ N $ es libre de rango $ r $ y $ \{ f'_1, \cdots, f'_r\} $ es base de $ N $. Esto proporciona un método para encontrar una base de un submódulo de un $ D $-módulo libre a partir de un conjunto de generadores.)
-		Sea $ Y_i := \varepsilon(e'_i), 1 \leq i \leq n$. (Nótese que $ Y=P^{-1}X $).\\
-		$ e'=P^{-1}e, Y=P^{-1}X $\\
+		([Importante en aplicaciones, no en la demostración] Nótese que como los $ e'_i $ son linealmente independientes y los $ d_i $ son no nulos, resulta que $ f'_1, \cdots, f'_r $ son linealmente independientes. Por tanto, $ N $ es libre de rango $ r $ y $ \{ f'_1, \cdots, f'_r\} $ es base de $ N $. Esto proporciona un método para encontrar una base de un submódulo de un $ D $-módulo libre a partir de un conjunto de generadores).
+		
+		Sea $y_i := \varepsilon(e'_i), 1 \leq i \leq n$. (Nótese que $ y=P^{-1}X $, ya que aplicando $\varepsilon $, con $ e'=P^{-1}e $, tenemos $ y=\varepsilon(e')=P^{-1}\varepsilon(e)=P^{-1}x $).\\
 		Como $ \varepsilon $ es sobre, resulta que $ \{y_1, \cdots y_n \} $ es un conjunto de generadores de $ M $. 
-		\[ M=\sum_{j=1}^{n} DY_i\]
-		Veamos que esta es directa, i.e.,
+		\[ M=\sum_{i=1}^{n}Dy_i\]
+		Veamos que esta suma es directa ($ \Leftrightarrow \sum_{i\in I} x_i=0, x_i\in M_i, \forall i \Rightarrow x_i=0\ \forall i $), i.e.,
 		\[ \sum_{j=1}^{n} b_i\cdot y_i=0, \quad b_i \in D \Rightarrow b_i\cdot y_i=0, \forall i \]
 		Se tiene: 
-		\[ 0=\sum_{i=1}^{n} b_i \cdot y_i = \sum_{i=1}^{n} b_i \cdot \varepsilon(e'_i)=\varepsilon (\sum_{i=1}^{n} b_i \cdot e'_i)\Rightarrow \]
+		\[ 0=\sum_{i=1}^{n} b_i \cdot y_i = \sum_{i=1}^{n} b_i \cdot \varepsilon(e'_i)=\varepsilon (\sum_{i=1}^{n} b_i \cdot e'_i)\Rightarrow \sum_{i=1}^{n} b_i \cdot e'_i \in \ker(\varepsilon)=N \]
 		\[ \Rightarrow \sum_{i=1}^{n} b_i \cdot e'_i=\sum_{i=1}^{r} c_i \cdot f'_i= \sum_{i=1}^{r} c_i \cdot d_i \cdot e'_i \Rightarrow (e'\text{ base}) \begin{cases}
-		b_i=0, \quad r+1 \leq i \leq n \Rightarrow b_i y_i =0\\
-		b_i=c_i\cdot d_i, \quad 1 \leq i \leq r \Rightarrow ¿?
-		FALTAAAA
+		b_i=0, \quad r+1 \leq i \leq n \Rightarrow b_i \cdot y_i =0\\
+		b_i=c_i\cdot d_i, \quad 1 \leq i \leq r \Rightarrow b_i\cdot y_i=0
 		\end{cases}\]
-		Así pues, 
-		\[ M=DY_1 \oplus \cdots \oplus DY_n\]
-		Veamos que:
-		\[ (0:Y_i)=(d_i), \quad  1 \leq i \leq r\]
-		\[ (0:Y_i)=0, \quad  r+1 \leq i \leq n\]
-		"$ \supset $" Ya está demostrado.\\
-		"$ \subset $"  $ \lambda \in (0:y_i) $
-		FALTAAAA
+		Ya que $ b_i\cdot y_i=c_id_iy_i=c_id_i\varepsilon(c_id_ie'_i)=\varepsilon(c_if'_i)=0 $($c_if_i\in \ker(\varepsilon)=N$).
 		
-		Sea $ s $, $ 0 \leq s \leq n $, tal que $ (0:y_1)=(0:y_2)=\cdots =(0:y_n-s)=D $, $ (0:y_{n-s+1})\neq D $. Entonces: $ y_1=y_2=\cdots = y_{n-s}=0 $\\
-		$ Z_1:=Y_{n-s+1},Z_2:=Y_{n-s+2}, \cdots, Z_s:=Y_n  $.\\
+		Así pues, 
+		\[ M=Dy_1 \oplus \cdots \oplus Dy_n\]
+		Veamos que:
+		\[ (0:y_i)=(d_i), \quad  1 \leq i \leq r\]
+		\[ (0:y_i)=0, \quad  r+1 \leq i \leq n\]
+		"$ \supset $"\ ay está demostrado (trivial).\\
+		"$ \subset $"\  :\[ \lambda \in (0:y_i) \Rightarrow 0=\lambda y_i =\lambda \varepsilon(e'_i)= \varepsilon(\lambda e'_i) \Rightarrow \lambda e'_i \in \ker(\varepsilon)=N\Rightarrow \] 
+		\[\Rightarrow\lambda e'_i = \sum_{j=1}^{r}\mu_jf_j \Rightarrow \lambda e'_i = \sum_{j=1}^{r} \mu_j d_j e'_j \Rightarrow (e' \text{ base})\begin{cases}
+		\lambda_i=0, \quad  r+1 \leq i \leq n \\
+		\lambda_i=\mu_i, \quad 1 \leq i \leq r 
+		\end{cases} \]
+		Ahora, las relaciones $ d_1 \mid d_2 \mid \cdots \mid d_r $, implican $ (d_1)\supset (d_2) \supset \cdots \supset (d_r) $, es decir, $ (0:y_1)\supset(0:y_2)\supset\cdots\supset(0:y_r) $, y por tanto: 
+		\[ (0:y_1)\supset(0:y_2)\supset\cdots\supset(0:y_r)\supset(0:y_{r+1})\supset\cdots\supset(0:y_n)\]
+		
+		Sea $ s $, $ 0 \leq s \leq n $, tal que $ (0:y_1)=(0:y_2)=\cdots =(0:y_{n-s})=D $, $ (0:y_{n-s+1})\neq D $. \\Entonces: $ y_1=y_2=\cdots = y_{n-s}=0 $.
+		
+		A continuación, definimos: 
+		\[ z_1:=y_{n-s+1},z_2:=y_{n-s+2}, \cdots, z_s:=y_n  \]
 		Se tiene: 
-		\[ M=DZ_1\oplus \cdots \oplus DZ_s \]
-		y $ (0:z_1)\supset(0:z_2)\supset\cdots =(0:z_s)$, con $ (0:Z_k)\neq D $.
+		\[ M=Dz_1\oplus \cdots \oplus Dz_s \]
+		y $ (0:z_1)\supset(0:z_2)\supset\cdots \supset(0:z_s)$, con $ (0:z_k)\neq D $.
 	\end{proof}
 	\begin{note}
-		Sea $ M $ un $ D $-módulo
+		Sea $ M $ un $ D $-módulo con generadores $ x_1,\cdots, x_n $ y relaciones $\sum_{j=1}^{n}a_{ij}e_j=0, 1 \leq i \leq m$. La descomposición de $ M $ dada por el Teorema de Estructura se calcula, en resumen, del siguiente modo:
+		\[ A:=(a_{ij}) \in M_{m \times n}(D) \]
+		Se diagonaliza: $ QAP=B= \text{diag}(d_1, \cdots d_r, 0, \cdots, 0),  d_1 \mid d_2 \mid \cdots \mid d_r$. Se tiene que $ Y=P^{-1}X $. Entonces:
+		\[ M=Dy_1\oplus \cdots \oplus Dy_n \]
+		\[ (0:y_i)=(d_i), \quad  1 \leq i \leq r\]
+		\[ (0:y_i)=0, \quad  r+1 \leq i \leq n\]
+		Por último, eliminamos los $y_i$ que sean nulos y de esta forma se obtienen los $ z_k $ del enunciado del Teorema.
+		 
 	\end{note}
 \end{document}
