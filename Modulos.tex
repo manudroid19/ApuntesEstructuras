@@ -696,7 +696,6 @@ Ya vimos como $\pi$ es un homomorfismo de módulos. Ahora, queda ver que $f'$ es
 \end{example}
 JORGE 15-11
 
-SERGIO 19-11
 
 \begin{proposition}
 	Sea $A=\mathbb{Z}$ y $M$ $A$-módulo con generadores $x_1,x_2$ y la relación $x_1+x_2=0$. Veamos que $Z\simeq M$.
@@ -704,15 +703,84 @@ SERGIO 19-11
 
 \begin{proof}
 	\ \\
-	Vamos a definir un $\phi$ de forma que $\mathbb{Z}\xrightarrow{\ \phi\ }M$ sea isomorfismo.
-	Definimos $\phi(a)=ax_1 \ \forall a \in \mathbb{Z}$.
+	Vamos a definir un $\phi$ de forma que $\mathbb{Z}\xrightarrow{\ \phi\ }M$ sea isomorfismo. 
+	Definimos $\phi(a)=ax_1 \ \forall a \in \mathbb{Z}$. 
 	$\begin{rcases}
 		x_1=\phi(1)\Rightarrow x_1\in Im(\phi) \\
 		x_2=-x_1=-\phi(1)=\phi(-1)\Rightarrow x_2 \in Im(\phi)
 	\end{rcases}$
-	$\Rightarrow \phi$ es sobreyectiva. \\
-	Veamos que $Ker(\phi)=\{0\}\Leftrightarrow \phi$ inyectiva.
+	$\Rightarrow \phi$ es sobreyectiva. \\ 
+	Veamos que $Ker(\phi)=\{0\}$. Para ello nos ayudamos del siguiente homomorfismo:
+	\[ N\flechaInyectiva \mathbb{Z}^2 \xFlechaSobreyectiva{\ \pi\ } M\]
+	Donde $N=\langle e_1+e_2\rangle$, $\mathbb{Z}^2=\langle e_1,e_2\rangle$ y definimos $\pi(e_1)=x_1, \pi(e_2)=x_2$.
+	\[ \text{Sea } a \in Ker(\phi) \Rightarrow 0 = \phi(a)=ax_1=a\pi(e_1)=\pi(ae_1)\]
+	\[\pi(ae_1)=0 \Rightarrow ae_1 \in Ker(\pi)=N=<e_1 + e_2>\]
+	\[\text{Luego } ae_1=b(e_1+e_2) \Rightarrow ae_1=be_1+be_2\]
+	Como la expresión de $ae_1$ es única en función de elementos de la base tenemos:\\
+	$\begin{rcases}
+			a=b \\
+			b=0
+	\end{rcases}$
+	$\Rightarrow a=0 \Rightarrow Ker(\phi)=\{0\}$\\
+	$\phi$ es sobreyectiva e inyectiva y por lo tanto es un isomorfismo.
+	\[(0)\xrightarrow{\ \ } \mathbb{Z} \xrightarrow{\ \simeq\ }M\]
 \end{proof}
-END SERGIO 19-11
+
+\begin{observation}
+	$A^{(I)} \rightarrow F$
+\end{observation}
+
+\begin{observation}
+	Sean $A$ anillo, $I$ ideal de $A$ y $M$ $A$-módulo.\\
+	$M/IM$ es $A/I$-módulo.\\
+	$f:M\rightarrow N$ un homomorfismo de $A$-módulos.\\
+	$\bar{f}:M/IM\rightarrow M/IN$ homomorfismo de $A$-módulos.\\
+	$f$ es isomorfismo $\Rightarrow \bar{f}$ es isomorfismo ($f(IM)=IN$).\\
+	$N/M'\rightarrow N/N' \ \ f(M')=N'$\\
+	$\sum_{y_i\in N}a_iy_i \Rightarrow y_i=f(x_i) \ \ x_i\in M \Rightarrow \sum a_iy_i=\sum a_if(x_i)=f(\sum a_ix_i)\in f(IM)$
+\end{observation}
+
+\begin{lemma}
+	Sea $A$ un anillo, $X$ un conjunto e $I$ un ideal de $A$. Se tiene un isomorfismo de $A/\mathfrak{P}$-módulos.
+	\[A^{(X)}/IA^{(X)} \xrightarrow{\ \simeq\ }(A/I)^{(X)}\]
+\end{lemma}
+
+\begin{proof} \ \\
+	$A\rightarrow A/I$ homomorfismo de $A$-módulos definido como $a \leadsto \bar{a}$.\\
+	$A^{(X)} \xrightarrow{\ \phi\ }(A/I)^{(X)}$ tal que $(a_i)\leadsto (\bar{a}_i)_{i \in X}.$\\
+	$\phi$ es un homomorfismo de $A$-módulos sobreyectivo.\\
+	$Ker(\phi)=\{(a_i)_{i\in X} \in A^{(X)} \ / \ a_i \in I \ \forall i \in X\} = IA^{(X)}.$\\
+	($\subset$)\\
+	Sea $(a_i)_{i\in X} \in A^{(X)} \ / \ a_i \in X \ \forall i \in X$ \\
+	$(a_i)=\sum_{i \in X}a_ie_i \in IA^{(X)}$ \ \ ($\{e_i\}_{i\in X}$ base canónica de $A^{(X)}$) \\
+	($\supset$)\\
+	Sea $\sum_{j=1}^nb_jf_j \ \ b_j \in I, \ f_j=(f_{ji})_{i\in X} \in A^{(X)}$\\
+	$b_jf_j=b(f_{ji})_{i\in X} = (bf_{ji})_{i\in X} \in Ker(\phi) \text{ ya que }bf_{ji} \in I \Rightarrow \sum_{j=1}^nb_jf_j \in Ker(\phi)$.\\
+	\[A^{(X)}/IA^{(X)} \xrightarrow{\ \simeq \ } (A/I)^{(X)} \]
+\end{proof}
+
+\begin{observation}
+	\[A\rightarrow A/I \ \  M,N \  A/I\text{-módulos}\]
+	\[f:M\rightarrow N \text{ es homomorfismo de $A$-módulos} \Rightarrow \text{es homomorfismo de $A/I$-módulos}\]
+	\[IM=0=IN\]
+\end{observation}
+
+\begin{theorem}
+	Dos bases de un $A$-módulo libre tienen el mismo cardinal.
+\end{theorem}
+
+\begin{proof}
+	\[A^{(I)} \simeq F \simeq A^{(J)}\]
+	\[\exists \  A^{(I)} \rightarrow A^{(J)} \text{ isomorfismo}\]
+	Sea $m$ un ideal maximal de $A$. Aplicando el lema:
+	\[ (A/m)^{(I)} = A^{(I)}/mA^{(I)} \simeq A^{(J)}/mA^{(J)} = (A/m)^{(J)} \]
+	$A/m$ es un cuerpo. Luego tenemos un isomorfismo de espacios vectoriales.
+	\[dim((A/m)^{(I)})=card(I) \text{ y } dim((A/m)^{(J)})=card(J)\]
+	Conclusión $card(I)=card(J)$.
+\end{proof}
+
+\begin{definition}
+	El cardinal de una base de un $A$-módulo libre se llama rango del módulo libre.
+\end{definition}
 
 \end{document}
