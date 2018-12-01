@@ -392,4 +392,116 @@
 		Por último, eliminamos los $y_i$ que sean nulos y de esta forma se obtienen los $ z_k $ del enunciado del Teorema.
 		 
 	\end{note}
+	%%jorge 29-11
+	
+	\begin{corollary} %%ESTO ES EN REALIDAD UN COROLARIO
+		Si $D$ es un DIP y $M$ es un módulo de tipo finito (t.f.), entonces $M$ es 
+		suma directa de un submódulo de torsión y de un submódulo libre.
+	\end{corollary}
+	\begin{proof}
+		Por el teorema de estructuras tenemos que: 
+		\[M = DZ_1 \oplus \cdots \oplus DZ_s\]
+		\[(0:Z_1) \supset \cdots \supset (0:Z_s), (0:Z_k) \neq 0.\]
+		Sea $r$, $0 \leq r \leq s$, tal que $(0:Z_i) \neq 0$ para $0 \leq i \leq r$ y
+		$(0:Z_i) = 0$ para $r \leq i \leq s$. $\\$
+		Entonces:
+		\[DZ_1 \oplus \cdots \oplus DZ_r = T(M)\]
+		y $DZ_1 \oplus \cdots \oplus DZ_r$ es libre.
+		\[DZ_1 \oplus \cdots \oplus DZ_r \oplus DZ_{r+1} \oplus \cdots \oplus DZ_s\]
+		"$\subset$" $\\$
+		$1 \leq i \leq r$: $(0:Z_i) \neq 0$ $\Rightarrow$ $Z_i \in T(M)$ $\Rightarrow$
+		$DZ_i \subset T(M)$ $\Rightarrow$ $DZ_1 \oplus \cdots \oplus DZ_r \subset T(M)$ $\\$
+		
+		"$\supset$" $\\$
+		$x \in T(M)$ $\Rightarrow$ $x \in M$ $\Rightarrow$ $x = \sum_{i=1}^{s}\lambda_i z_i$, 
+		$\lambda_i \in D$ $\\$
+		Además, como $x \in T(M)$ tenemos que:
+		\[\exists a \in D, a\neq 0 / ax = 0\]
+		y que:
+		\[a(\sum_{i=1}^{s}\lambda_i z_i) = \sum_{i=1}^{s} a \lambda_i z_i \in DZ_i\]
+		con lo que podemos extraer que, por ser una suma directa:
+		\[a \lambda_i z_i \in DZ_i \Rightarrow a\lambda_i \in (0:Z_i) \Rightarrow a_i\lambda_i = 0, \hspace{0.2cm} r + 1 \leq i \leq s \stackrel{a \neq 0}{\Rightarrow} \lambda_i = 0, \hspace{0.2cm} r + 1 \leq i \leq s\]
+		Por lo que, 
+		\[x = \sum_{i = 1}^{r} \lambda_i z_i \in DZ_1 \oplus \cdots \oplus DZ_r\]
+		y, 
+		\[DZ_{r+1} \oplus \cdots \oplus DZ_s \simeq D \oplus \stackrel{s - r}{\cdots} \oplus D = D^{s - r} \hspace{0.2cm} libre.\]
+		Por lo que, para $r + 1 \leq i \leq s$, 
+		\[DZ_i \simeq \frac{D}{(0:Z_i)} = D.\]
+	\end{proof}
+	\begin{corollary}
+		Sea $D$ un DIP y $M$ un $D$-módulo de torsión de tipo finito. Entonces:
+		\begin{center}
+			$M$ es libre $\Leftrightarrow$ $M$ es libre de torsión.
+		\end{center}
+	\end{corollary}
+	\begin{proof}
+		Inmediata a partir del anterior corolario.
+	\end{proof}
+	
+	\section{Módulos de torsión y componentes primarias}
+	Sea $D$ un DIP y $M$ sea $D$-módulo de tipo finito. Sea además $p$ un elemento primo de $D$ (i.e., $(p)$ es un ideal primo distinto de $0$, i.e., $p$ es irreducible). $\\$
+	Se llama \underline{componente $p$-primaria} de $M$ al subconjunto:
+	\[M_p = \{y\in M / \exists k\in \mathbb{N}, p^{k}y = 0\},\]
+	que, como se puede observar, son los elementos de $M$ aniquilados por alguna potencia de $p$.$\\$
+	Además, $M_p$ es un submódulo de $M$ y $M_p \subset T(M)$. Así, si $M_p = M$, se dice que $M$ es \underline{$p$-primario}.
+	\begin{example}
+		Cada $D$-módulo cíclico de la forma $\frac{D}{T(M)}$ es $p$-primario. Tenemos que
+		\[f: D \longrightarrow \frac{D}{(p^e)}\]
+		es la aplicación canónica. Vemos que:
+		\[p^e[\frac{D}{(p^e)}] = 0\]
+		y
+		\[p^e(x + (p^e)) = p^ex + (p^e) = 0.\]
+	\end{example}
+	\begin{lemma}
+		Si $p_1, ..., p_h$ son primos distintos, entonces la suma de las componentes $p_i$-primarias, $1\leq i\leq h$ es suma directa:
+		\[\sum_{i=1}^{h} = \oplus_{i=1}^h Mp_i.\]
+	\end{lemma}
+	\begin{proof}
+		Probar que es suma directa probaremos lo siguiente:
+		\[M_{p_1} \cap [M_{p_2} + \cdots M_{p_h}] \stackrel{?}{=} 0.\]
+		Supondremos $y \in M_{p_1} \cap [M_{p_2} + \cdots M_{p_h}]$, entonces:
+		\[y \in M_{p_1} \Rightarrow p_1^{k_1}y=0\]
+		e:
+		\[y \in M_{p_2} + \cdots M_{p_h} \Rightarrow p_2^{k_2} \cdots p_h^{k_h}y = 0,\]
+		pero mcd$(p_1^{k_1}, p_2^{k_2}\cdots p_h^{k_h}) = 1$ y, por lo tanto:
+		\[1 \in (0:y) \Rightarrow y=0.\]
+	\end{proof}
+	\begin{lemma}
+		Sea $D$ un DIP y $M$ un $D$-módulo. Sea $x\in M$ y $d\in D$ tal que $(0:x) = (d)$. Sea $d = np_1^{e_1} \cdots p_t^{e_t}$, $p_i \neq p_j$, si $i\neq j$, la factorización de $d$ en primos. Entonces:
+		\[DX = DX_1 \oplus \cdots \oplus DX_t,\]
+		con $(0:X_i) = (p_i^{e_i})$. En particular, $DX_i$ es $p$-primario. 
+	\end{lemma}
+	\begin{proof}
+		Para cada $i$, $1 \leq i \leq t$, sea
+		\[d_i = n p_1^{e_1} \cdots p_{i-1}^{e_{i+1}} \cdots p_t^{k_t}\]
+		de modo que $d = d_ip_i^{e_i}$. Además, sea $X_i = d_iX \in M$. Se tiene entonces que $(0:X_i) = (p_i^{e_i})$. Veámoslo:$\\$
+		"$\supset$"
+		\[p_i^{e_i}X_i = p_i^{e_i} d_i X = dX = 0.\]
+		"$\subset$"
+		\[x\in (0:X_i) \Rightarrow 0 = \lambda X_i = \lambda d_i X \Rightarrow \lambda d_i \in (0:X) = (d) \Rightarrow \lambda d_i = \mu d \Rightarrow \lambda d_i= \mu d_i p_i^{e_i} \Rightarrow \lambda = \mu p_i^{e_i} \in (p_i^{e_i}).\]
+		Veamos que $DX = DX_1 \oplus \cdots \oplus DX_t$:
+		\begin{center}
+			$(0: X_i) = (p_i^{e_i}) \Rightarrow x_i \in M_{p_i} \Rightarrow DX_i \subset M_{p_i} \stackrel{Lema 3.1}{\Rightarrow}$ La suma $DX_1 + \cdots + DX_t$ es directa.
+		\end{center}
+		"$\supset$"$\\$
+		\[X_i = d_i X\in DX\]
+		"$\subset$"$\\$
+		\[mcd(d_1, ..., d_t)\Rightarrow 1 = \sum_{i = 1}^{t} \alpha_i d_i,\]
+		con $\alpha_i \in D$. Entonces:
+		\[X = 1X = (\sum_{i = 1}^{t} \alpha_i d_i)X = \sum_{i = 1}^{t} \alpha_i (d_iX) = \sum_{i = 1}^{t} \alpha_i X_i \Rightarrow X \in DX_1 + ... + DX_t \Rightarrow DX \subset DX_1 + ... + DX_t.\]
+	\end{proof}
+	\begin{proposition}
+		Sea $D$ un DIP y $M$ un $D$-módulo de torsión de tipo finito. Entonces:
+		\[M = \oplus_p M_p,\]
+		donde la suma se extiende a todos los primos $p$ tales que $M_p \neq 0$, y existe solamente un número finito de tales primos. $\\$
+		Cada $M_p$ se puede expresar de la forma
+		\[M_p = DZ_1 \oplus \cdots \oplus DZ_r\]
+		tal que $(0:Z_i) = (p^{e_i})$ y $1 \leq e_1 \leq ... \leq e_r$.
+		Además la sucesión $e_1, ..., e_r$ está determinada de modo único.
+	\end{proposition}
 \end{document}
+
+
+
+
+
