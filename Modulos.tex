@@ -452,14 +452,14 @@ Ya vimos como $\pi$ es un homomorfismo de módulos. Ahora, queda ver que $f'$ es
 \end{proposition}
 \begin{proof}
 	Para probar esto tomamos:
-	%\[
-	%\xymatrix{
-	%%	M_2 \ar[r]^f & & \frac{M_1+M_2}{M_1} \\
-	%	& \ar[r]^{f'}
-	%}
-	%\
+	\[
+	\xymatrix{
+		M_2 \ar[rr]^f \ar[rd] & & \frac{M_1+M_2}{M_1} \\
+		& \ar[ru]^{f'} \\
+	}
+	\]
 \end{proof}
-%ACABA PARTE JORGE
+%ACABA PARTE JORGE (AÚN FALTA UN NADA DE NAAAAADA LO HURO)
 \begin{definition}
 	Sea $A$ un anillo. Un $A$-módulo $M$ es cíclico si está generado por un elemento, es decir:
 	\[\exists x  \in M \ / \   M=<x>=Ax\]
@@ -694,9 +694,108 @@ Ya vimos como $\pi$ es un homomorfismo de módulos. Ahora, queda ver que $f'$ es
 		\item $ \{0\} $ es $ A $-módulo libre base $ \emptyset $
 	\end{itemize}
 \end{example}
-JORGE 15-11
+%EMPIEZA PARTE JORGE 15 NOVIEMBRE
+\underline{\textbf{NOTACION}} $\\$
 
+$A$ anillo, $M$ $A$-módulo e $I$ conjunto. Tenemos que:
+\begin{enumerate}
+	\item $M^I= \prod_{i\in I} M_i$, donde $M_i = M$, $\forall i$.
+	\item  $M^{(I)}= \oplus_{i\in I} M_i$, donde $M_i = M$, $\forall i$.
+\end{enumerate} 
+Por tanto, si tenemos que $I$ es finito con $n$ elementos:
+\[M^n = M^I = M^{(I)}\]
+\begin{proposition}
+	Sea $A$ un anillo y sea $I$ un conjunto. Entonces:
+	\begin{center}
+		$A^{(I)}$ es un $A$-módulo libre.
+	\end{center}
+\end{proposition}
+\begin{proof}
+	Para cada $i\in I$ tomaremos $e_i \in A^{(I)}$ definido por $e_i = (e_{ij})_{j\in I}$ con 
+	$e_{ij} =
+	\left \{ 
+		\begin{matrix}
+		 	0, & i\neq j \\ 
+			1, & i = j
+		\end{matrix}
+	\right .
+	$
+	Por ejemplo, $e_1 = (1,0,0)$, $e_2 = (0,1,0)$ y $e_3 = (0,0,1)$. Así pues, $\{e_i\}_{i\in I}$ es una base de $A^{(I)}$:
+	\begin{enumerate}
+		\item Son generadores: $\\$
+		Sea $x\in A^{(I)}$, tenemos que $x = (x_i)_{i\in I}$, con casi todos los $x_i = 0$. Además:
+		\[x = \sum_{i\in I} x_ie_i, \hspace{0.2cm} x_ie_i = (x_ie_{ij})_{i\in I} = (0, ..., 0, x_i, 0, ..., 0)\in A^{(I)}\]
+		
+		\item Son independientes: $\\$
+		Sea $0 = \sum_{i\in I} a_ie_i$ con casi todos los $a_i = 0$, entonces $a_i = 0$, $\forall i\in I$.
+		\[0 = \sum_{i\in I} a_ie_i = (a_i)_{i\in I} \Rightarrow a_i = 0, \hspace{0.2cm} \forall i\in I\]
+	\end{enumerate}
+\end{proof}
+\begin{proposition}
+	Sea $A$ un anillo y $F$ un $A$-módulo. Son equivalentes:
+	\begin{enumerate}
+		\item $F$ libre
+		\item Existe un conjunto $I$ y un isomorfismo de $A$-módulos tal que:
+		\[F\simeq A^{(I)}\]
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	$1 \Rightarrow 2$ $\\$
+	$F$ libre $\Rightarrow \exists$ base $\{x_i\}_{i\in I}$ de $F$. Por lo tanto: $\\$
+	\[F = \sum_{i\in I} Ax_i \stackrel{generadores}{=} \oplus_{i\in I} Ax_i \stackrel{lin. indep.}{=}  \oplus_{i\in I }A \stackrel{lin. indep.}{=}  A^{(I)}\]
+	$2 \Rightarrow 1$ $\\$
+	Anteriormente demostrado.
+\end{proof}
+\begin{proposition}
+	Sea $F$ un $A$-módulo libre con base $\{x_i\}_{i\in I}$ y $M$ otro $A$-módulo. Además sea $\{y_i\}_{i\in I}$ un conjunto de elementos de $M$. Entonces existe un único homomorfismo de $A$-módulos de la forma:
+	\[\varphi:F \Longrightarrow M\]
+	tal que $\varphi(x_i) = y_i$, $\forall i\in I$.
+\end{proposition}
 
+Ahora, tomemos $x\in F$, $x = \sum_{i\in I}a_ix_i$. Por lo que $\varphi (x) = \varphi (\sum_{i\in I}a_ix_i) = \sum_{i\in I}a_i\varphi (x_i)$. De esto obtendremos la siguiente proposición.
+
+\begin{proposition} Se cumple que:
+	\begin{center}
+		$\varphi$ es inyectivo $\Leftrightarrow$ $\{y_i\}_{i\in I}$ es lin. independiente
+	\end{center}
+	\begin{center}
+		$\varphi$ es sobreyectivo $\Leftrightarrow$ $\{y_i\}_{i\in I}$ generadores de $M$
+	\end{center}
+	\begin{center}
+		$\varphi$ es isomorfismo $\Leftrightarrow$ $\{y_i\}_{i\in I}$ es base de $M$
+	\end{center}
+\end{proposition}
+
+\begin{definition}
+	Sea $M$ un $A$-módulo. Un homomorfismo sobreyectivo de $A$-módulos $\epsilon : F \longrightarrow M$, con $F$ un $A$-módulo libre, se denomina \underline{presentación libre} de $M$. 
+\end{definition}
+\begin{proposition}
+	Todo módulo $M$ tiene una presentación libre.
+\end{proposition}
+\begin{definition}
+	Sea $\{x_i\}_{i\in I}$ un conjunto de generadores de $M$ y $\epsilon : F = A^{(I)} \longrightarrow M$ una presentación libre de $M$ tal que $\epsilon (e_i) = x_i$. Se denomina módulo de relaciones de esta presentación a $N = ker(\epsilon) \subset A^{(I)}$.
+\end{definition}
+\begin{proposition}
+	Sea $\{f_j\}_{j\in J}$ un conjunto de generadores de $N$. Para cada $j\in J$, $f_j = \sum_{i\in I} a_{ij}e_i$, $a_{ij}\in A$ con $a_{ij} = 0$ para casi todo $i\in I$.
+\end{proposition}
+\begin{proof}
+	Para cada $j\in J$, $\epsilon (f_j) = 0 \Rightarrow 0 = \epsilon (\sum_{i\in I} a_{ij}e_i) = \sum_{i\in I} a_{ij} \epsilon (e_i) = \sum_{i\in I} a_{ij} x_i$. 
+\end{proof}
+\begin{proposition}
+	Sea $M$ un $A$-módulo y $\{x_i\}_{i\in I}$ un conjunto de generadores de $M$. Además se cumple que:
+	\begin{center}
+		$\epsilon : A^{(I)} \longrightarrow M$, con $\epsilon (e_i) = x_i$ $\forall i\in I$, y $0 = \sum_{i\in I} a_{ij}e_i$, $j\in J$.
+	\end{center}
+	Entonces $M$ es el $A$-módulo con generadores $\{x_i\}_{i\in I}$ y relaciones $\sum_{i\in I} a_{ij}e_i = 0$, $\forall j\in J$.
+\end{proposition}
+\begin{proof}
+	$A^{(I)} \stackrel{\epsilon}{\longrightarrow} M$
+	\[ker(\epsilon) = <f_j = \sum_{i\in I} a_{ij}e_i>_{j\in J}\]
+	para cada $j$. Así tenemos que:
+	\[\frac{A^{(I)}}{ker(\epsilon)}\simeq M.\]
+\end{proof}
+%FALTA COMPLETAR UNAS COSAS
+%ACABA PARTE JORGE 15 NOVIEMBRE
 \begin{proposition}
 	Sea $A=\mathbb{Z}$ y $M$ $A$-módulo con generadores $x_1,x_2$ y la relación $x_1+x_2=0$. Veamos que $Z\simeq M$.
 \end{proposition}
