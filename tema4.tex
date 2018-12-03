@@ -271,7 +271,7 @@
 		Nótese que las matrices obtenidas de $ A $ por un número finito de operaciones elementales son equivalentes a $ A $.
 		\[ U_q \cdots U_1AV_1\cdots V_p=QAP\]
 	\end{definition}
-	\section{Diagonalización}
+	\subsection{Diagonalización}
 	\begin{theorem}
 		Sea $ D $ un dominio de ideales principales. Si $ A \in M_{m\times n}(D) $, entonces $ A $ es equivalente a una matriz diagonal.
 		\[ \text{diag}(d_1, \cdots, d_r, 0, \cdots, 0), \quad \text{con } 0\leq r \leq \min \{m,n\} \text{ y }\begin{cases}
@@ -295,10 +295,151 @@
 		
 	\end{proof}
 
-BEGIN SERGIO 26-11
+	BEGIN SERGIO 26-11
+	
+	\begin{example}
+		\[ A = \begin{pmatrix}
+				2 & 3 & 1 \\
+				-3 & 2 & 4
+		\end{pmatrix} \in \mathcal{M}_{2\times 3}(\mathbb{Z}), \ D=\mathbb{Z}, \ \phi=|\ |\]
+		\[ \begin{pmatrix}
+			2 & 3 & 1 \\
+			-3 & 2 & 4
+		\end{pmatrix} \xrightarrow{C_1\leftrightarrow C_3} \begin{pmatrix}
+			1 & 3 & 2 \\
+			4 & 2 & -3
+			\end{pmatrix}\xrightarrow{\substack{C_2-3C_1\\C_3-2C_1}} \begin{pmatrix}
+			1 & 0 & 0 \\
+			4 & -10 & -11
+			\end{pmatrix}\xrightarrow{F_2-4F_1}\begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & -10 & -11
+		\end{pmatrix}
+	\xrightarrow{(-1)F_2}\] 
+		\[\begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & 10 & 11
+		\end{pmatrix}
+		\xrightarrow{C_3-C_2} \begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & 10 & 1
+		\end{pmatrix}
+		\xrightarrow{C_2\leftrightarrow C_3} \begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 10
+		\end{pmatrix}
+		\xrightarrow{C_3-10C_2}\begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0
+	\end{pmatrix}=B, \ d_1=1, \ d_2=1 \]
 
+	Tenemos que $B=QAP$ con $P$ y $Q$ matrices invertibles. Lo que hemos hecho es $U_q\dots U_1AV_1\dots V_p$ ya que multiplicar por $V_i$ por la derecha es hacer operaciones elementales en columnas y multiplicar por $U_i$ por la izquierda es hacer operaciones elementales en filas.
+	\[ QAP=U_q\dots U_1AV_1\dots V_p=U_q\dots U_1I_mAI_nV_1\dots V_p\]
+	Luego $P$ es el resultado de hacer en la matriz identidad $I_n$ las mismas operaciones elementales en columnas que hemos hecho en $A$, y $Q$ es el resultado de hacer en $I_m$ las mismas operaciones elementales en filas que hemos hecho en $A$.\\
+	Cálculo de $P$:
+	\[ I_3 = \begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1
+			\end{pmatrix}\xrightarrow{C_1\leftrightarrow C_3}\begin{pmatrix}
+			0 & 0 & 1 \\
+			0 & 1 & 0 \\
+			1 & 0 & 0
+			\end{pmatrix}\xrightarrow{\substack{C_2-3C_1\\C_3-2C_1}}\begin{pmatrix}
+			0 & 0 & 1 \\
+			0 & 1 & 0 \\
+			1 & -3 & -2
+			\end{pmatrix}\xrightarrow{C_3-C_2}\begin{pmatrix}
+			0 & 0 & 1 \\
+			0 & 1 & -1 \\
+			1 & -3 & 1
+			\end{pmatrix}\xrightarrow{C_2\leftrightarrow C_3}\] 
+			\[\begin{pmatrix}
+			0 & 1 & 0 \\
+			0 & -1 & 1 \\
+			1 & 1 & -3
+			\end{pmatrix}\xrightarrow{C_3-10C_2}\begin{pmatrix}
+			0 & 1 & -10 \\
+			0 & -1 & 11 \\
+			0 & 0 & -13
+	\end{pmatrix}=P \]
 
-END SERGIO 26-11
+	Cálculo de $Q$:
+	\[I_2= \begin{pmatrix}
+			1 & 0\\
+			0 & 1
+			\end{pmatrix}\xrightarrow{F_2-4F_1}\begin{pmatrix}
+			1 & 0\\
+			-4 & 1
+			\end{pmatrix}\xrightarrow{(-1)F_2}\begin{pmatrix}
+			1 & 0\\
+			4 & -1
+	\end{pmatrix}=Q\]
+
+	\end{example}
+	
+	\section{Teorema de Estructura}
+	\begin{proposition}
+		Sea $D$ un DIP, $F$ un $D$-módulo libre de rango $n$ y $N$ un submódulo de $F$. Entonces $N$ es libre de rango $\leq n$.
+	\end{proposition}
+
+	\begin{proof}\ \\
+		Inducción en $n=$ rango de $F$.
+		\begin{itemize}
+			\item $n=0\Rightarrow F=0\Rightarrow N=0 \Rightarrow N \text{ libre de rango } 0.$
+			\item $n=1 \Rightarrow F \xrightarrow{\sim} D \Rightarrow N \text{ es isomorfo a un ideal de } D \Rightarrow N\simeq aD_i(a), \ a\in D \text{ (por ser D un DIP)}.$
+			\begin{itemize}
+				\item $a=0 \Rightarrow N=0 \Rightarrow N$ libre de rango 0.
+				\item $a\neq 0 \Rightarrow N\simeq aD\simeq D/(0:a) = D$ ($a\neq 0 \Rightarrow (0:a)=0$) $\Rightarrow N$ libre de rango 1.
+			\end{itemize}
+		\end{itemize}
+		Sea entonces $n>1$ y supongamos que es cierto para $D$-módulos libres de rango $<n$. Sea $\{e_1,\dots,e_n\}$ una base de $F$ y $F':=\langle e_1,\dots,e_n\rangle$. $F'$ es libre de rango $n-1$ y $F/F'$ es libre de rango 1 con base $\{e_1+F'\}$.\\
+		Generadores:
+		\[x\in F \Rightarrow x=\sum_{i=1}^n\lambda_i e_i \Rightarrow x+F' = \lambda_1 e_1 + \sum_{i=2}^n\lambda_i e_i + F' = \lambda_1 e_1 + F' = \lambda_1(e_1+F') \text{ \ \ ($\sum_{i=2}^n \lambda_i e_i \in F'$) }\]
+		Linealmente independientes:
+		\[\lambda(e_1+F')=F'\Rightarrow \lambda e_1+F'=F' \Rightarrow \lambda e_1 \in F' \Rightarrow \lambda e_1 = \mu_2e_2+\dots+\mu_ne_n \Rightarrow\] 
+		\[ -\lambda e_1+\mu_2e_2+\dots+\mu_ne_n=0 \Rightarrow -\lambda=0 \Rightarrow \lambda = 0\]
+
+		Sea $\bar{N}:=(N+F')/F'$.
+		\begin{itemize}
+			\item $\bar{N}=0 \Rightarrow N+F'=F' \Rightarrow N\subset F' \Rightarrow N$ es libre de rango $\leq n-1 \leq n$ (por hipótesis de inducción)
+			\item $\bar{N}\neq 0 \Rightarrow \bar{N}$ es libre de rango 1 y $\bar{N}\simeq D$ \  ($\bar{N}\subset F/F'$ e hipótesis de inducción teniendo en cuenta que $F/F'$ es libre de rango 1).
+		\end{itemize}
+
+		$N\cap F'$ es submódulo de $F' \Rightarrow N\cap F'$ (por inducción) es libre de rango $m\leq n-1$.\\
+		Sea $\{y_1,\dots,y_m\}$ base de $N\cap F'$ y $z\in N$ tal que $\{z+F'\}$ es base de $\bar{N}$. Veamos que $\{z,y_1,\dots,y_m\}$ es base de $N$.\\
+		Generadores:
+		\[ x\in N \Rightarrow x+F'=\lambda(z+F') \Rightarrow x+F' = \lambda z + F' \Rightarrow\]
+		\[\begin{rcases}
+			x-\lambda z \in F' \\
+			x-\lambda z \in N
+	\end{rcases} \Rightarrow x-\lambda z \in N\cap F' \Rightarrow x-\lambda z = \sum_{i=1}^n\mu_iy_i \Rightarrow x=\lambda z + \sum_{i=1}^n\mu_iy_i\]
+	Linealmente independientes:
+	\[\lambda z + \sum_{i=1}^n\mu_iy_i=0 \Rightarrow  \lambda z = -\sum_{i=1}^n\mu_iy_i \in N\cap F' \subset F' \Rightarrow \lambda z +F' = \lambda(z+F') = F' \Rightarrow\]
+	\[\sum_{i=1}^n\mu_iy_i=0 \Rightarrow \mu_i=0,\ 1\leq i\leq m\]
+
+	\end{proof}
+
+	\begin{lemma}
+		Sea $M$ un $R$-módulo, $x_1,\dots,x_n \in M$ y $A=(a_{ij}) \in\mathcal{M}_{n\times n}(R)$ inversible. Sean $y_i=\sum_{j=1}^n a_{ij}x_j \ 1\leq i\leq n$.\\
+		Si $\{x_1,\dots,x_n\}$ es un conjunto de generadores (respectivamente linealmente independientes) entonces $\{y_1,\dots,y_n\}$ también lo es.
+	\end{lemma}
+
+	\begin{proof}\ \\
+		Generadores: Sea $B:=A^{-1},\ B=(b_{ij})\in \mathcal{M}_{n\times n}(R)$.
+		\[\sum_{k=1}^nb_{pk}y_k=\sum_{k=1}^nb_{pk}(\sum_{l=1}^na_{kl}x_l)=\sum_{l=1}^n(\sum_{k=1}^nb_{pk}a_{kl})x_l\]
+		Teniendo en cuenta que $\sum_{k=1}^nb_{pk}a_{kl}=(BA)_{pl}=(I_n)_{pl}=\delta_{pl}$ concluímos:
+		\[\sum_{l=1}^n(\sum_{k=1}^nb_{pk}a_{kl})x_l=\sum_{i=1}^n\delta_{pl}x_l=x_p\]
+		\[x_1,\dots,x_n \in \langle y_1,\dots, y_n \rangle \Rightarrow M=\langle x_1,\dots,x_n \rangle \subset \langle y_1,\dots,y_n \rangle \subset M \Rightarrow \langle y_1,\dots,y_n \rangle = M\]
+		Linealmente independientes:\\
+		Supongamos $\sum_{i=1}^n\lambda_iy_i=0$ y definimos $(c_{kl})=C:=A^t$.
+		\[0=\sum_{i=1}^n\lambda_iy_i=\sum_{i=1}^n\lambda_i(\sum_{j=1}^na_{ij}x_j)=\sum_{j=1}^n(\sum_{i=1}^n\lambda_ia_{ij})x_j \Rightarrow \sum_{i=1}^n\lambda_ia_{ij}=\sum_{i=1}^nc_{ji}\lambda_i=0,\ 1\leq j\leq n\]
+
+		Estas igualdades significan que $\ C\begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}=0$. Y como $A$ es inversible, $C$ también lo es de lo que deducimos:
+		\[C^{-1}C\begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}=0 \Rightarrow \begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}=0 \Rightarrow \lambda_i=0 \ \ \  1\leq i \leq n\]
+	\end{proof}
+
+	END SERGIO 26-11
 
 	PRADA 27-11
 	\begin{theorem}
