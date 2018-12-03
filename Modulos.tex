@@ -454,11 +454,15 @@ Ya vimos como $\pi$ es un homomorfismo de módulos. Ahora, queda ver que $f'$ es
 	Para probar esto tomamos:
 	\[
 	\xymatrix{
-		M_2 \ar[rr]^f \ar[rd] & & \frac{M_1+M_2}{M_1} \\
-		& \ar[ru]^{f'} \\
+		M_2 \ar[rr]^f \ar@{^{(}->}[rd] & & \frac{M_1+M_2}{M_1} \\
+		& M_1 + M_2\ar[ru] \\
 	}
 	\]
+	siendo $f$ un homomorfismo de $A$-módulos con $f(x) = x + M_1$. Esta aplicación es sobreyectiva ya que $y+x+M_1 \in \frac{M_1+M_2}{M_1}$ con $y \in M_1$ y $x \in M_2$, pero entonces $y + x + M_1 = x + M_1$. $\\$
+	Además, su núcleo es $M_1 \cap M_2$ (exactamente igual que la demostración para grupos). Por lo tanto:
+	\[\frac{M_1+M_2}{M_1}\simeq \frac{M_2}{M_1\cap M_2}\]
 \end{proof}
+
 %ACABA PARTE JORGE (AÚN FALTA UN NADA DE NAAAAADA LO HURO)
 \begin{definition}
 	Sea $A$ un anillo. Un $A$-módulo $M$ es cíclico si está generado por un elemento, es decir:
@@ -795,6 +799,10 @@ Ahora, tomemos $x\in F$, $x = \sum_{i\in I}a_ix_i$. Por lo que $\varphi (x) = \v
 	\[\frac{A^{(I)}}{ker(\epsilon)}\simeq M.\]
 \end{proof}
 %FALTA COMPLETAR UNAS COSAS
+\begin{observation}
+	$A^{(I)} \longrightarrow ker(\epsilon) \longrightarrow A^{(I)} \longrightarrow M \\$
+	siendo $\psi: A^{(0)} \longrightarrow A^{(I)}$ con $coker(\psi) = \frac{A^{(I)}}{Im(\psi)} = \frac{A^{(I)}}{ker(\epsilon)} \simeq M$.
+\end{observation}
 %ACABA PARTE JORGE 15 NOVIEMBRE
 \begin{proposition}
 	Sea $A=\mathbb{Z}$ y $M$ $A$-módulo con generadores $x_1,x_2$ y la relación $x_1+x_2=0$. Veamos que $Z\simeq M$.
