@@ -31,6 +31,8 @@
 {\left.\begin{aligned}}
 	{\end{aligned}\right\rbrace}
 
+\usepackage[all]{xy} %para diagramas conmutativos
+
 %-----------------------------------------------------------------------------------------------------
 %	SELECCIÓN DE LA FUENTE
 %-----------------------------------------------------------------------------------------------------
@@ -183,7 +185,7 @@
 \begin{document}
 
 \maketitle
-
+\tikzset{node distance=2cm, auto}
 %-----------------------------------------------------------------------------------------------------
 %	ÍNDICE
 %-----------------------------------------------------------------------------------------------------
@@ -645,6 +647,67 @@
 		tal que $(0:Z_i) = (p^{e_i})$ y $1 \leq e_1 \leq ... \leq e_r$.
 		Además la sucesión $e_1, ..., e_r$ está determinada de modo único.
 	\end{proposition}
+
+	PRADA 04-12:
+	\begin{proof}
+		CONTINUAMOS DEM
+		
+		Supongamos:
+		\[ N\simeq D/(p^{e_1}) \oplus \cdots D/(p^{e_r}), \quad 1\leq e_1\leq\cdots\leq e_r \]
+		\[ N\simeq D/(p^{f_1}) \oplus \cdots D/(p^{f_s}), \quad 1\leq f_1\leq\cdots\leq f_s \]
+		
+		Lo que hemos de ver es que $ r=s $, $ e_i=f_i $, $ \forall i $.
+		Ya sabemos que $ e_r=  f_s\equiv p$-exponente de $ N $.
+		
+		Razonaremos por inducción en el $ p $-exponente.
+		Si $ e_r=f_s=1 \Rightarrow e_i=f_j=1 \ \forall i,j \Rightarrow N $ es un $ D/(p) $-exponente, y por la igualdad de dimensiones, resulta $ r=s $.
+		
+		Supongamos $ e_r=f_s $ y que el resultado es cierto para unidades de $ p $-exponente $ <e_r=f_s $.
+		
+		Sean $ m $ y $ n $ tales que:
+		\[ e_i\geq 2\Leftrightarrow i\geq m, f_1 \geq 2 \Leftrightarrow j \geq n \]
+		Entonces: 
+		\[ pN\simeq \bigoplus_{i=m}^r D/(p^{e_i-1})  \]
+		\[ pN\simeq \bigoplus_{j=n}^s D/(p^{f_j-1})  \]		
+		En efecto, se tiene:
+		\[ N\simeq \bigoplus_{i=1}^{m-1} D/(p) \oplus  \bigoplus_{i=m}^{r}D/(p^{e_i}), \quad e_i \geq 2  \]
+		y por tanto:
+		\[ pN\simeq \bigoplus_{i=1}^{m-1} pD/(p) \oplus  \bigoplus_{i=m}^{r}pD/(p^{e_i}) = \bigoplus_{i=m}^{r}pD/(p^{e_i}) \text{, ya que } pD/(p)=0 \]
+		¿Será cierto que $ D/(p^{e_i-1})\simeq pD/(p^{e_i}) $?
+
+		Diagrama de funciones: 
+
+		\[ \begin{tikzpicture}
+		\node (n1) {$(p^{e_{i-1}})$};
+		\node (D) [below of=n1] {$D$};
+		\node (Ai) [right of=D] {$A_i$};
+		\draw[->] (n1) to node {$f_i$} (Ai);
+		\draw[] (n1) to node [swap] {$aaa$} (D);
+		\draw[->] (D) to node [swap] {$\pi_i$} (Ai);
+		\end{tikzpicture} \]
+		
+		Por inducción:
+		$ r-m= s-n $\\
+		$ e_m =f_n, \cdots , e_r =f_s$
+		Por otra parte:
+		\[ N/pN\simeq \bigoplus_{1}^r D/(p)  \]
+		\[ N/pN\simeq \bigoplus_{1}^s D/(p)  \]
+		En efecto:
+		FOTOs 2 y 3
+		Por la igualdad de dimensiones de (del $ D/(p) $-espacio vectorial $ N/pN $, resulta $ r=s $)
+		\[ \begin{rcases}
+		r-m&=s-n\\
+		r&=s
+		\end{rcases} \Rightarrow m=n \]
+		$ e_1=f_1=1\\
+		\vdots\\
+		e_{m-1}=f_{m-1}=1 \\$
+		$ e_m=f_m\\
+		e_{m+1}=f_{m+1}\\
+		\vdots
+		e_r=f_r $.	
+		
+	\end{proof}
 \end{document}
 
 
