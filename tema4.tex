@@ -8,7 +8,7 @@
 \usepackage{enumerate}
 \usepackage{wrapfig}
 \usepackage{graphicx}
-
+\usepackage{tikz-cd}
 
 
 %-----------------------------------------------------------------------------------------------------
@@ -26,6 +26,11 @@
 \def\flechaInyectiva {\mathrel{\ooalign{\thinspace\thinspace$\mapstochar\mkern5mu$\hfil\cr$\longrightarrow$\cr}}}
 \def\xFlechaSobreyectiva #1{\mathrel{\ooalign{\hfil$\mapstochar\mkern5mu$\thinspace\thinspace\cr$\xrightarrow{#1}$\cr}}}
 \def\flechaSobreyectiva {\mathrel{\ooalign{\hfil$\mapstochar\mkern5mu$\thinspace\thinspace\cr$\longrightarrow$\cr}}}
+\def\barra {\mathrel{\ooalign{\hfil$\mapstochar\mkern5mu$\thinspace\thinspace\cr$---$\cr}}}
+\tikzset{
+	sobre/.tip={Glyph[glyph math command=flechaSobreyectiva,glyph length=1em]},
+	inyec/.tip={Glyph[glyph math command=barra,glyph length=0.6em]},
+}
 %llave a la derecha
 \newenvironment{rcases}
 {\left.\begin{aligned}}
@@ -678,14 +683,28 @@
 		Diagrama de funciones: 
 
 		\[ \begin{tikzpicture}
-		\node (n1) {$(p^{e_{i-1}})$};
-		\node (D) [below of=n1] {$D$};
-		\node (Ai) [right of=D] {$A_i$};
-		\draw[->] (n1) to node {$f_i$} (Ai);
-		\draw[] (n1) to node [swap] {$aaa$} (D);
-		\draw[->] (D) to node [swap] {$\pi_i$} (Ai);
-		\end{tikzpicture} \]
 		
+		\node (n1) {$(p^{e_{i-1}})$};
+		\node (n2) [right of=n1] {$(p^{e_{i}})$};
+		\node (D) [below of=n1] {$D$};
+		\node (pD) [right of=D] {$pD$};
+		\node (D1) [below of=D] {$D/p^{e_{i-1}}$};
+		\node (D2) [right of=D1] {$pD/p^{e_{i}}$};
+		\node (center) [right of=D, node distance=3em, below of=D] {$ \circlearrowright $};
+		\draw[->] (n1) to node [swap] {} (n2);
+		\draw[inyec->] (n1) to node [swap] {} (D);
+		\draw[inyec->] (n2) to node [swap] {} (pD);
+		\draw[-sobre] (D) to node [swap] {$ p $} (pD);
+		\draw[-sobre] (D) to node [swap] {} (D1);
+		\draw[-sobre] (pD) to node [swap] {} (D2);
+		\draw[-sobre] (D1) to node [swap] {$ \theta $} (D2);
+		\end{tikzpicture} \]
+		$ \theta $ homomorfismo de $ D $-módulos. 
+		\[ x+ (p^{e_{i-1}}) \longmapsto px+ (p^{e_{i}})\]
+		$ \theta $ es inyectiva? i.e. $ \theta(\overline{x})=0 \Rightarrow \overline{x}=0$?		
+		 \[ \theta(\overline{x})=\overline{px}=0 \Rightarrow px \in  (p^{e_{i}}) \Rightarrow  p^{e_{i}} \mid px \Rightarrow  p^{e_{i-1}} \mid x \Rightarrow x \in  (p^{e_{i-1}})\Rightarrow \overline{x}=0 	 \]	
+		
+		COSAS
 		Por inducción:
 		$ r-m= s-n $\\
 		$ e_m =f_n, \cdots , e_r =f_s$
@@ -693,7 +712,53 @@
 		\[ N/pN\simeq \bigoplus_{1}^r D/(p)  \]
 		\[ N/pN\simeq \bigoplus_{1}^s D/(p)  \]
 		En efecto:
-		FOTOs 2 y 3
+		
+		\[ \begin{tikzpicture}
+		
+		\node (pN) {$pN$};
+		\node (o1) [right of=pN] {$0$};
+		\node (o2) [right of=o1] {$0$};
+		\node (pd1) [right of=o2] {$pD/(p^{e_{m}})$};
+		\node (pd2) [right of=pd1,shift={(1,0)}] {$pD/(p^{e_{r}})$};
+		\draw[white] (pN) edge node [black,shift={(0,-0.2)}] {$\simeq$} (o1);
+		\draw[white] (o2) edge node [black,shift={(0,-0.25)}] {$\oplus$} (pd1);
+		\draw[white] (o1) edge node [black,shift={(0,-0.25)}] {$\oplus\  \cdots \ \oplus$} (o2);
+		\draw[white] (pd1) edge node [black,shift={(0,-0.25)}] {$\oplus \cdots \oplus$} (pd2);
+		\node (N) [below of=pN]{$N$};
+		\node (dp1) [below of=o1] {$D/(p)$};
+		\node (dp2) [below of=o2] {$D/(p)$};
+		\node (dp3) [below of=pd1] {$D/(p^{e_{m}})$};
+		\node (dp4) [below of=pd2] {$D/(p^{e_{r}})$};
+		\draw[white] (N) edge node [black,shift={(0,-0.2)}] {$\simeq$} (dp1);
+		\draw[white] (dp1) edge node [black,shift={(0,-0.25)}] {$\oplus \cdots \oplus$} (dp2);
+		\draw[white] (dp2) edge node [black,shift={(0,-0.25)}] {$\oplus$} (dp3);
+		\draw[white] (dp3) edge node [black,shift={(0,-0.25)}] {$\oplus \cdots \oplus$} (dp4);
+		\draw[inyec->] (pN) to node [swap] {} (N);
+		\draw[inyec->] (o1) to node [swap] {} (dp1);
+		\draw[inyec->] (o2) to node [swap] {} (dp2);
+		\draw[inyec->] (pd1) to node [swap] {} (dp3);
+		\draw[inyec->] (pd2) to node [swap] {} (dp4);
+		
+		\node (Npn) [below of=N]{$N/pN$};
+		\node (dp21) [below of=dp1] {$D/(p)$};
+		\node (dp22) [below of=dp2] {$D/(p)$};
+		\node (dp23) [below of=dp3] {$D/pD$};
+		\node (dp24) [below of=dp4] {$D/pD$};
+		\draw[white] (Npn) edge node [black,shift={(0,-0.2)}] {$\simeq$} (dp21);
+		\draw[white] (dp21) edge node [black,shift={(0,-0.25)}] {$\oplus \cdots \oplus$} (dp22);
+		\draw[white] (dp22) edge node [black,shift={(0,-0.25)}] {$\oplus$} (dp23);
+		\draw[white] (dp23) edge node [black,shift={(0,-0.25)}] {$\oplus \cdots \oplus$} (dp24);
+		\draw[-sobre] (N) to node [swap] {} (Npn);
+		\draw[-sobre] (dp1) to node [swap] {} (dp21);
+		\draw[-sobre] (dp2) to node [swap] {} (dp22);
+		\draw[-sobre] (dp3) to node [swap] {} (dp23);
+		\draw[-sobre] (dp4) to node [swap] {} (dp24);	
+		\end{tikzpicture} \]
+		Y por ejemplo:
+		\[ pD/(p^{e_{m}}) \flechaInyectiva D/(p^{e_{m}}) \flechaSobreyectiva [D/(p^{e_{m}})]/[pD/(p^{e_{m}})] \simeq D/pD \]
+		ya que si $  M_2 \subset M_1 \subset M $:
+		\[ (M/M_2)/(M_1/M_2)\simeq M/M_1 \]
+		
 		Por la igualdad de dimensiones de (del $ D/(p) $-espacio vectorial $ N/pN $, resulta $ r=s $)
 		\[ \begin{rcases}
 		r-m&=s-n\\
