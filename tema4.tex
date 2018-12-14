@@ -643,20 +643,80 @@
 		con $\alpha_i \in D$. Entonces:
 		\[X = 1X = (\sum_{i = 1}^{t} \alpha_i d_i)X = \sum_{i = 1}^{t} \alpha_i (d_iX) = \sum_{i = 1}^{t} \alpha_i X_i \Rightarrow X \in DX_1 + ... + DX_t \Rightarrow DX \subset DX_1 + ... + DX_t.\]
 	\end{proof}
+
+	SERGIO 3-12
 	\begin{proposition}
-		Sea $D$ un DIP y $M$ un $D$-módulo de torsión de tipo finito. Entonces:
-		\[M = \oplus_p M_p,\]
-		donde la suma se extiende a todos los primos $p$ tales que $M_p \neq 0$, y existe solamente un número finito de tales primos. $\\$
-		Cada $M_p$ se puede expresar de la forma
-		\[M_p = DZ_1 \oplus \cdots \oplus DZ_r\]
-		tal que $(0:Z_i) = (p^{e_i})$ y $1 \leq e_1 \leq ... \leq e_r$.
-		Además la sucesión $e_1, ..., e_r$ está determinada de modo único.
+	Sea $D$ un $DIP$ y $M$ un $D$-módulo de torsión de tipo finito. Entonces:
+	\begin{enumerate}
+	\item $M=\bigoplus_pM_P$, donde la suma se extiende a todos los primos $p$ tal que $M_P\neq0$ y hay solo un número finito de tales primos.
+	\item Cada $M_P$ se puede expresar en la forma $M_p=DZ_1\oplus\dots\oplus DZ_r$ tal que $(0:Z_i)=(p^{e_i})$ y $1\leq e_1 \leq e_r$.
+	\item La sucesión $e_1,\dots,e_r$ está determinada de modo único.
+	\end{enumerate}
 	\end{proposition}
 
-	PRADA 04-12:
 	\begin{proof}
-		CONTINUAMOS DEM
+		Por el Teorema de estructura:
+		\[M=DX_1\oplus\dots\oplus DX_n\]
+		con $(0:X_1)\supset\dots\supset(0:X_n)$, $(0:X_k)\neq D$ y $(0:X_k)\neq 0$.
 		
+		Sean $d_k\in D \ / \ (0:X_k)=(d_k) \ 1\leq k\leq n$. Se verifia $d_1|d_2 | \dots | d_n$.
+		
+		Sean $p_1,\dots,p_h$ los factores primos distintos dos a dos que aparecen en los $d_k$, $1\leq k\leq n$. Se tiene entonces:
+		\[d_k=u_kp_1^{e_{1k}}\dots p_h^{e_{hk}}\]
+		con $u_k$ unidad y $e_{ik}\geq 0 \ \ 1\leq i\leq n$ ($e_{ik}$ será 0 cuando $e_i$ no aparezca en la factorización de $d_k$).
+
+		Aplicando el lema anterior:
+		\[DX_k=DX_{1k}\oplus\dots\oplus DX_{hk} \text{ con } (0:X_{ik})=(p^{e_{ik}}_i)\]
+		Nótese que si $p_i$ no aparece en la factorización de $d_{ki}$, es decir, si $e_{ik}=0$, entonces $X_{ik}=0$ porque $e_{ik}=0\Rightarrow p^{e_{ik}}_i=1$).
+
+		Así $DX_k\subset M_{p_1}+\dots+M_{p_n}$ ($(0:X_{ik})=(p^{e_{ik}}_i)\Rightarrow X_{ik}\in M_{p_i}$ y entonces $DX_n=(DX_{1k}\subset M_{p_1})\oplus\dots\oplus (DX_{hk}\subset M_{p_n})$) con lo que $M=M_{p_1}+\dots + M_{p_n}$.
+
+		Por el lema, esta suma es directa:
+		\[M=M_{p_1}\oplus\dots\oplus M_{p_n}\]
+
+		Si $p$ es otro primo se sigue del lema:
+		\[M_p=M_p\cap M=M_p \cap (M_{p_1}+\dots+M_{p_n})=0\]
+
+		Se tiene así probada la primera parte de la proposición.
+
+		Podemos deducir de las siguientes igualdades (teniendo en cuenta $d_1|d_2|\dots|d_n$):
+		\[
+		\begin{rcases}
+			d_1=u_1p^{e_{11}}_1\dots p^{e_{n1}}_n\\
+			\vdots \ \ \ \ \ \ \ \  \\
+			d_n=u_np^{e_{1k}}_1\dots p^{e_{nk}}_n\\	
+		\end{rcases}
+		\Rightarrow e_{i1}\leq e_{i2} \leq\dots\leq e_{in}, \ 1\leq i\leq h
+		\]
+
+		La segunda parte de la proposición será consecuencia de esto y de lo siguiente que demostramos ahora:
+		\[M_{p_i}=DX_{in}\oplus\dots\oplus DX_{in},\ \ 1\leq i\leq h\]
+
+		$(\supset)$
+		\[p^{e_{ik}}_iX_{ik}=0\Rightarrow X_{ik}\in M_{p_i}\Rightarrow DX_{ik} \in M_{p_i},\ \ 1\leq i\leq h\]
+
+		$(\subset)$
+		\[x\in M_{p_i} \subset M = DX_1\oplus\dots\oplus DX_n=(DX_{11}\oplus\dots\oplus DX_{h1})\oplus\dots\oplus(DX_{1n}\oplus\dots\oplus DX_{hn}) \Rightarrow\]
+		\[x=\sum_{r=1}^n\sum_{l=1}^h \lambda_{lr}x_{lr} \ \ x_{lr}\in DX_{lr}\subset M_{p_l},\ \ x\in M_{p_i}\]
+
+		Como la suma $M_{p_1}+\dots M_{p_h}$ es directa, todos los sumandos del segundo miembro son nulos salvo para $l=i$ (en las sumas diretas los elementos se escriben de forma única). Luego:
+
+		\[x=\sum_{r=1}^n\lambda_{ir}x_ir \in DX_{i1}\oplus\dots\oplus DX_{in}\]
+		Demostremos ahora la tercera parte. Para abreviar denotamos $N\equiv M_p$.
+		\[N=DZ_1\oplus\dots\oplus DZ_r \ \ (0:Z_i)=(p^{e_i}) \ \ 1\leq e_1\leq e_2 \leq\dots\leq e_r\]
+		\[N\simeq D/(p^{e_1})\oplus\dots\oplus D/(p^{e_r}) \ \ \ (DZ_i\simeq D/(0:Z_i)=D/(p^{e_i})) \]
+
+		En primer lugar probaremos que $e_r=$ "menor número natural tal que $p^nN=0$".
+		
+		($\geq$)
+		\[p^{e_r}N=0 \  \text{ pues } \ p^{e_r}(D/(p^{e_i}))=0 \ \ \ 1\leq i\leq r\]
+		\[p^{e_r}(x+(p^{e_i}))=p^{e_r}x+(p^{e_i})=0 \ \ (p^{e_r}x\in (p^{e_i}))\]
+
+		($\leq$)
+		\[p^nN=0\Rightarrow p^n(D/(p^{e_r}))=0 \Rightarrow p^n(n+(p^{e_r}))=p^n+(p^{e_r})=0 \Rightarrow p^n\in (p^{e_r}) \Rightarrow p^{e_r}|p^n \Rightarrow e_r \leq n\]
+
+		Luego $e_r$ está determinado de modo único por $N$. Llamaremos a $e_r$ el $p$-exponente de $N$ y razonaremos por inducción sobre él.
+
 		Supongamos:
 		\[ N\simeq D/(p^{e_1}) \oplus \cdots D/(p^{e_r}), \quad 1\leq e_1\leq\cdots\leq e_r \]
 		\[ N\simeq D/(p^{f_1}) \oplus \cdots D/(p^{f_s}), \quad 1\leq f_1\leq\cdots\leq f_s \]
@@ -771,7 +831,6 @@
 		e_{m+1}=f_{m+1}\\
 		\vdots
 		e_r=f_r $.	
-		
 	\end{proof}
 \end{document}
 
