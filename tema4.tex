@@ -208,7 +208,7 @@
 
 \section{Módulos de tipo finito sobre un DIP}
 	\subsection{Equivalencia de matrices.}
-	En esta sección, $ R $ denota un anillo (conmutativo). 
+	En esta sección, $ R $ denota un anillo (conmutativo).
 	\begin{lemma}
 		Sea $ E_{ij} $ la matriz cuadrada sobre $ R $ con 1 en el lugar $ (i,j) $ y 0 en todos los demás lugares. Se verifica:
 		\begin{enumerate}[\hspace{1cm}i)]
@@ -218,7 +218,7 @@
 			\end{cases}$
 			\item Para cada matriz $A$, se tiene:\\
 				$ E_{ij} \cdot A= $ matriz que hace que todas las filas nulas salvo la $ i $-ésima, en la cual aparece la $ j $-ésima de $ A $.
-				
+
 				$A \cdot E_{ij} = $ matriz que hace que todas las columnas nulas salvo la $ j $-ésima, en la cual aparece la $ i $-ésima de $ A $.
 		\end{enumerate}
 	\end{lemma}
@@ -228,13 +228,13 @@
 			\item Sea $ b\in R, i\neq j :$
 			\[ T_{ij}(b) := I+b\cdot E_{ij}\]
 			$ T_{ij}(b)= $ matriz cuadrada con 1 en la diagonal, $ b $ en el lugar $ r_{ij} $ y 0 en todos los demás lugares.
-			
+
 			$ T_{ij}(b) $ es inversible, siendo $ T_{ij}(b)^{-1}=T_{ij}(-b) $. Teniendo en cuenta que $E_{ij}\cdot E_{ij}=0$ si $j\neq i$, comprobamos la inversibilidad:
 			\[(I+bE_{ij})(I-bE_{ij})=I-bE_{ij}+bE_{ij}-b^2E_{ij}E_{ij}=I\]
 			\item Sea $ u $ unidad de $ R $:
 			\[ D_i(u):=I+(u-1) E_{ii} \]
 			$ D_i(u) = $ matriz diagonal con u en el lugar (i,i) y 1 en los demás lugares de la diagonal $( D_i(u):=I+uE_{ii}-E_{ii})$.
-			
+
 			$ D_i(u)$ es inversible, con $ D_i(u)^{-1}=D_i(u^{-1}) $. Veámoslo ($E_{ii}\cdot E_{ii}=E_{ii}$):
 			\[ [I+(u-1) E_{ii}][I+(u^{-1}-1) E_{ii}] = I+(u^{-1}-1)E_{ii}+(u-1)E_{ii}+(u^{-1}-1)(u-1)E_{ii}E_{ii}=\]
 			\[=I+u^{-1}E_{ii}-E_{ii}+uE_{ii}-E_{ii}+(1-u^{-1}-u+1)E_{ii}=I\]
@@ -247,33 +247,33 @@
 			\vdots & &\vdots & &\vdots & \ddots &\vdots \\
 			0 & \cdots & 0 & \cdots & 0 & \cdots & 0  \\
 			\end{bmatrix} $
-			
+
 			$ P_{ij}  $ es inversible: $ P_{ij}^{-1}=P_{ij} $. Comprobémoslo:
-			
+
 			$ P_{ij}\cdot P_{ij}=I-E_{ii}-E_{jj}+E_{ij}+E_{ji}-E_{ii}+(E_{ii}E_{ii}=E_{ii})+(E_{ii}E_{jj}=0)-(E_{ii}E_{ij}=E_{ij})-(E_{ii}E_{ji}=0)-E_{jj} +(E_{jj}E_{ii}=0)+(E_{jj}E_{jj}=E_{jj})-(E_{jj}E_{ij}=0)-(E_{jj}E_{ji}=E_{ji})+E_{ij}-(E_{ij}E_{ii}=0)-(E_{ij}E_{jj}=E_{ij})+(E_{ij}E_{ij}=0)+(E_{ij}E_{ji}=E_{ii})+E_{jj}-(E_{ji}E_{ii}=E_{ji})-(E_{ji}E_{jj}=0)+(E_{ji}E_{ij}=E_{jj})+(E_{ji}E_{ji})=I$.
-			
+
 		\end{enumerate}
 	\end{definition}
 	\begin{definition}
-		Si $ A\in M_{m \times n}(R) $, se llaman operaciones elementales en $ A $, la multiplicación de $ A $ por la izquierda o por la derecha por matrices elementales. 
+		Si $ A\in M_{m \times n}(R) $, se llaman operaciones elementales en $ A $, la multiplicación de $ A $ por la izquierda o por la derecha por matrices elementales.
 		Las operaciones elementales son, por tanto:
 		\begin{enumerate}
-			\item $ T_{ij}(b) \cdot A = $ matriz obtenida de $ A $ sumándole a la fila $ i $ la $ j $ multiplicada por $ b $. 
-			
+			\item $ T_{ij}(b) \cdot A = $ matriz obtenida de $ A $ sumándole a la fila $ i $ la $ j $ multiplicada por $ b $.
+
 			$T_{ij}(b) \cdot A=(I+bE_{ij})A=A+bE_{ij}A$
 			\item $ A \cdot T_{ij}(b) $ matriz obtenida de $ A $ sumándole a la columna $ j $ la $ i $ multiplicada por $ b $.
 			\item $ D_i(u) \cdot A =$ matriz obtenida de $ A $ multiplicando la fila $ i $ por $ u $.
-			
+
 			$ D_i(u)\cdot A= (I+(u-1)E_{ii})A=A+(u-1) E_{ii}A=A-E_{i_i} A +uE_{ii}A $
 			\item $ A \cdot D_i(u)  =$ matriz obtenida de $ A $ multiplicando la columna $ i $ por $ u $.
 			\item $ P_{ij} \cdot A = $ matriz obtenida a partir de A intercambiando las filas $ i $ y $ j $.
-			
-			$ P_{ij}A= (I-E_{ii}-E_{jj}+E_{ij}+E_{ji})A=A-E_{ii}A-E_{jj}A+E_{ij}A+E_{ji}A $  
+
+			$ P_{ij}A= (I-E_{ii}-E_{jj}+E_{ij}+E_{ji})A=A-E_{ii}A-E_{jj}A+E_{ij}A+E_{ji}A $
 			\item $ A \cdot P_{ij}= $ matriz obtenida a partir de A intercambiando las columnas $ i $ y $ j $.
 		\end{enumerate}
 	\end{definition}
 	\begin{definition}
-		Dos matrices $ A, B \in M_{m\times n}(R)  $se dicen equivalentes si existen matrices $ Q \in M_{m\times m}(R), P \in M_{n\times n}(R) $ tales que: 
+		Dos matrices $ A, B \in M_{m\times n}(R)  $se dicen equivalentes si existen matrices $ Q \in M_{m\times m}(R), P \in M_{n\times n}(R) $ tales que:
 		\[ B=QAP \]
 		Nótese que las matrices obtenidas de $ A $ por un número finito de operaciones elementales son equivalentes a $ A $.
 		\[ U_q \cdots U_1AV_1\cdots V_p=QAP\]
@@ -285,8 +285,8 @@
 			d_i\neq 0\\
 			d_i \mid d_j $ si $ i\leq j
 		\end{cases}\]
-		
-		
+
+
 	\end{theorem}
 	\begin{proof}
 		\begin{note}
@@ -305,11 +305,11 @@
 		\[ \begin{pmatrix}
 		s & t \\
 		\beta & \alpha
-		\end{pmatrix} 
+		\end{pmatrix}
 		\begin{pmatrix}
 		 \alpha & -t \\
 		\beta & s
-		\end{pmatrix} = 
+		\end{pmatrix} =
 		\begin{pmatrix}
 		1 & 0\\
 		0 & 1
@@ -317,11 +317,11 @@
 		\begin{pmatrix}
 		\alpha & -t \\
 		\beta & s
-		\end{pmatrix} 
+		\end{pmatrix}
 		\begin{pmatrix}
 		s & t \\
 		\beta & \alpha
-		\end{pmatrix} 
+		\end{pmatrix}
 		\]
 		con lo que $\begin{pmatrix}
 		\alpha & -t \\
@@ -335,7 +335,7 @@
 		\end{bmatrix}\]
 		La matriz $AU$ es equivalente a la matriz $A$ y su primera fila es:
 		\[d, a_{13}, ..., a_ {1n},\]
-		con $l(d) < l(a)$. 
+		con $l(d) < l(a)$.
 		%FACIL CALCULO
 		\begin{note}
 			El paso de $A$ a $AU$ no es mediante operaciones elementales.
@@ -347,12 +347,12 @@
 		\end{center}
 		\[\begin{pmatrix}
 		\alpha & \beta \\
-		 t & -s 
-		\end{pmatrix} 
+		 t & -s
+		\end{pmatrix}
 		\begin{pmatrix}
 		s & \beta \\
 		t & -\alpha
-		\end{pmatrix} = 
+		\end{pmatrix} =
 		\begin{pmatrix}
 		1 & 0\\
 		0 & 1
@@ -360,7 +360,7 @@
 		\begin{pmatrix}
 		s & \beta \\
 		t & -\alpha
-		\end{pmatrix} 
+		\end{pmatrix}
 		\begin{pmatrix}
 		\alpha & \beta \\
 		t & -s
@@ -409,14 +409,14 @@
 		a & r & ...\\
 		a_{21} & a_{22} - qa_{21} & ...  \\
 		\vdots  & \vdots &  \vdots \\
-		a_{m1} &   &  
+		a_{m1} &   &
 		\end{bmatrix}\]
 		e intercambiando las dos primeras columnas:
 		\[\begin{bmatrix}
 		r & a & ...\\
 		a_{22} - qa_{21} & a_{21} & ...  \\
 		\vdots  & \vdots &  \vdots \\
-		&  a_{m1}  &  
+		&  a_{m1}  &
 		\end{bmatrix}\]
 		con $\phi (r) < \phi (a)$.
 	\end{proof}
@@ -432,7 +432,7 @@
 	\end{observation}
 
 	BEGIN SERGIO 26-11
-	
+
 	\begin{example}
 		\[ A = \begin{pmatrix}
 				2 & 3 & 1 \\
@@ -451,7 +451,7 @@
 			1 & 0 & 0 \\
 			0 & -10 & -11
 		\end{pmatrix}
-	\xrightarrow{(-1)F_2}\] 
+	\xrightarrow{(-1)F_2}\]
 		\[\begin{pmatrix}
 			1 & 0 & 0 \\
 			0 & 10 & 11
@@ -489,7 +489,7 @@
 			0 & 0 & 1 \\
 			0 & 1 & -1 \\
 			1 & -3 & 1
-			\end{pmatrix}\xrightarrow{C_2\leftrightarrow C_3}\] 
+			\end{pmatrix}\xrightarrow{C_2\leftrightarrow C_3}\]
 			\[\begin{pmatrix}
 			0 & 1 & 0 \\
 			0 & -1 & 1 \\
@@ -513,7 +513,7 @@
 	\end{pmatrix}=Q\]
 
 	\end{example}
-	
+
 	\section{Teorema de Estructura}
 	\begin{proposition}
 		Sea $D$ un DIP, $F$ un $D$-módulo libre de rango $n$ y $N$ un submódulo de $F$. Entonces $N$ es libre de rango $\leq n$.
@@ -533,7 +533,7 @@
 		Generadores:
 		\[x\in F \Rightarrow x=\sum_{i=1}^n\lambda_i e_i \Rightarrow x+F' = \lambda_1 e_1 + \sum_{i=2}^n\lambda_i e_i + F' = \lambda_1 e_1 + F' = \lambda_1(e_1+F') \text{ \ \ ($\sum_{i=2}^n \lambda_i e_i \in F'$) }\]
 		Linealmente independientes:
-		\[\lambda(e_1+F')=F'\Rightarrow \lambda e_1+F'=F' \Rightarrow \lambda e_1 \in F' \Rightarrow \lambda e_1 = \mu_2e_2+\dots+\mu_ne_n \Rightarrow\] 
+		\[\lambda(e_1+F')=F'\Rightarrow \lambda e_1+F'=F' \Rightarrow \lambda e_1 \in F' \Rightarrow \lambda e_1 = \mu_2e_2+\dots+\mu_ne_n \Rightarrow\]
 		\[ -\lambda e_1+\mu_2e_2+\dots+\mu_ne_n=0 \Rightarrow -\lambda=0 \Rightarrow \lambda = 0\]
 
 		Sea $\bar{N}:=(N+F')/F'$.
@@ -582,21 +582,21 @@
 		Sea $ D $ un DIP y $ M $ un $ D $-módulo de tipo finito. Entonces $ M $ es suma directa de $ D$-módulos cíclicos.
 		\[ M=Dz_1 \oplus \cdots \oplus Dz_s \]
 		tal que $ (0:z_1) \supset (0:z_2) \supset ... \supset (0:z_s), \quad (0:z_n)\neq D $
-		
+
 	\end{theorem}
 	\begin{proof}
 		Sea $ \{X_1,\cdots, X_n\} $ un conjunto finito de generadores de $ M $. Sea $ F $ un $ D $-módulo libre de rango $ n $ con base $ \{e_1, \cdots e_n\} $, y sea $ \varepsilon:F\flechaSobreyectiva M $ el homomorfismo sobreyectivo $ \varepsilon(e_i)=x_i, \text{ con } 1\leq i\leq n $.
-		
+
 		Sea $ N:=\text{Ker}(\varepsilon) $:
 		\[ N\flechaInyectiva F \xFlechaSobreyectiva{\ \varepsilon \ } M \]
 		Por la propiedad previa, $ N $ es libre de rango $ \leq n $ y en particular, $ N $ es de tipo finito. Sea $ \{f_1, \cdots, f_n\} $ un conjunto finito de generadores de $ N $ (como caso particular, puede ser una base, pero en la demostración no se necesita que lo sea, ni tampoco se necesita suponer que $ m\leq n $). Entonces:
 		\[ f_i = \sum_{j=1}^{n}a_{ij}e_j, \quad 1\leq i\leq m, a_{ij}\in D \]
 		dado que $ \sum_{i=1}^{n} a_{ij}x_j=0 \ \forall i$  (ya que $ \varepsilon(f_i)=\varepsilon(\sum_{i=1}^{n} a_{ij} e_j)\Rightarrow \varepsilon(f_i)=  \sum_{i=1}^{n} a_{ij}x_j \in \text{Ker}(\varepsilon)\Rightarrow \sum_{i=1}^{n} a_{ij}x_j=0$).
-		
+
 		Sea $ A:=(a_{ij})\in M_{m \times n}(D) $. Se tiene :
 		\[ f=Ae \]
 		es decir:
-		
+
 		\[ \begin{pmatrix}
 			 f_1 \\
 			 f_2 \\
@@ -616,10 +616,10 @@
 		lo cual no es un producto de matrices en el sentido usual, ya que $ f,e $ no son matrices sobre $ D $, pero la notación será igualmente útil. Se comprueba fácilmente la asociatividad usual:
 		\[ B(cf)=(Bc)f \]
 		para matrices ordinarias $ B $, $ C $ sobre $ D $.
-		
-		Por el Teorema de Diagonalización, la matriz $ A $ es equivalente a una matriz diagonal. $ B= \text{diag}(d_1, \cdots,\\ d_r, 0, \cdots, 0)$. 
+
+		Por el Teorema de Diagonalización, la matriz $ A $ es equivalente a una matriz diagonal. $ B= \text{diag}(d_1, \cdots,\\ d_r, 0, \cdots, 0)$.
 		$ B= QAP,\  Q\in M_{m\times m} (D), P\in M_{n\times n} (D) $ matrices inversibles, $ d_i\neq 0 $, $ 1 \leq i \leq r$, $d_i \mid d_{i+1}, \text{ y } 1 \leq i \leq r-1 $.
-		
+
 		Sea $ f':=Qf, e'=P^{-1}e $.
 		Por el lema previo, $ f' $ es un conjunto de generadores de $ N $ y $ e' $ es una base de $ F $.
 		Se tiene:
@@ -628,39 +628,39 @@
 		\[ f'_i=d_ie'_i, \quad 1 \leq i \leq r \]
 		\[ f'_i =0,  \quad \text{si } r+1 \leq i \leq n\]
 		([Importante en aplicaciones, no en la demostración] Nótese que como los $ e'_i $ son linealmente independientes y los $ d_i $ son no nulos, resulta que $ f'_1, \cdots, f'_r $ son linealmente independientes. Por tanto, $ N $ es libre de rango $ r $ y $ \{ f'_1, \cdots, f'_r\} $ es base de $ N $. Esto proporciona un método para encontrar una base de un submódulo de un $ D $-módulo libre a partir de un conjunto de generadores).
-		
+
 		Sea $y_i := \varepsilon(e'_i), 1 \leq i \leq n$. (Nótese que $ y=P^{-1}X $, ya que aplicando $\varepsilon $, con $ e'=P^{-1}e $, tenemos $ y=\varepsilon(e')=P^{-1}\varepsilon(e)=P^{-1}x $).\\
-		Como $ \varepsilon $ es sobre, resulta que $ \{y_1, \cdots y_n \} $ es un conjunto de generadores de $ M $. 
+		Como $ \varepsilon $ es sobre, resulta que $ \{y_1, \cdots y_n \} $ es un conjunto de generadores de $ M $.
 		\[ M=\sum_{i=1}^{n}Dy_i\]
 		Veamos que esta suma es directa ($ \Leftrightarrow \sum_{i\in I} x_i=0, x_i\in M_i, \forall i \Rightarrow x_i=0\ \forall i $), i.e.,
 		\[ \sum_{j=1}^{n} b_i\cdot y_i=0, \quad b_i \in D \Rightarrow b_i\cdot y_i=0, \forall i \]
-		Se tiene: 
+		Se tiene:
 		\[ 0=\sum_{i=1}^{n} b_i \cdot y_i = \sum_{i=1}^{n} b_i \cdot \varepsilon(e'_i)=\varepsilon (\sum_{i=1}^{n} b_i \cdot e'_i)\Rightarrow \sum_{i=1}^{n} b_i \cdot e'_i \in \ker(\varepsilon)=N \]
 		\[ \Rightarrow \sum_{i=1}^{n} b_i \cdot e'_i=\sum_{i=1}^{r} c_i \cdot f'_i= \sum_{i=1}^{r} c_i \cdot d_i \cdot e'_i \Rightarrow (e'\text{ base}) \begin{cases}
 		b_i=0, \quad r+1 \leq i \leq n \Rightarrow b_i \cdot y_i =0\\
 		b_i=c_i\cdot d_i, \quad 1 \leq i \leq r \Rightarrow b_i\cdot y_i=0
 		\end{cases}\]
 		Ya que $ b_i\cdot y_i=c_id_iy_i=c_id_i\varepsilon(c_id_ie'_i)=\varepsilon(c_if'_i)=0 $($c_if_i\in \ker(\varepsilon)=N$).
-		
-		Así pues, 
+
+		Así pues,
 		\[ M=Dy_1 \oplus \cdots \oplus Dy_n\]
 		Veamos que:
 		\[ (0:y_i)=(d_i), \quad  1 \leq i \leq r\]
 		\[ (0:y_i)=0, \quad  r+1 \leq i \leq n\]
 		"$ \supset $"\ ay está demostrado (trivial).\\
-		"$ \subset $"\  :\[ \lambda \in (0:y_i) \Rightarrow 0=\lambda y_i =\lambda \varepsilon(e'_i)= \varepsilon(\lambda e'_i) \Rightarrow \lambda e'_i \in \ker(\varepsilon)=N\Rightarrow \] 
+		"$ \subset $"\  :\[ \lambda \in (0:y_i) \Rightarrow 0=\lambda y_i =\lambda \varepsilon(e'_i)= \varepsilon(\lambda e'_i) \Rightarrow \lambda e'_i \in \ker(\varepsilon)=N\Rightarrow \]
 		\[\Rightarrow\lambda e'_i = \sum_{j=1}^{r}\mu_jf_j \Rightarrow \lambda e'_i = \sum_{j=1}^{r} \mu_j d_j e'_j \Rightarrow (e' \text{ base})\begin{cases}
 		\lambda_i=0, \quad  r+1 \leq i \leq n \\
-		\lambda_i=\mu_i, \quad 1 \leq i \leq r 
+		\lambda_i=\mu_i, \quad 1 \leq i \leq r
 		\end{cases} \]
-		Ahora, las relaciones $ d_1 \mid d_2 \mid \cdots \mid d_r $, implican $ (d_1)\supset (d_2) \supset \cdots \supset (d_r) $, es decir, $ (0:y_1)\supset(0:y_2)\supset\cdots\supset(0:y_r) $, y por tanto: 
+		Ahora, las relaciones $ d_1 \mid d_2 \mid \cdots \mid d_r $, implican $ (d_1)\supset (d_2) \supset \cdots \supset (d_r) $, es decir, $ (0:y_1)\supset(0:y_2)\supset\cdots\supset(0:y_r) $, y por tanto:
 		\[ (0:y_1)\supset(0:y_2)\supset\cdots\supset(0:y_r)\supset(0:y_{r+1})\supset\cdots\supset(0:y_n)\]
-		
+
 		Sea $ s $, $ 0 \leq s \leq n $, tal que $ (0:y_1)=(0:y_2)=\cdots =(0:y_{n-s})=D $, $ (0:y_{n-s+1})\neq D $. \\Entonces: $ y_1=y_2=\cdots = y_{n-s}=0 $.
-		
-		A continuación, definimos: 
+
+		A continuación, definimos:
 		\[ z_1:=y_{n-s+1},z_2:=y_{n-s+2}, \cdots, z_s:=y_n  \]
-		Se tiene: 
+		Se tiene:
 		\[ M=Dz_1\oplus \cdots \oplus Dz_s \]
 		y $ (0:z_1)\supset(0:z_2)\supset\cdots \supset(0:z_s)$, con $ (0:z_k)\neq D $.
 	\end{proof}
@@ -672,16 +672,16 @@
 		\[ (0:y_i)=(d_i), \quad  1 \leq i \leq r\]
 		\[ (0:y_i)=0, \quad  r+1 \leq i \leq n\]
 		Por último, eliminamos los $y_i$ que sean nulos y de esta forma se obtienen los $ z_k $ del enunciado del Teorema.
-		 
+
 	\end{note}
 	%%jorge 29-11
-	
+
 	\begin{corollary} %%ESTO ES EN REALIDAD UN COROLARIO
-		Si $D$ es un DIP y $M$ es un módulo de tipo finito (t.f.), entonces $M$ es 
+		Si $D$ es un DIP y $M$ es un módulo de tipo finito (t.f.), entonces $M$ es
 		suma directa de un submódulo de torsión y de un submódulo libre.
 	\end{corollary}
 	\begin{proof}
-		Por el teorema de estructuras tenemos que: 
+		Por el teorema de estructuras tenemos que:
 		\[M = DZ_1 \oplus \cdots \oplus DZ_s\]
 		\[(0:Z_1) \supset \cdots \supset (0:Z_s), (0:Z_k) \neq 0.\]
 		Sea $r$, $0 \leq r \leq s$, tal que $(0:Z_i) \neq 0$ para $0 \leq i \leq r$ y
@@ -693,9 +693,9 @@
 		"$\subset$" $\\$
 		$1 \leq i \leq r$: $(0:Z_i) \neq 0$ $\Rightarrow$ $Z_i \in T(M)$ $\Rightarrow$
 		$DZ_i \subset T(M)$ $\Rightarrow$ $DZ_1 \oplus \cdots \oplus DZ_r \subset T(M)$ $\\$
-		
+
 		"$\supset$" $\\$
-		$x \in T(M)$ $\Rightarrow$ $x \in M$ $\Rightarrow$ $x = \sum_{i=1}^{s}\lambda_i z_i$, 
+		$x \in T(M)$ $\Rightarrow$ $x \in M$ $\Rightarrow$ $x = \sum_{i=1}^{s}\lambda_i z_i$,
 		$\lambda_i \in D$ $\\$
 		Además, como $x \in T(M)$ tenemos que:
 		\[\exists a \in D, a\neq 0 / ax = 0\]
@@ -703,11 +703,11 @@
 		\[a(\sum_{i=1}^{s}\lambda_i z_i) = \sum_{i=1}^{s} a \lambda_i z_i \in DZ_i\]
 		con lo que podemos extraer que, por ser una suma directa:
 		\[a \lambda_i z_i \in DZ_i \Rightarrow a\lambda_i \in (0:Z_i) \Rightarrow a_i\lambda_i = 0, \hspace{0.2cm} r + 1 \leq i \leq s \stackrel{a \neq 0}{\Rightarrow} \lambda_i = 0, \hspace{0.2cm} r + 1 \leq i \leq s\]
-		Por lo que, 
+		Por lo que,
 		\[x = \sum_{i = 1}^{r} \lambda_i z_i \in DZ_1 \oplus \cdots \oplus DZ_r\]
-		y, 
+		y,
 		\[DZ_{r+1} \oplus \cdots \oplus DZ_s \simeq D \oplus \stackrel{s - r}{\cdots} \oplus D = D^{s - r} \hspace{0.2cm} libre.\]
-		Por lo que, para $r + 1 \leq i \leq s$, 
+		Por lo que, para $r + 1 \leq i \leq s$,
 		\[DZ_i \simeq \frac{D}{(0:Z_i)} = D.\]
 	\end{proof}
 	\begin{corollary}
@@ -719,7 +719,7 @@
 	\begin{proof}
 		Inmediata a partir del anterior corolario.
 	\end{proof}
-	
+
 	\section{Módulos de torsión y componentes primarias}
 	Sea $D$ un DIP y $M$ sea $D$-módulo de tipo finito. Sea además $p$ un elemento primo de $D$ (i.e., $(p)$ es un ideal primo distinto de $0$, i.e., $p$ es irreducible). $\\$
 	Se llama \underline{componente $p$-primaria} de $M$ al subconjunto:
@@ -751,7 +751,7 @@
 	\begin{lemma}
 		Sea $D$ un DIP y $M$ un $D$-módulo. Sea $x\in M$ y $d\in D$ tal que $(0:x) = (d)$. Sea $d = np_1^{e_1} \cdots p_t^{e_t}$, $p_i \neq p_j$, si $i\neq j$, la factorización de $d$ en primos. Entonces:
 		\[DX = DX_1 \oplus \cdots \oplus DX_t,\]
-		con $(0:X_i) = (p_i^{e_i})$. En particular, $DX_i$ es $p$-primario. 
+		con $(0:X_i) = (p_i^{e_i})$. En particular, $DX_i$ es $p$-primario.
 	\end{lemma}
 	\begin{proof}
 		Para cada $i$, $1 \leq i \leq t$, sea
@@ -787,9 +787,9 @@
 		Por el Teorema de estructura:
 		\[M=DX_1\oplus\dots\oplus DX_n\]
 		con $(0:X_1)\supset\dots\supset(0:X_n)$, $(0:X_k)\neq D$ y $(0:X_k)\neq 0$.
-		
+
 		Sean $d_k\in D \ / \ (0:X_k)=(d_k) \ 1\leq k\leq n$. Se verifia $d_1|d_2 | \dots | d_n$.
-		
+
 		Sean $p_1,\dots,p_h$ los factores primos distintos dos a dos que aparecen en los $d_k$, $1\leq k\leq n$. Se tiene entonces:
 		\[d_k=u_kp_1^{e_{1k}}\dots p_h^{e_{hk}}\]
 		con $u_k$ unidad y $e_{ik}\geq 0 \ \ 1\leq i\leq n$ ($e_{ik}$ será 0 cuando $e_i$ no aparezca en la factorización de $d_k$).
@@ -813,7 +813,7 @@
 		\begin{rcases}
 			d_1=u_1p^{e_{11}}_1\dots p^{e_{n1}}_n\\
 			\vdots \ \ \ \ \ \ \ \  \\
-			d_n=u_np^{e_{1k}}_1\dots p^{e_{nk}}_n\\	
+			d_n=u_np^{e_{1k}}_1\dots p^{e_{nk}}_n\\
 		\end{rcases}
 		\Rightarrow e_{i1}\leq e_{i2} \leq\dots\leq e_{in}, \ 1\leq i\leq h
 		\]
@@ -836,7 +836,7 @@
 		\[N\simeq D/(p^{e_1})\oplus\dots\oplus D/(p^{e_r}) \ \ \ (DZ_i\simeq D/(0:Z_i)=D/(p^{e_i})) \]
 
 		En primer lugar probaremos que $e_r=$ "menor número natural tal que $p^nN=0$".
-		
+
 		($\geq$)
 		\[p^{e_r}N=0 \  \text{ pues } \ p^{e_r}(D/(p^{e_i}))=0 \ \ \ 1\leq i\leq r\]
 		\[p^{e_r}(x+(p^{e_i}))=p^{e_r}x+(p^{e_i})=0 \ \ (p^{e_r}x\in (p^{e_i}))\]
@@ -849,30 +849,30 @@
 		Supongamos:
 		\[ N\simeq D/(p^{e_1}) \oplus \cdots D/(p^{e_r}), \quad 1\leq e_1\leq\cdots\leq e_r \]
 		\[ N\simeq D/(p^{f_1}) \oplus \cdots D/(p^{f_s}), \quad 1\leq f_1\leq\cdots\leq f_s \]
-		
+
 		Lo que hemos de ver es que $ r=s $, $ e_i=f_i $, $ \forall i $.
 		Ya sabemos que $ e_r=  f_s\equiv p$-exponente de $ N $.
-		
+
 		Razonaremos por inducción en el $ p $-exponente.
 		Si $ e_r=f_s=1 \Rightarrow e_i=f_j=1 \ \forall i,j \Rightarrow N $ es un $ D/(p) $-exponente, y por la igualdad de dimensiones, resulta $ r=s $.
-		
+
 		Supongamos $ e_r=f_s $ y que el resultado es cierto para unidades de $ p $-exponente $ <e_r=f_s $.
-		
+
 		Sean $ m $ y $ n $ tales que:
 		\[ e_i\geq 2\Leftrightarrow i\geq m, f_1 \geq 2 \Leftrightarrow j \geq n \]
-		Entonces: 
+		Entonces:
 		\[ pN\simeq \bigoplus_{i=m}^r D/(p^{e_i-1})  \]
-		\[ pN\simeq \bigoplus_{j=n}^s D/(p^{f_j-1})  \]		
+		\[ pN\simeq \bigoplus_{j=n}^s D/(p^{f_j-1})  \]
 		En efecto, se tiene:
 		\[ N\simeq \bigoplus_{i=1}^{m-1} D/(p) \oplus  \bigoplus_{i=m}^{r}D/(p^{e_i}), \quad e_i \geq 2  \]
 		y por tanto:
 		\[ pN\simeq \bigoplus_{i=1}^{m-1} pD/(p) \oplus  \bigoplus_{i=m}^{r}pD/(p^{e_i}) = \bigoplus_{i=m}^{r}pD/(p^{e_i}) \text{, ya que } pD/(p)=0 \]
 		¿Será cierto que $ D/(p^{e_i-1})\simeq pD/(p^{e_i}) $?
 
-		Diagrama de funciones: 
+		Diagrama de funciones:
 
 		\[ \begin{tikzpicture}
-		
+
 		\node (n1) {$(p^{e_{i-1}})$};
 		\node (n2) [right of=n1] {$(p^{e_{i}})$};
 		\node (D) [below of=n1] {$D$};
@@ -888,11 +888,11 @@
 		\draw[-sobre] (pD) to node [swap] {} (D2);
 		\draw[-sobre] (D1) to node [swap] {$ \theta $} (D2);
 		\end{tikzpicture} \]
-		$ \theta $ homomorfismo de $ D $-módulos. 
+		$ \theta $ homomorfismo de $ D $-módulos.
 		\[ x+ (p^{e_{i-1}}) \longmapsto px+ (p^{e_{i}})\]
-		$ \theta $ es inyectiva? i.e. $ \theta(\overline{x})=0 \Rightarrow \overline{x}=0$?		
-		 \[ \theta(\overline{x})=\overline{px}=0 \Rightarrow px \in  (p^{e_{i}}) \Rightarrow  p^{e_{i}} \mid px \Rightarrow  p^{e_{i-1}} \mid x \Rightarrow x \in  (p^{e_{i-1}})\Rightarrow \overline{x}=0 	 \]	
-		
+		$ \theta $ es inyectiva? i.e. $ \theta(\overline{x})=0 \Rightarrow \overline{x}=0$?
+		 \[ \theta(\overline{x})=\overline{px}=0 \Rightarrow px \in  (p^{e_{i}}) \Rightarrow  p^{e_{i}} \mid px \Rightarrow  p^{e_{i-1}} \mid x \Rightarrow x \in  (p^{e_{i-1}})\Rightarrow \overline{x}=0 	 \]
+
 		COSAS
 		Por inducción:
 		$ r-m= s-n $\\
@@ -901,9 +901,9 @@
 		\[ N/pN\simeq \bigoplus_{1}^r D/(p)  \]
 		\[ N/pN\simeq \bigoplus_{1}^s D/(p)  \]
 		En efecto:
-		
+
 		\[ \begin{tikzpicture}
-		
+
 		\node (pN) {$pN$};
 		\node (o1) [right of=pN] {$0$};
 		\node (o2) [right of=o1] {$0$};
@@ -927,7 +927,7 @@
 		\draw[inyec->] (o2) to node [swap] {} (dp2);
 		\draw[inyec->] (pd1) to node [swap] {} (dp3);
 		\draw[inyec->] (pd2) to node [swap] {} (dp4);
-		
+
 		\node (Npn) [below of=N]{$N/pN$};
 		\node (dp21) [below of=dp1] {$D/(p)$};
 		\node (dp22) [below of=dp2] {$D/(p)$};
@@ -941,13 +941,13 @@
 		\draw[-sobre] (dp1) to node [swap] {} (dp21);
 		\draw[-sobre] (dp2) to node [swap] {} (dp22);
 		\draw[-sobre] (dp3) to node [swap] {} (dp23);
-		\draw[-sobre] (dp4) to node [swap] {} (dp24);	
+		\draw[-sobre] (dp4) to node [swap] {} (dp24);
 		\end{tikzpicture} \]
 		Y por ejemplo:
 		\[ pD/(p^{e_{m}}) \flechaInyectiva D/(p^{e_{m}}) \flechaSobreyectiva [D/(p^{e_{m}})]/[pD/(p^{e_{m}})] \simeq D/pD \]
 		ya que si $  M_2 \subset M_1 \subset M $:
 		\[ (M/M_2)/(M_1/M_2)\simeq M/M_1 \]
-		
+
 		Por la igualdad de dimensiones de (del $ D/(p) $-espacio vectorial $ N/pN $, resulta $ r=s $)
 		\[ \begin{rcases}
 		r-m&=s-n\\
@@ -958,70 +958,103 @@
 		e_{m-1}=f_{m-1}=1 \\$
 		$ e_m=f_m\\
 		e_{m+1}=f_{m+1}\\
-		\vdots
-		e_r=f_r $.	
+		\vdots \\
+		e_r=f_r $.
 	\end{proof}
-
-
-
-
-	SERGIO 11-12
-
-	\begin{proposition}
-		Dos módulos de tipo finito sobre un DIP son isomorfos si y solo si tienen el mismo rango y los mismos factores invariantes.
-	\end{proposition}
-
-	\begin{proof}
-		$(\Rightarrow)$
-
-		Por hipótesis existe $\Phi:M\flechaBiyectiva N$ y entonces $\Phi|_{T(M)}T(M):\flechaBiyectiva T(N)$. Por lo tanto $T(M)$ y $T(N)$ son módulos de torsión isomorfos sobre un DIP y tienen los mismos factores invariantes $\Rightarrow$ $M$ y $N$ tienen los mismos factores invariantes.
-
-		\[ \begin{tikzpicture}
-		
-		\node (TM) {$T(M)$};
-		\node (TN) [right of=n1] {$T(N)$};
-		\node (M) [below of=n1] {$M$};
-		\node (N) [right of=D] {$N$};
-		\node (MTM) [below of=D] {$\frac{M}{T(M)}$};
-		\node (NTN) [right of=D1] {$\frac{N}{T(N)}$};
-		\draw[inyec-sobre] (TM) to node [swap] {} (TN);
-		\draw[inyec->] (TM) to node [swap] {} (M);
-		\draw[inyec->] (TN) to node [swap] {} (N);
-		\draw[inyec-sobre] (M) to node [swap] {$ \Phi $} (N);
-		\draw[-sobre] (M) to node [swap] {} (MTM);
-		\draw[-sobre] (N) to node [swap] {} (NTN);
-		\draw[inyec-sobre] (MTM) to node [swap] {$ \overline{\Phi} $} (NTN);
-		\end{tikzpicture} \]
-
-		$M/T(M)$ y $N/T(N)$ son módulos libres isomorfos $\Rightarrow$ rango($M/T(M)$)=rango($N/T(N)$) $\Rightarrow$ rango($M$)= rango($N$).
-		
-		$(\Leftarrow)$
-	
-		\[ \begin{rcases} 
-			\text{Los factores invariantes de $M$ son los de $T(M)$} \\
-			\text{Los factores invariantes de $N$ son los de $T(N)$}
-		\end{rcases} \Rightarrow M/T(M) \text{ y } N/T(N) \text{ tienen mismos fact. inv. } \Rightarrow\] 
-		\[T(M)\simeq T(N).\]
-
-		\[ \begin{rcases} 
-			\text{El rango de $M$ es el rango de  $M/T(M)$} \\
-			\text{El rango de $N$ es el mismo de $N/T(N)$}
-		\end{rcases} \Rightarrow M/T(M) \text{ y } N/T(N) \text{ tienen el mismo rango } \Rightarrow\] 
-		\[M/T(M)\simeq N/T(N) \text{ (por ser libres)}.\]
-
-		\[M\simeq T(M)\oplus M/T(M)\]
-
-		Entonces:
-
-		\[ M\simeq T(M)\oplus M/T(M) \simeq T(N)\oplus N/T(N) \simeq N\]
-
-		Aclaración: $M\simeq T(M)\oplus L \simeq T(M)\oplus M/T(M) \ \ L\simeq M/T(M)$.
-
-
-	\end{proof}
+	\subsection{Invariantes}
+		Sea $D$ un DIP y $M$ un $D$-módulo de torsión de tipo finito. Recapitulemos parte de lo dicho en la proposición anterior. Se puede escribir:
+		\begin{enumerate}[I)]
+			\item $M = DX_1 \oplus \cdots \oplus DX_n$
+			\[(0:X_1) \supset (0:X_n), \hspace{0,2cm} (0:X_k) \neq D, \hspace{0,2cm} (0:X_k) \neq 0.\]
+			Si $d_k \in D$ es un elemento tal que $(0:X_k) = d_k$, entonces:
+			\[d_1 | d_2 | ... | d_k\]
+			\[M \simeq \frac{D}{(d_1)} \oplus \cdots \oplus \frac{D}{(d_k)}\]
+			Los ideales $(d_i)$ se llaman los factores invariantes de $M$.$\\$
+			Por otra parte, se puede escribir:
+			\item $M = (DX_{11} \oplus \cdots \oplus DX_{1n}) \oplus \cdots \oplus (DX_{n1} \oplus \cdots \oplus DX_{nn})$, con $(0:X_n) = (p_i^{e_{ik}})$ para $1\leq k$$\leq n$ y $e_{i1} \leq ... \leq e_{in}$ para $1\leq i \leq h$.
+			\[M \simeq (\frac{D}{(p_1^{e_{11}})} \oplus \cdots \oplus \frac{D}{(p_1^{e_{1n}})}) \oplus \cdots \oplus (\frac{D}{(p_1^{e_{h1}})} \oplus \cdots \oplus \frac{D}{(p_1^{e_{hn}})}).\]
+		\end{enumerate}
+		Los ideales $p_i^{e_{ik}}$ se llaman \underline{divisores elementales} de $M$. En una descomposición de tipo $II)$ se tiene:
+		\[M_{p_i} = DX_{i1} \oplus \cdots \oplus DX_{in} \simeq \frac{D}{p_i^{e_{i1}}} \oplus \cdots \oplus \frac{D}{p_i^{e_{in}}}\]
+		con $1 \leq i \leq h$. En la demostración de la proposicion anterior se ha visto como obtener una descomposición de tipo $II)$ a partir de una de tipo $I)$. De la proposición se sigue que los divisores elementales son invariantes de $M$ (i.e., dependen solo de $M$ y no de la descomposición).
+		\[d_k = n_k p_1^{e_{1k}} \cdots p_n^{e_{hk}}\]
+		unidad. Dados pues los $p_i^{e_{ik}}$ se pueden reconstruir, salvo unidades, los $d_k$. Los factores invariantes están, por tanto, determinados por los divisores elementales. Se sigue de esto que los factores invariantes son invariantes de $M$. $\\$
+		Se tienen:
+		\begin{enumerate}[·]
+			\item  Dos módulos de torsión de tipo finito sobre un DIP son isomorfos si y sólo si tienen los mismos factores invariantes.
+			\item  Dos módulos de torsión de tipo finito sobre un DIP son isomorfos si y sólo si tienen los mismos divisores elementales.
+		\end{enumerate}
+		\begin{proof}
+			"($\Rightarrow$)" $\\$
+			$M$, $M'$ $D$-módulos de torsión de tipo finito y $\phi: M \simeq M'$. Descomposición de tipo $I)$ para $M$:$\\$
+			\[M = DX_1 \oplus \cdots \oplus DX_n, \hspace{0,2cm} (0:X_1) \supset ... \supset (0:X_n)\]
+			y $(0:X_i) \neq D$, $(0:X_i) \neq 0$. Tenemos entonces que: $\\$
+			\[M' = \phi (M) = D\phi (X_1) \oplus \cdots \oplus D\phi (X_n)\]
+			pero, ¿$(0:\phi (X_i)) = (0:X_i)$? Vemos que:
+			\[\lambda \in (0: \phi (X_i)) \Rightarrow \lambda\phi(X_i) = 0\]
+			y sabemos que $\phi(\lambda X_i) = \lambda \phi (X_i)$. Así pues,
+			\[\lambda X_i = 0 \Leftrightarrow \lambda\in (0:X_i).\]
+			Por lo que $(0:\phi(X_1)) \supset ... \supset (0:\phi(X_n))$, con $(0:\phi (X_i)) = (0:X_i)$. Así, $M'$ es una descomposición de tipo $I)$ para $M'$.
+			\begin{center}
+				La factorización de $M'$ es $(0:\phi (X_i))$ $=$ La factorización de $M$ es $(0:X_i)$.
+			\end{center}
+			"($\Leftarrow$)" $\\$
+			Sean $M$ y $M'$ $D$-módulos de torsión de tipo finito que tienen los mismos factores invariantes:
+			\[M = DX_1 \oplus \cdots \oplus DX_n, \hspace{0,2cm} (0:X_1) \supset ... \supset (0:X_n)\]
+			y $(0:X_i) \neq D$, $(0:X_i) \neq 0$; y
+			\[M' = DX'_1 \oplus \cdots \oplus DX'_{n'}, \hspace{0,2cm} (0:X'_1) \supset ... \supset (0:X'_{n'})\]
+			y $(0:X'_i) \neq D$, $(0:X'_i) \neq 0$.
+			Si $(0:X_i) = (0:X'_i)$ $\forall i$, entonces $n = n'$ y, de forma inmediata:
+			\[M \simeq \frac{D}{(0:X_1)} \oplus \cdots \oplus \frac{D}{(0:X_n)} \simeq M'\]
+		\end{proof}
+		EL siguiente resultado contiene "la parte de unicidad" en el teorema de estructuras.
+		\begin{theorem}
+			Sea $D$ un DIP y $M$ un $D$-módulo de tipo finito. Supongamos:
+			\[M = DZ_1 \oplus \cdots \oplus DZ_s = DZ'_1 \oplus \cdots \oplus DZ'_{s'}\]
+			con:
+			\[(0:Z_1)\supset ... \supset (0:Z_s), (0: Z_s) \neq D\]
+			\[(0:Z'_1)\supset ... \supset (0:Z'_{s'}), (0: Z'_{s'}) \neq D\]
+			entonces $s = s'$ y $(0:Z_i) = (0:Z'_i)$, con $1\leq i \leq s$.
+		\end{theorem}
+		\begin{proof}
+			Sean $r$ y $r'$ tales que:$\\$
+			\begin{center}
+				$(0:Z_i) \neq 0$ con $1 \leq i \leq r$ y $(0:Z_i) = 0$ con $r \leq i \leq s $ \\
+				$(0:Z'_i) \neq 0$ con $1 \leq i \leq r'$ y $(0:Z'_i) = 0$ con $r' \leq i \leq s'$
+			\end{center}
+			entonces:
+			\[T(M) = DZ_1 \oplus \cdots \oplus DZ_r\]
+			\[T(M') = DZ'_1 \oplus \cdots \oplus DZ'_{r'}\]
+			Como $T(M)$ en un $D$-módulo de torsión de tipo finito, sus factores invariantes están determinados de modo único (como ya sabemos). Entonces:
+			\[r=r', \hspace{0,2cm} (0:Z_i) = (0:Z'_i), 1\leq i \leq r = r'\]
+			Por otra parte:
+			\[\frac{M}{T(M)}\simeq DZ_{r+1} \oplus \cdots \oplus DZ_s\]
+			ya que:
+			\[M = T(M)\oplus DZ_{r+1} \oplus \cdots \oplus DZ_s.\]
+			\begin{note}
+				$\frac{X \oplus Y}{X} \simeq Y$, con $X,Y$ módulos y, por el segundo teorema de isomorfía:
+				\[\frac{X+Y}{X}\simeq \frac{Y}{X \cap Y} = Y.\]
+			\end{note}
+			y tenemos que:
+			\[\frac{M}{T(M)} \simeq DZ'_{s'}\]
+			$\frac{M}{T(M)}$ es entonces un $D$-módulo libre de rango $s-r$ y de rango $s'-r'$ por lo que, como $r=r'$, entonces $s = s'$ y concluímos.
+		\end{proof}
+	\begin{definition}
+		Sea $D$ un DIP y $M$ un D-módulo de tipo finito. Entonces:
+		\[L \simeq \frac{M}{T(M)}.\]
+		El rango de $L$ es un invariante de $M$ y se llama el \underline{rango} de $M$. El rango es el número $n-r$ del teorema de estructura.
+	\end{definition}
+	En efecto:
+	\[M = DY_1 \oplus \cdots \oplus DY_n\]
+	con $(0:Y_i) = \begin{cases}
+	(d_i) & 1\leq i\leq r \\
+	0 & r+1\leq i \leq n
+	\end{cases}$ y:
+	\[T(M) = DY_{1} \oplus \cdots \oplus DY_r\]
+	\[L = DY_{r+1} \oplus \cdots \oplus DY_n \simeq \frac{D}{(0:Y_{r+1})} \oplus \cdots \oplus \frac{D}{(0:Y_{n})}\simeq D \oplus \stackrel{n-r}{\cdots} \oplus D.\]
+	Los \underline{factores invariantes} y los \underline{divisores elementales} de $M$ son, por definición, los de $T(M)$. Se tiene:
+	\begin{enumerate}[·]
+		\item Dos módulos de tipo finito sobre un DIP son isomorfos si y sólo si tienen el mismo rango y los mismos factores invariantes.
+		\item Dos módulos de tipo finito sobre un DIP son isomorfos si y sólo si tienen el mismo rango y los mismos factores invariantes.
+	\end{enumerate}
 \end{document}
-
-
-
-
-
