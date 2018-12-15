@@ -958,9 +958,105 @@
 		e_{m-1}=f_{m-1}=1 \\$
 		$ e_m=f_m\\
 		e_{m+1}=f_{m+1}\\
-		\vdots
+		\vdots \\
 		e_r=f_r $.	
 	\end{proof}
+	\subsection{Invariantes}
+		Sea $D$ un DIP y $M$ un $D$-módulo de torsión de tipo finito. Recapitulemos parte de lo dicho en la proposición anterior. Se puede escribir:
+		\begin{enumerate}[I)]
+			\item $M = DX_1 \oplus \cdots \oplus DX_n$
+			\[(0:X_1) \supset (0:X_n), \hspace{0,2cm} (0:X_k) \neq D, \hspace{0,2cm} (0:X_k) \neq 0.\]
+			Si $d_k \in D$ es un elemento tal que $(0:X_k) = d_k$, entonces:
+			\[d_1 | d_2 | ... | d_k\]
+			\[M \simeq \frac{D}{(d_1)} \oplus \cdots \oplus \frac{D}{(d_k)}\]
+			Los ideales $(d_i)$ se llaman los factores invariantes de $M$.$\\$
+			Por otra parte, se puede escribir:
+			\item $M = (DX_{11} \oplus \cdots \oplus DX_{1n}) \oplus \cdots \oplus (DX_{n1} \oplus \cdots \oplus DX_{nn})$, con $(0:X_n) = (p_i^{e_{ik}})$ para $1\leq k$$\leq n$ y $e_{i1} \leq ... \leq e_{in}$ para $1\leq i \leq h$.
+			\[M \simeq (\frac{D}{(p_1^{e_{11}})} \oplus \cdots \oplus \frac{D}{(p_1^{e_{1n}})}) \oplus \cdots \oplus (\frac{D}{(p_1^{e_{h1}})} \oplus \cdots \oplus \frac{D}{(p_1^{e_{hn}})}).\] 
+		\end{enumerate}
+		Los ideales $p_i^{e_{ik}}$ se llaman \underline{divisores elementales} de $M$. En una descomposición de tipo $II)$ se tiene:
+		\[M_{p_i} = DX_{i1} \oplus \cdots \oplus DX_{in} \simeq \frac{D}{p_i^{e_{i1}}} \oplus \cdots \oplus \frac{D}{p_i^{e_{in}}}\]
+		con $1 \leq i \leq h$. En la demostración de la proposicion anterior se ha visto como obtener una descomposición de tipo $II)$ a partir de una de tipo $I)$. De la proposición se sigue que los divisores elementales son invariantes de $M$ (i.e., dependen solo de $M$ y no de la descomposición).
+		\[d_k = n_k p_1^{e_{1k}} \cdots p_n^{e_{hk}}\]
+		unidad. Dados pues los $p_i^{e_{ik}}$ se pueden reconstruir, salvo unidades, los $d_k$. Los factores invariantes están, por tanto, determinados por los divisores elementales. Se sigue de esto que los factores invariantes son invariantes de $M$. $\\$
+		Se tienen:
+		\begin{enumerate}[·]
+			\item  Dos módulos de torsión de tipo finito sobre un DIP son isomorfos si y sólo si tienen los mismos factores invariantes.
+			\item  Dos módulos de torsión de tipo finito sobre un DIP son isomorfos si y sólo si tienen los mismos divisores elementales.
+		\end{enumerate}
+		\begin{proof}
+			"($\Rightarrow$)" $\\$
+			$M$, $M'$ $D$-módulos de torsión de tipo finito y $\phi: M \simeq M'$. Descomposición de tipo $I)$ para $M$:$\\$
+			\[M = DX_1 \oplus \cdots \oplus DX_n, \hspace{0,2cm} (0:X_1) \supset ... \supset (0:X_n)\]
+			y $(0:X_i) \neq D$, $(0:X_i) \neq 0$. Tenemos entonces que: $\\$
+			\[M' = \phi (M) = D\phi (X_1) \oplus \cdots \oplus D\phi (X_n)\]
+			pero, ¿$(0:\phi (X_i)) = (0:X_i)$? Vemos que:
+			\[\lambda \in (0: \phi (X_i)) \Rightarrow \lambda\phi(X_i) = 0\]
+			y sabemos que $\phi(\lambda X_i) = \lambda \phi (X_i)$. Así pues,
+			\[\lambda X_i = 0 \Leftrightarrow \lambda\in (0:X_i).\]
+			Por lo que $(0:\phi(X_1)) \supset ... \supset (0:\phi(X_n))$, con $(0:\phi (X_i)) = (0:X_i)$. Así, $M'$ es una descomposición de tipo $I)$ para $M'$. 
+			\begin{center}
+				La factorización de $M'$ es $(0:\phi (X_i))$ $=$ La factorización de $M$ es $(0:X_i)$.
+			\end{center}
+			"($\Leftarrow$)" $\\$
+			Sean $M$ y $M'$ $D$-módulos de torsión de tipo finito que tienen los mismos factores invariantes:
+			\[M = DX_1 \oplus \cdots \oplus DX_n, \hspace{0,2cm} (0:X_1) \supset ... \supset (0:X_n)\]
+			y $(0:X_i) \neq D$, $(0:X_i) \neq 0$; y
+			\[M' = DX'_1 \oplus \cdots \oplus DX'_{n'}, \hspace{0,2cm} (0:X'_1) \supset ... \supset (0:X'_{n'})\]
+			y $(0:X'_i) \neq D$, $(0:X'_i) \neq 0$.
+			Si $(0:X_i) = (0:X'_i)$ $\forall i$, entonces $n = n'$ y, de forma inmediata:
+			\[M \simeq \frac{D}{(0:X_1)} \oplus \cdots \oplus \frac{D}{(0:X_n)} \simeq M'\]
+		\end{proof}
+		EL siguiente resultado contiene "la parte de unicidad" en el teorema de estructuras.
+		\begin{theorem}
+			Sea $D$ un DIP y $M$ un $D$-módulo de tipo finito. Supongamos:
+			\[M = DZ_1 \oplus \cdots \oplus DZ_s = DZ'_1 \oplus \cdots \oplus DZ'_{s'}\]
+			con:
+			\[(0:Z_1)\supset ... \supset (0:Z_s), (0: Z_s) \neq D\]
+			\[(0:Z'_1)\supset ... \supset (0:Z'_{s'}), (0: Z'_{s'}) \neq D\]
+			entonces $s = s'$ y $(0:Z_i) = (0:Z'_i)$, con $1\leq i \leq s$.
+		\end{theorem}
+		\begin{proof}
+			Sean $r$ y $r'$ tales que:$\\$
+			\begin{center}
+				$(0:Z_i) \neq 0$ con $1 \leq i \leq r$ y $(0:Z_i) = 0$ con $r \leq i \leq s $ \\
+				$(0:Z'_i) \neq 0$ con $1 \leq i \leq r'$ y $(0:Z'_i) = 0$ con $r' \leq i \leq s'$
+			\end{center}
+			entonces:
+			\[T(M) = DZ_1 \oplus \cdots \oplus DZ_r\]
+			\[T(M') = DZ'_1 \oplus \cdots \oplus DZ'_{r'}\]
+			Como $T(M)$ en un $D$-módulo de torsión de tipo finito, sus factores invariantes están determinados de modo único (como ya sabemos). Entonces:
+			\[r=r', \hspace{0,2cm} (0:Z_i) = (0:Z'_i), 1\leq i \leq r = r'\]
+			Por otra parte:
+			\[\frac{M}{T(M)}\simeq DZ_{r+1} \oplus \cdots \oplus DZ_s\]
+			ya que:
+			\[M = T(M)\oplus DZ_{r+1} \oplus \cdots \oplus DZ_s.\]
+			\begin{note}
+				$\frac{X \oplus Y}{X} \simeq Y$, con $X,Y$ módulos y, por el segundo teorema de isomorfía:
+				\[\frac{X+Y}{X}\simeq \frac{Y}{X \cap Y} = Y.\]
+			\end{note}
+			y tenemos que:
+			\[\frac{M}{T(M)} \simeq DZ'_{s'}\]
+			$\frac{M}{T(M)}$ es entonces un $D$-módulo libre de rango $s-r$ y de rango $s'-r'$ por lo que, como $r=r'$, entonces $s = s'$ y concluímos.
+		\end{proof}
+	\begin{definition}
+		Sea $D$ un DIP y $M$ un D-módulo de tipo finito. Entonces:
+		\[L \simeq \frac{M}{T(M)}.\]
+		El rango de $L$ es un invariante de $M$ y se llama el \underline{rango} de $M$. El rango es el número $n-r$ del teorema de estructura.
+	\end{definition}
+	En efecto:
+	\[M = DY_1 \oplus \cdots \oplus DY_n\]
+	con $(0:Y_i) = \begin{cases}
+	(d_i) & 1\leq i\leq r \\
+	0 & r+1\leq i \leq n
+	\end{cases}$ y:
+	\[T(M) = DY_{1} \oplus \cdots \oplus DY_r\]
+	\[L = DY_{r+1} \oplus \cdots \oplus DY_n \simeq \frac{D}{(0:Y_{r+1})} \oplus \cdots \oplus \frac{D}{(0:Y_{n})}\simeq D \oplus \stackrel{n-r}{\cdots} \oplus D.\]
+	Los \underline{factores invariantes} y los \underline{divisores elementales} de $M$ son, por definición, los de $T(M)$. Se tiene:
+	\begin{enumerate}[·]
+		\item Dos módulos de tipo finito sobre un DIP son isomorfos si y sólo si tienen el mismo rango y los mismos factores invariantes.
+		\item Dos módulos de tipo finito sobre un DIP son isomorfos si y sólo si tienen el mismo rango y los mismos factores invariantes.
+	\end{enumerate}
 \end{document}
 
 
