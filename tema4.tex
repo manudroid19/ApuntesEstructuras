@@ -1057,4 +1057,57 @@
 		\item Dos módulos de tipo finito sobre un DIP son isomorfos si y sólo si tienen el mismo rango y los mismos factores invariantes.
 		\item Dos módulos de tipo finito sobre un DIP son isomorfos si y sólo si tienen el mismo rango y los mismos factores invariantes.
 	\end{enumerate}
+
+	\begin{proposition}
+		Dos módulos de tipo finito sobre un DIP son isomorfos si y solo si tienen el mismo rango y los mismos factores invariantes.
+	\end{proposition}
+
+	\begin{proof}
+		$(\Rightarrow)$
+
+		Por hipótesis existe $\Phi:M\flechaBiyectiva N$ y entonces $\Phi|_{T(M)}T(M):\flechaBiyectiva T(N)$. Por lo tanto $T(M)$ y $T(N)$ son módulos de torsión isomorfos sobre un DIP y tienen los mismos factores invariantes $\Rightarrow$ $M$ y $N$ tienen los mismos factores invariantes.
+
+		\[ \begin{tikzpicture}
+		
+		\node (TM) {$T(M)$};
+		\node (TN) [right of=n1] {$T(N)$};
+		\node (M) [below of=n1] {$M$};
+		\node (N) [right of=D] {$N$};
+		\node (MTM) [below of=D] {$\frac{M}{T(M)}$};
+		\node (NTN) [right of=D1] {$\frac{N}{T(N)}$};
+		\draw[inyec-sobre] (TM) to node [swap] {} (TN);
+		\draw[inyec->] (TM) to node [swap] {} (M);
+		\draw[inyec->] (TN) to node [swap] {} (N);
+		\draw[inyec-sobre] (M) to node [swap] {$ \Phi $} (N);
+		\draw[-sobre] (M) to node [swap] {} (MTM);
+		\draw[-sobre] (N) to node [swap] {} (NTN);
+		\draw[inyec-sobre] (MTM) to node [swap] {$ \overline{\Phi} $} (NTN);
+		\end{tikzpicture} \]
+
+		$M/T(M)$ y $N/T(N)$ son módulos libres isomorfos $\Rightarrow$ rango($M/T(M)$)=rango($N/T(N)$) $\Rightarrow$ rango($M$)= rango($N$).
+		
+		$(\Leftarrow)$
+	
+		\[ \begin{rcases} 
+			\text{Los factores invariantes de $M$ son los de $T(M)$} \\
+			\text{Los factores invariantes de $N$ son los de $T(N)$}
+		\end{rcases} \Rightarrow M/T(M) \text{ y } N/T(N) \text{ tienen mismos fact. inv. } \Rightarrow\] 
+		\[T(M)\simeq T(N).\]
+
+		\[ \begin{rcases} 
+			\text{El rango de $M$ es el rango de  $M/T(M)$} \\
+			\text{El rango de $N$ es el mismo de $N/T(N)$}
+		\end{rcases} \Rightarrow M/T(M) \text{ y } N/T(N) \text{ tienen el mismo rango } \Rightarrow\] 
+		\[M/T(M)\simeq N/T(N) \text{ (por ser libres)}.\]
+
+		\[M\simeq T(M)\oplus M/T(M)\]
+
+		Entonces:
+
+		\[ M\simeq T(M)\oplus M/T(M) \simeq T(N)\oplus N/T(N) \simeq N\]
+
+		Aclaración: $M\simeq T(M)\oplus L \simeq T(M)\oplus M/T(M) \ \ L\simeq M/T(M)$.
+
+
+	\end{proof}
 \end{document}
