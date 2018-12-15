@@ -288,6 +288,138 @@
 		
 		
 	\end{theorem}
+	\begin{proof}
+		\begin{note}
+			Si $a\in D$, $a \neq 0$, se llama longitud de $a$ al número de elementos irreducibles de la factorización de $a$:
+			\[a = up_1 \cdots p_r\]
+			con $u$ unidad y $p_i$ irreducibles. Además, no tienen porque ser necesariamente distintos, por lo que $l(a) = r$; y si $a$ es unidad entonces $l(a) = 0$.
+		\end{note}
+		Si $A = 0$ no la demostración sería inmediata. Así pues, supondremos que $A \neq 0$. $\\$
+		Trataremos de obtener en primer lugar matrices equivalentes a $A$ con un elemento en el lugar $(1,1)$ distinto de $0$ y de la menor longitud posible. $\\$
+		Sea $a_{ij}$ un elemento no nulo de $A$ de longitud no nula. Intercambiando filas y columnas se lleva este elemento a la posición $(1,1)$. Se tiene entonces una matriz equivalente (que seguiremos denotando por $A$) con $a_{11} \neq 0$ y $l(a_{11})$ mínima. $\\$
+		Si existe en la primera fila un elemento $a_{1k} \neq 0$ y que verifica que $a_{11} \nmid a_{1k}$, se lleva a la posición $(1,2)$ por intercambio de columnas. Denotaremos de nuevo por $A$ a la nueva matriz. $\\$
+		Sea $a:= a_{11}$, $b:=a_{12}$ y $d = mcd(a, b)$:
+		\[(d) = (a) + (b) \Rightarrow d = \alpha a + \beta b\]
+		con $\alpha, \beta \in D$. Además, tenemos que $a = sd$ y $b = td$, con $s, t \in D$. Por lo que $\alpha s + \beta t = 1$. $\\$
+		Como $d | a$, $d | b$, $a \nmid b$, entonces los factores irreducibles de $d$ están estrictamente contenidos entre los factores irreducibles de $a$, lo que implica que $l(d) < l(a)$.
+		\[ \begin{pmatrix}
+		s & t \\
+		\beta & \alpha
+		\end{pmatrix} 
+		\begin{pmatrix}
+		 \alpha & -t \\
+		\beta & s
+		\end{pmatrix} = 
+		\begin{pmatrix}
+		1 & 0\\
+		0 & 1
+		\end{pmatrix} =
+		\begin{pmatrix}
+		\alpha & -t \\
+		\beta & s
+		\end{pmatrix} 
+		\begin{pmatrix}
+		s & t \\
+		\beta & \alpha
+		\end{pmatrix} 
+		\]
+		con lo que $\begin{pmatrix}
+		\alpha & -t \\
+		\beta & s
+		\end{pmatrix} $ es inversible y, por tanto, también es es inversible la matriz:
+		\[U = \begin{bmatrix}
+		\alpha & -t & ... & 0 \\
+		\beta & s & ... & 0\\
+		0  & 0 & 1 & ... & 0 \\
+		0 & 0 & 0 & ... & 1
+		\end{bmatrix}\]
+		La matriz $AU$ es equivalente a la matriz $A$ y su primera fila es:
+		\[d, a_{13}, ..., a_ {1n},\]
+		con $l(d) < l(a)$. 
+		%FACIL CALCULO
+		\begin{note}
+			El paso de $A$ a $AU$ no es mediante operaciones elementales.
+		\end{note}
+		Se puede seguir disminuyendo la longitud del elemento de lugar $(1, 1)$ mientras exista en la primera fila un elemento $a_{1k} \neq 0$ con $a_{11} \nmid a_{1k}$, o, análogamente, mientras exista en la primera columna un elemento $a_{k1} \neq 0$ con $a_{11} \nmid a_{k1}$ (en este caso se multiplica por la izquierda por una matriz inversible).
+		\begin{center}
+			$a:= a_{11} $ $b:= a_{21}$, $a \nmid b$, $d = mcd(a, b)$ \\
+			$d = \alpha a + \beta b$, $a = sd$, $b = td$, $\alpha s + \beta t = 1$ \\
+		\end{center}
+		\[\begin{pmatrix}
+		\alpha & \beta \\
+		 t & -s 
+		\end{pmatrix} 
+		\begin{pmatrix}
+		s & \beta \\
+		t & -\alpha
+		\end{pmatrix} = 
+		\begin{pmatrix}
+		1 & 0\\
+		0 & 1
+		\end{pmatrix} =
+		\begin{pmatrix}
+		s & \beta \\
+		t & -\alpha
+		\end{pmatrix} 
+		\begin{pmatrix}
+		\alpha & \beta \\
+		t & -s
+		\end{pmatrix} \]
+		\[V = \begin{bmatrix}
+		\alpha & \beta & &... & 0 \\
+		t & -s &  &... & 0\\
+		0 & 0 & 1 & ... & 0 \\
+		\vdots  & \vdots & \vdots & \ddots & \vdots\\
+		0 & 0 & 0 &... & 1
+		\end{bmatrix}\]
+		La primera columna de $VA$:
+		\[d, 0, a_{31}, ..., a_{n1}.\]
+		Si $a_{11} | a_{1k}$, $1 \leq k \leq n$, $a_{11}|a_{k1}$, $1 \leq k \leq m$, entonces:
+		\[a_{1k} = v_{1k}a_{11}, \hspace{0,2cm} a_{k1} = v_{k1}a_{11}\]
+		$v_{1k}, v_{k1} \in D$. Así, restando a la columna (respectivamente fila) $k$ la primera columna (respectivamente fila) multiplicando por $v_{1k}$ (respectivamente $v_{1k}$), se obtiene una matriz equivalente a $A$ de la forma:
+		\[\begin{bmatrix}
+		b_{11} & 0 & ... & 0 \\
+		0 & b_{22} & ... & b_{2n}\\
+		\vdots  & \vdots &   \ddots & \vdots \\
+		0 & b_{m2} &   ... & b_{mn}
+		\end{bmatrix}\]
+		Si en esta matriz existe un elemento $b_{kl}$ con $a_{11}\nmid b_{kl}$, entonces sumándole a la primera fila la fila $k$ se obtiene una nueva matriz equivalente, cuya primera fila es:
+		\[a_{11}, b_{k2}, ..., b_{kl}, ..., b_{kn}\]
+		y todavía se puede disminuir la longitud del elemento de lugar $(1,1)$. $\\$
+		Repitiéndose el proceso, se llega a una matriz  equivalente del tipo anterior con $a_{11} | b_{kl}$, $2 \leq k \leq m$, $2 \leq l \leq n$. El mismo proceso (i.e., todo lo hecho hasta aquí) se aplica ahora a la submatriz: $(b_{ij})$ con $2 \leq i \leq m$, $2 \leq j \leq n$. $\\$
+		Las transformaciones necesarias no alteran ni la primera fila $a_{11}, 0, .., 0$ ni la primera columna $a_{11}, 0, ..., 0$ de $A$, y se obtiene una matriz equivalente a $A$ de la forma:
+		\[\begin{bmatrix}
+		a_{11} & 0 & ... & &0 \\
+		0 & b_{22} & ... & &0\\
+		0 & 0 & c_{33} & ... & c_{3n} \\
+		\vdots  & \vdots &  \vdots &\ddots & \vdots \\
+		0 & 0  &  c_{m3} & ... & c_{mn}
+		\end{bmatrix}\]
+		con $b_{22} | c_{kl}$, $\forall k, l$. Además, $a_{11} | b_{22}$ ya que $a_{11} | b_{kl}$, $\forall k, l$. La divisibilidad sigue verificándose al sustituir los $b_{kl}$ por ser máximo común divisor y al hacer operaciones elementales. $\\$
+		La continuación de este proceso conduce a la matriz diagonal indicada con $d_{1} = a_{11}$, $d_{2} =b_{22}$...
+		\begin{note}
+			Si $D$ es un dominio euclídeo, se puede aplicar el mismo proceso sustituyendo la longitud por el valor $\phi (a)$ (siendo $\phi$ la función euclídea), y entonces ña diagonalización se consigue utilizando solamente operaciones elementales. $\\$
+		\end{note}
+		En efecto, si existe en la primera fila un elemento $a_{1k}\neq 0$, con $a_{11} \nmid a_{1k}$, se lleva $a_{1k}$ a la posición $(1,2)$. Sea:
+		\[a:= a_{12}, \hspace{0,2cm} a\nmid b.\]
+		Entonces,
+		\[\exists r, q \in D / b = aq + r \]
+		con $r\neq 0$ y $\phi (r) < \phi (a)$. Restando a la segunda columna la primera multiplicada por $q$, se obtiene una matriz equivalente a $A$ de la forma:
+		\[\begin{bmatrix}
+		a & r & ...\\
+		a_{21} & a_{22} - qa_{21} & ...  \\
+		\vdots  & \vdots &  \vdots \\
+		a_{m1} &   &  
+		\end{bmatrix}\]
+		e intercambiando las dos primeras columnas:
+		\[\begin{bmatrix}
+		r & a & ...\\
+		a_{22} - qa_{21} & a_{21} & ...  \\
+		\vdots  & \vdots &  \vdots \\
+		&  a_{m1}  &  
+		\end{bmatrix}\]
+		con $\phi (r) < \phi (a)$.
+	\end{proof}
 	\begin{example}
 		Una matriz $3\times 2$ de diagonal $(d_1,d_2)$ sería $\begin{bmatrix}
 		d_1 & 0  \\
@@ -298,9 +430,6 @@
 	\begin{observation}
 		Si el DIP es euclídeo la diagonalización se realiza mediante operaciones elementales, si no lo es, necesitaremos otras operaciones.
 	\end{observation}
-	\begin{proof}
-		
-	\end{proof}
 
 	BEGIN SERGIO 26-11
 	
