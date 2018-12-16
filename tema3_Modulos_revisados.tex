@@ -8,7 +8,7 @@
 \usepackage{enumerate}
 \usepackage{wrapfig}
 \usepackage{graphicx}
-
+\usepackage{imakeidx}
 
 
 %-----------------------------------------------------------------------------------------------------
@@ -167,12 +167,12 @@
 % Subtítulo.
 \newcommand{\docsubtitle}{Módulos}
 % Fecha.
-\newcommand{\docdate}{}
+\newcommand{\docdate}{5 \ de \ Noviembre \ de \ 2018}
 % Asignatura.
-\newcommand{\subject}{Estructuras Algebraicas}
+\newcommand{\subject}{Estructuras algebraicas}
 % Autor.
-\newcommand{\docauthor}{Manuel de Prada, Jorge Vázquez, Sergio Mayo}
-\newcommand{\docaddress}{}
+\newcommand{\docauthor}{Sergio Mayo, Manuel de Prada, Jorge Vázquez}
+\newcommand{\docaddress}{Universidade de Santiago de Compostela}
 \newcommand{\docemail}{}
 
 %-----------------------------------------------------------------------------------------------------
@@ -182,10 +182,12 @@
 % Resumen del documento. Va en la portada.
 % Puedes también dejarlo vacío, en cuyo caso no aparece en la portada.
 %\newcommand{\docabstract}{}
-\newcommand{\docabstract}{}
+\newcommand{\docabstract}{Tema impartido por Javier Majadas, curso 2017/2018.}
 
+\makeindex[columns=1]
 \begin{document}
 
+\maketitle
 
 %-----------------------------------------------------------------------------------------------------
 %	ÍNDICE
@@ -205,7 +207,7 @@
 \section{Módulos}
 	Sea $A$ un anillo conmutativo.
 	\begin{definition}
-        	Un $A$-módulo es un grupo abeliano $M$ con una operación:
+        	Un $A$-módulo \index{$A$-módulo} es un grupo abeliano $M$ con una operación:
         	\[A\times M\longrightarrow M \]
         	\[(a,m) \longmapsto a\cdot m =am\]
         	que verifica:
@@ -266,7 +268,7 @@
 
 	\begin{definition}
 		Sea $M$ un $A$-módulo, $N\subset M$.
-		Se dice que $N$ es un $A$-submódulo de $M$ si $N$ es un $A$-módulo con la operación de $A$ en $M$.
+		Se dice que $N$ es un $A$-submódulo\index{$A$-submódulo} de $M$ si $N$ es un $A$-módulo con la operación de $A$ en $M$.
 	\end{definition}
 
 	\begin{properties}
@@ -297,7 +299,7 @@
 	\ 
 
 	\begin{definition}
-			Sea $ \{M_i\}_{i\in I} $ familia de submódulos de $ M $. Definimos en general
+			Sea $ \{M_i\}_{i\in I} $ familia de submódulos de $ M $. Definimos en general la suma de submódulos\index{suma de submódulos}:
 			\begin{align*}
 				\sum_{i\in I}M_i &= \{\sum_{i\in I}x_i \in M : x_i\in M_i \text{para cada i, }a_i\in A, \text{casi todos los }x_i=0\}\\
 				&= \{\text{sumas finitas de elementos de }\bigcup M_i\}=x_1+...+x_r
@@ -315,7 +317,7 @@
 	\begin{proposition}
 		Sea $M$ un $A$-módulo y $X \subset M$. Se llama $A$-submódulo de $M$ generado por $X$ al menor $A$-submódulo de $M$ que contiene a $X$.
 		Se denota $\langle X\rangle$ o $\langle X\rangle_{A}$. $\\$
-		Se dice que $X$ es un conjunto de generadores de $\langle X\rangle$.
+		Se dice que $X$ es un conjunto de generadores\index{conjunto de generadores} de $\langle X\rangle$.
 		\[\langle X\rangle = \{\sum_{i = 1}^{n}a_i x_i\  /\  n\in\mathbb{N},a_i \in A, x_i\in X\}\]
 	\end{proposition}
 
@@ -332,7 +334,7 @@
 	\ 
 
 	\begin{definition}
-		Sean $M$, $N$ $A$-módulo. Una aplicación $f:M \rightarrow N$ es un homomorfismo de $A$-módulo si:
+		Sean $M$, $N$ $A$-módulo. Una aplicación $f:M \rightarrow N$ es un homomorfismo de $A$-módulos\index{homomorfismo de $A$-módulos} si:
 		\begin{enumerate}
 		\item  $f(x+y) = f(x)+f(y)$
 		\item $f(ax) = af(x)$
@@ -399,14 +401,14 @@
 	\end{proposition}
 
 	\begin{definition}
-		Si $f: M\rightarrow N$ es un homorfismo de $A$-módulos se llama conúcleo de $f$ al
+		Si $f: M\rightarrow N$ es un homomorfismo de $A$-módulos se llama conúcleo de $f$\index{conúcleo de $f$} al
 		$A$-módulo:
 		\[coker(f) = M/Im(f).\]
 	\end{definition}
 
 	\begin{definition}
-		Un homomorfismo $f:M\rightarrow N$ de $A$-módulos es un isomorfismo si existe un homorfismo de $A$-módulos $g:N\rightarrow M / g\circ f = id_M$, $f\circ g = id_N$. En este caso es $g$ único y $g=f^{-1}$.$\\$
-		Así, si existe un isomorfismo de $M$ a $N$ se dice que $M$ y $N$ son isomorfos y se denota como $M\simeq N$.
+		Un homomorfismo $f:M\rightarrow N$ de $A$-módulos es un isomorfismo \index{isomorfismo de $A$-módulos} si existe un homomorfismo de $A$-módulos $g:N\rightarrow M / g\circ f = id_M$, $f\circ g = id_N$. En este caso es $g$ único y $g=f^{-1}$.$\\$
+		Así, si existe un isomorfismo de $M$ a $N$ se dice que $M$ y $N$ son isomorfos\index{módulos isomorfos} y se denota como $M\simeq N$.
 	\end{definition}
 
 	\begin{exercise}
@@ -466,7 +468,7 @@
 	\end{proof}
 
 	\begin{definition}
-		Sea $A$ un anillo. Un $A$-módulo $M$ es cíclico si está generado por un elemento, es decir:
+		Sea $A$ un anillo. Un $A$-módulo $M$ es cíclico\index{$A$-módulo cíclico} si está generado por un elemento, es decir:
 		\[\exists x  \in M \ / \   M=\langle x\rangle=Ax\]
 	\end{definition}
 
@@ -503,12 +505,12 @@
 	\end{proof}
 
 	\begin{definition}
-		Sean $A$ anillo y $M$ $A$-módulo. Se llama aniquilador de $M$ al ideal de $A$ definido por:
+		Sean $A$ anillo y $M$ $A$-módulo. Se llama aniquilador de $M$\index{aniquilador de un $A$-módulo} al ideal de $A$ definido por:
 		\[(0:M):=\{a\in A \ / \ ax=0 \  \forall x \in M\}\]
 	\end{definition}
 
 	\begin{definition}
-		Tomando $M=\langle x\rangle$ definimos:
+		Tomando $M=\langle x\rangle$ definimos el aniquilador de un elemento\index{aniquilador de un elemento}:
 		\[(0:x):=(0:\langle X\rangle)=\{a\in A \ / \ ax=0\}\]
 	\end{definition}
 
@@ -537,7 +539,7 @@
 	\end{observation}
 
 	\begin{definition}
-		Sea $\{M_i\}_{i\in I}$ una familia de $A$-módulos. Definimos el producto directo de los $M_i$ como el $A$-módulo:
+		Sea $\{M_i\}_{i\in I}$ una familia de $A$-módulos. Definimos el producto directo de\index{producto directo de $A$-módulos} los $M_i$ como el $A$-módulo:
 		\[ \prod_{i\in I}M_i := \{f:I\rightarrow\bigcup_{i\in I}M_i \ / \ \text{$f$ aplicación}, f(i)\in M_i \ \forall i \in I\} = \{(x_i)_{i\in I} \ / \ x_i \in M_i \ \forall i \in I\}\]
 		\[(x_i)_{i\in I} + (y_i)_{i\in I} := (x_i + y_i)_{i\in I}\]
 		\[a(x_i)_{i\in I} := (ax_i)_{i\in I}\]
@@ -554,7 +556,7 @@
 	\end{observation}
 
 	\begin{definition}
-		Sea $\{M_i\}_{i\in I}$ una familia de $A$-módulos. Definimos la suma directa de los $M_i$ como el $A$-submódulo de $\prod_{i\in I}M_i$:
+		Sea $\{M_i\}_{i\in I}$ una familia de $A$-módulos. Definimos la suma directa\index{suma directa de $A$-módulos} de los $M_i$ como el $A$-submódulo de $\prod_{i\in I}M_i$:
 		\[\bigoplus_{i\in I}M_i=\{(x_i)_{i\in I} \in \prod_{i\in I}M_i \ / \ x_i=0 \text{ para casi todo } i \in I\}\]
 	\end{definition}
 
@@ -609,9 +611,9 @@
 	\end{proof}
 
 	\begin{definition}
-		$ A $ dominio. Sea $ M$ un $ A $-módulo. Un elemento $ x\in M $ es de torsión si $ (0:x)\neq 0 $.
+		$ A $ dominio. Sea $ M$ un $ A $-módulo. Un elemento $ x\in M $ es de torsión\index{elemento de torsión} si $ (0:x)\neq 0 $.
 		(si existe $ a\in A, a \neq 0 $ tal que $ ax=0 $).
-		El conjunto de elementos de torsión de $ M $ se denota $ T(M) $ y es un $ A $-submódulo de $ M $.
+		El conjunto de elementos de torsión\index{conjunto de elementos de torsión} de $ M $ se denota $ T(M) $ y es un $ A $-submódulo de $ M $.
 	\end{definition}
 
 	\begin{observation}
@@ -625,7 +627,7 @@
 	\end{observation}
 
 	\begin{definition}
-		Si $ T(M)=M $ se dice que $ M $ es un $ A $-módulo de torsión. Si $ T(M)=0 $ se dice que $ M $ es un $ A $-módulo libre de torsión.
+		Si $ T(M)=M $ se dice que $ M $ es un $ A $-módulo de torsión\index{$ A $-módulo de torsión}. Si $ T(M)=0 $ se dice que $ M $ es un $ A $-módulo libre de torsión\index{$ A $-módulo libre de torsión}.
 	\end{definition}
 
 	\begin{proposition}
@@ -655,7 +657,7 @@
 	\end{exercise}
 	\begin{definition}
 		Sea $ M $ un $ A $-módulo.\\
-		Una familia $ \{x_i\}_{i\in I} $ de elementos de $ M $ es linealmente independiente si:
+		Una familia $ \{x_i\}_{i\in I} $ de elementos de $ M $ es linealmente independiente\index{familia $ \{x_i\}_{i\in I} $ de elementos de un $A$-módulo linealmente independiente} si:
 		\[0=\sum_{i\in I}a_i x_i \  (a_i \in A, a_i =0 \text{ para casi todo }i) \Rightarrow a_i =0 \ \forall i\in I \]
 	\end{definition}
 	\begin{proposition}
@@ -690,11 +692,11 @@
 		$ \{x\} $ linealmente independiente $ \Leftrightarrow (0:x)=0$ 
 	\end{observation} 
 
-	\begin{definition} Una base de un $ A $-módulo $ M $ es un conjunto de generadores linealmente independiente.  \[ M=\langle \{x_i\}_{i\in I}\rangle=\sum_{i\in I} Ax_i\ \  \{x_i\}_{i\in I} \text{ linealmente independiente.} \] 
+	\begin{definition} Una base de un $ A $-módulo\index{base de un $ A $-módulo} $ M $ es un conjunto de generadores linealmente independiente.  \[ M=\langle \{x_i\}_{i\in I}\rangle=\sum_{i\in I} Ax_i\ \  \{x_i\}_{i\in I} \text{ linealmente independiente.} \] 
 	\end{definition}
 		
 	\begin{definition}
-		Un $ A $-módulo $ F $ es libre si tiene una base $\{x_i\}_{i\in I}$. La base cumple:
+		Un $ A $-módulo $ F $ es libre\index{$ A $-módulo libre} si tiene una base $\{x_i\}_{i\in I}$. La base cumple:
 		\begin{itemize}
 			\item $x\in F\Rightarrow$ x se puede expresar como $x=\sum_{i\in I}a_i x_i$.
 			\item Esta expresión es única, es decir, $\sum a_i x_i=\sum b_i x_i \Rightarrow \sum (a_i-b_i)x_i=0\Rightarrow (a_i-b_i)=0 \ \forall i$
@@ -794,13 +796,13 @@
 	\end{proposition}
 
 	\begin{definition}
-		Sea $M$ un $A$-módulo. Un homomorfismo sobreyectivo de $A$-módulos $\epsilon : F \longrightarrow M$, con $F$ un $A$-módulo libre, se denomina \underline{presentación libre} de $M$.
+		Sea $M$ un $A$-módulo. Un homomorfismo sobreyectivo de $A$-módulos $\epsilon : F \longrightarrow M$, con $F$ un $A$-módulo libre, se denomina presentación libre\index{presentación libre de un $A$-módulo} de $M$.
 	\end{definition}
 	\begin{proposition}
 		Todo módulo $M$ tiene una presentación libre.
 	\end{proposition}
 	\begin{definition}
-		Sea $\{x_i\}_{i\in I}$ un conjunto de generadores de $M$ y $\epsilon : F = A^{(I)} \longrightarrow M$ una presentación libre de $M$ tal que $\epsilon (e_i) = x_i$. Se denomina módulo de relaciones de esta presentación a $N = ker(\epsilon) \subset A^{(I)}$.
+		Sea $\{x_i\}_{i\in I}$ un conjunto de generadores de $M$ y $\epsilon : F = A^{(I)} \longrightarrow M$ una presentación libre de $M$ tal que $\epsilon (e_i) = x_i$. Se denomina módulo de relaciones de esta presentación\index{módulo de relaciones de una presentación libre} a $N = ker(\epsilon) \subset A^{(I)}$.
 	\end{definition}
 	\begin{proposition}
 		Sea $\{f_j\}_{j\in J}$ un conjunto de generadores de $N$. Para cada $j\in J$, $f_j = \sum_{i\in I} a_{ij}e_i$, $a_{ij}\in A$ con $a_{ij} = 0$ para casi todo $i\in I$.
@@ -931,7 +933,7 @@
 	\end{proof}
 
 	\begin{definition}
-		El cardinal de una base de un $A$-módulo libre se llama rango del módulo libre.
+		El cardinal de una base de un $A$-módulo libre se llama rango del módulo libre\index{rango de un $A$-módulo libre}.
 	\end{definition}
-
+	\printindex
 \end{document}
