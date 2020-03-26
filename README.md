@@ -1,5 +1,5 @@
 # ApuntesEstructuras
-Apuntes de Estructuras
+Apuntes de Estructuras Algebraicas. No están completos ni revisados, son más bien una plantilla para alguien que quiera continuar su desarrollo.
 ## Setting up
 `git clone https://github.com/manudroid19/ApuntesEstructuras.git`
 ## Guia chula de Git
